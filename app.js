@@ -395,7 +395,14 @@
   }
 
   function setFeedErrorHandlers(img) {
+    delete img.dataset.retried;
     img.onerror = () => {
+      if (!img.dataset.retried) {
+        img.dataset.retried = "1";
+        const src = img.src;
+        setTimeout(() => { img.src = src; }, 2000);
+        return;
+      }
       img.classList.add("hidden");
       document.getElementById("feed-placeholder").classList.add("visible");
     };

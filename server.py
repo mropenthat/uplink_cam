@@ -9,8 +9,9 @@ import urllib.parse
 import socketserver
 import os
 import re
+import time
 
-PORT = 8080
+PORT = int(os.environ.get("PORT", "8080"))
 
 
 def is_safe_ip(ip):
@@ -58,17 +59,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         url,
                         headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
                     )
-                    with urllib.request.urlopen(req, timeout=15) as resp:
+                    with urllib.request.urlopen(req, timeout=20) as resp:
                         self.send_response(200)
                         ct = resp.headers.get("Content-Type", "image/jpeg")
                         self.send_header("Content-Type", ct or "image/jpeg")
                         self.send_header("Cache-Control", "no-cache")
                         self.end_headers()
-                        while True:
+                        deadline = time.monotonic() + 25  # stream at most 25 sec
+                        while time.monotonic() < deadline:
                             chunk = resp.read(8192)
                             if not chunk:
                                 break
                             self.wfile.write(chunk)
+                            self.wfile.flush()
                 except Exception as e:
                     self.send_error(502, "Proxy error: " + str(e))
                 return
@@ -102,6 +105,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    # Serve from the directory containing this script (so Render finds index.html)
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("Serving UPLINK_SITE at http://localhost:" + str(PORT))
         print("Feed proxy: /feed-proxy?url=... (for HTTPS)")
