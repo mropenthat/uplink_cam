@@ -109,6 +109,15 @@
     return url.replace(/&amp;/g, "&");
   }
 
+  /** When page is HTTPS, browser blocks HTTP images (mixed content). Use same-origin proxy so feeds work when server is deployed. */
+  function feedDisplayUrl(camUrl) {
+    if (!camUrl) return "";
+    const withTime = camUrl + (camUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+    if (window.location.protocol === "https:" && camUrl.startsWith("http://"))
+      return "/feed-proxy?url=" + encodeURIComponent(withTime);
+    return withTime;
+  }
+
   function parseLocation(locationStr) {
     const match = locationStr && locationStr.match(/\s+in\s+(.+)$/);
     return match ? match[1].trim() : "Unknown";
@@ -406,11 +415,11 @@
     placeholder.classList.remove("visible");
     visibleFeedEl.classList.remove("hidden");
     preloadFeedEl.classList.add("hidden");
-    visibleFeedEl.src = cam.url;
+    visibleFeedEl.src = feedDisplayUrl(cam.url);
     setFeedErrorHandlers(visibleFeedEl);
 
     var nextIdx = (currentIndex + 1) % cams.length;
-    preloadFeedEl.src = cams[nextIdx].url;
+    preloadFeedEl.src = feedDisplayUrl(cams[nextIdx].url);
     setFeedErrorHandlers(preloadFeedEl);
 
     updateNodeHUD(cam);
@@ -427,8 +436,7 @@
     preloadFeedEl.classList.remove("hidden");
 
     var nextIdx = (currentIndex + 1) % cams.length;
-    var nextUrl = cams[nextIdx].url;
-    visibleFeedEl.src = nextUrl.indexOf("?") >= 0 ? nextUrl + "&t=" + Date.now() : nextUrl + "?t=" + Date.now();
+    visibleFeedEl.src = feedDisplayUrl(cams[nextIdx].url);
     setFeedErrorHandlers(visibleFeedEl);
 
     var tmp = visibleFeedEl;
@@ -446,7 +454,7 @@
       const cam = cams[currentIndex];
       if (!cam || !visibleFeedEl) return;
       if (visibleFeedEl.src)
-        visibleFeedEl.src = cam.url + (cam.url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+        visibleFeedEl.src = feedDisplayUrl(cam.url);
     }, FEED_REFRESH_MS);
   }
 
@@ -714,7 +722,7 @@
       item.dataset.index = String(globalIndex >= 0 ? globalIndex : idx);
 
       const img = document.createElement("img");
-      img.src = cam.url + (cam.url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+      img.src = feedDisplayUrl(cam.url);
       img.alt = cam.locationShort || "Feed";
       img.loading = "lazy";
 

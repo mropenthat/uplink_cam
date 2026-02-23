@@ -49,6 +49,32 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_error(502, "IP info error: " + str(e))
             return
 
+        if path == "/feed-proxy" and parsed.query:
+            params = urllib.parse.parse_qs(parsed.query)
+            url = params.get("url", [None])[0]
+            if url and url.startswith(("http://", "https://")):
+                try:
+                    req = urllib.request.Request(
+                        url,
+                        headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
+                    )
+                    with urllib.request.urlopen(req, timeout=15) as resp:
+                        self.send_response(200)
+                        ct = resp.headers.get("Content-Type", "image/jpeg")
+                        self.send_header("Content-Type", ct or "image/jpeg")
+                        self.send_header("Cache-Control", "no-cache")
+                        self.end_headers()
+                        while True:
+                            chunk = resp.read(8192)
+                            if not chunk:
+                                break
+                            self.wfile.write(chunk)
+                except Exception as e:
+                    self.send_error(502, "Proxy error: " + str(e))
+                return
+            self.send_error(400, "Missing or invalid url")
+            return
+
         if path == "/snapshot-proxy" and parsed.query:
             params = urllib.parse.parse_qs(parsed.query)
             url = params.get("url", [None])[0]
@@ -78,6 +104,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("Serving UPLINK_SITE at http://localhost:" + str(PORT))
+        print("Feed proxy: /feed-proxy?url=... (for HTTPS)")
         print("Snapshot proxy: /snapshot-proxy?url=...")
         print("IP info: /ipinfo?ip=...")
         httpd.serve_forever()
