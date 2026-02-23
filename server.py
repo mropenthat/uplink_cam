@@ -9,7 +9,6 @@ import urllib.parse
 import socketserver
 import os
 import re
-import time
 
 PORT = int(os.environ.get("PORT", "8080"))
 
@@ -65,13 +64,15 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         self.send_header("Content-Type", ct or "image/jpeg")
                         self.send_header("Cache-Control", "no-cache")
                         self.end_headers()
-                        deadline = time.monotonic() + 25  # stream at most 25 sec
-                        while time.monotonic() < deadline:
+                        while True:
                             chunk = resp.read(8192)
                             if not chunk:
                                 break
-                            self.wfile.write(chunk)
-                            self.wfile.flush()
+                            try:
+                                self.wfile.write(chunk)
+                                self.wfile.flush()
+                            except (BrokenPipeError, OSError):
+                                break
                 except Exception as e:
                     self.send_error(502, "Proxy error: " + str(e))
                 return

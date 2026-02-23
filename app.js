@@ -729,9 +729,12 @@
       item.dataset.index = String(globalIndex >= 0 ? globalIndex : idx);
 
       const img = document.createElement("img");
-      img.src = feedDisplayUrl(cam.url);
       img.alt = cam.locationShort || "Feed";
       img.loading = "lazy";
+      img.style.background = "#0a0a0a";
+      setTimeout(function () {
+        img.src = feedDisplayUrl(cam.url);
+      }, idx * 150);
 
       const tooltip = document.createElement("div");
       tooltip.className = "matrix-tooltip";
