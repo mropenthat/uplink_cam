@@ -9,6 +9,7 @@ import urllib.parse
 import socketserver
 import os
 import re
+import time as _t
 
 PORT = int(os.environ.get("PORT", "8080"))
 
@@ -52,6 +53,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if path == "/feed-proxy" and parsed.query:
             params = urllib.parse.parse_qs(parsed.query)
             url = params.get("url", [None])[0]
+            single = params.get("single", [None])[0] in ("1", "true", "yes")
             if url and url.startswith(("http://", "https://")):
                 try:
                     req = urllib.request.Request(
@@ -64,10 +66,25 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         self.send_header("Content-Type", ct or "image/jpeg")
                         self.send_header("Cache-Control", "no-cache")
                         self.end_headers()
+                        deadline = (_t.monotonic() + 3) if single else None
+                        max_bytes = (400 * 1024) if single else None
+                        total = 0
                         while True:
+                            if deadline is not None and _t.monotonic() >= deadline:
+                                break
                             chunk = resp.read(8192)
                             if not chunk:
                                 break
+                            if max_bytes is not None and total + len(chunk) > max_bytes:
+                                take = max_bytes - total
+                                if take > 0:
+                                    try:
+                                        self.wfile.write(chunk[:take])
+                                        self.wfile.flush()
+                                    except (BrokenPipeError, OSError):
+                                        pass
+                                break
+                            total += len(chunk)
                             try:
                                 self.wfile.write(chunk)
                                 self.wfile.flush()

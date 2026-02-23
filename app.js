@@ -109,12 +109,15 @@
     return url.replace(/&amp;/g, "&");
   }
 
-  /** When page is HTTPS, browser blocks HTTP images (mixed content). Use same-origin proxy so feeds work when server is deployed. */
-  function feedDisplayUrl(camUrl) {
+  /** When page is HTTPS, browser blocks HTTP images (mixed content). Use same-origin proxy. singleFrame=true for matrix thumbnails (one snapshot). */
+  function feedDisplayUrl(camUrl, singleFrame) {
     if (!camUrl) return "";
     const withTime = camUrl + (camUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
-    if (window.location.protocol === "https:" && camUrl.startsWith("http://"))
-      return "/feed-proxy?url=" + encodeURIComponent(withTime);
+    if (window.location.protocol === "https:" && camUrl.startsWith("http://")) {
+      var proxy = "/feed-proxy?url=" + encodeURIComponent(withTime);
+      if (singleFrame) proxy += "&single=1";
+      return proxy;
+    }
     return withTime;
   }
 
@@ -457,6 +460,7 @@
 
   function startFeedRefresh() {
     if (feedRefreshTimer) clearInterval(feedRefreshTimer);
+    if (window.location.protocol === "https:") return;
     feedRefreshTimer = setInterval(() => {
       const cam = cams[currentIndex];
       if (!cam || !visibleFeedEl) return;
@@ -733,8 +737,8 @@
       img.loading = "lazy";
       img.style.background = "#0a0a0a";
       setTimeout(function () {
-        img.src = feedDisplayUrl(cam.url);
-      }, idx * 150);
+        img.src = feedDisplayUrl(cam.url, true);
+      }, idx * 120);
 
       const tooltip = document.createElement("div");
       tooltip.className = "matrix-tooltip";
@@ -744,8 +748,9 @@
       item.appendChild(img);
       item.appendChild(tooltip);
 
-      item.addEventListener("click", () => {
-        const i = parseInt(item.dataset.index, 10);
+      item.addEventListener("click", function () {
+        var i = parseInt(item.dataset.index, 10);
+        if (Number.isNaN(i) || i < 0) return;
         showFeed(i);
         viewscreen.classList.remove("matrix-open");
         panel.classList.add("hidden");
