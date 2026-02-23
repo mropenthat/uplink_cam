@@ -4,7 +4,25 @@ Use a host that runs the Python server so the feed proxy works over HTTPS. Then 
 
 ---
 
-## 1. Deploy to Render (free tier)
+## 1. Deploy to Railway
+
+1. Go to **[railway.app](https://railway.app)** and sign up (GitHub login is easiest).
+
+2. **New Project** → **Deploy from GitHub repo**.
+
+3. Select the repo **`mropenthat/uplink_cam`**. Railway will create a service.
+
+4. The repo includes a **Procfile** (`web: python3 server.py`), so Railway will use that. If you need to set it manually: **Service → Settings → Deploy → Start Command:** `python3 server.py`.
+
+5. **Generate domain:** Open the service → **Settings → Networking → Generate Domain**. You’ll get a URL like **`https://uplink-cam-production-xxxx.up.railway.app`**.
+
+6. Open that URL — feeds should load (proxy on same host). Railway’s free tier has no spin-down like Render; long-lived streams are less likely to be cut.
+
+**Custom domain on Railway:** Settings → Networking → Custom Domain → add your domain, then add the CNAME (or A) record Railway shows at your registrar (same idea as Render).
+
+---
+
+## 2. Deploy to Render (free tier)
 
 1. Go to **[render.com](https://render.com)** and sign up (GitHub login is easiest).
 
@@ -27,7 +45,7 @@ Use a host that runs the Python server so the feed proxy works over HTTPS. Then 
 
 ---
 
-## 2. Use your own domain
+## 3. Use your own domain
 
 1. In Render: open your **Web Service** → **Settings** → **Custom Domains**.
 
@@ -54,11 +72,11 @@ Use a host that runs the Python server so the feed proxy works over HTTPS. Then 
 
 | Step | What to do |
 |------|------------|
-| 1 | Deploy repo to Render, start command `python3 server.py` |
-| 2 | Test the `.onrender.com` URL — feeds should work |
-| 3 | In Render, add your custom domain |
-| 4 | At your registrar, add the CNAME (or A) record Render gives you |
-| 5 | Verify in Render, then use your domain |
+| 1 | Deploy repo to **Railway** or **Render**; start command `python3 server.py` (Procfile does this on Railway) |
+| 2 | Test the generated URL — feeds should work |
+| 3 | In the host dashboard, add your custom domain |
+| 4 | At your registrar, add the CNAME (or A) record they give you |
+| 5 | Verify, then use your domain |
 
 No code changes needed for the domain — the app is served from whatever host and domain you point to it.
 
