@@ -1,0 +1,5028 @@
+[
+    {
+        "id": 121852628,
+        "url": "http://202.245.13.81:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 2621630891,
+        "url": "http://115.179.100.76:8080/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Meguro-ku, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 120337941,
+        "url": "http://80.32.125.254:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Barcelona, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 3822849271,
+        "url": "http://61.246.194.45:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Delhi, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 1847056484,
+        "url": "http://58.94.98.44:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 3031246043,
+        "url": "http://178.151.205.191:81/IMAGE.JPG",
+        "location": "Live camera NetCam in KHARKIV, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:46"
+    },
+    {
+        "id": 210290349,
+        "url": "http://190.210.250.149:91/mjpg/video.mjpg",
+        "location": "Live camera Axis in Buenos Aires, Argentina",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 3710026460,
+        "url": "http://158.58.130.148:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Sochi, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 889717371,
+        "url": "http://220.254.72.200:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 2368943449,
+        "url": "http://220.254.144.230:50000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Iiyama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 2831572939,
+        "url": "http://85.220.149.7:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Minden, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 64033494,
+        "url": "http://202.56.51.237:8888/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Porirua, New Zealand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:50"
+    },
+    {
+        "id": 4281669442,
+        "url": "http://77.89.48.19:8000/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Imola, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 1907717455,
+        "url": "http://201.159.107.246:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in San Nicolas de los G, Mexico",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 2069996569,
+        "url": "http://81.60.215.31:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Madrid, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 4198570561,
+        "url": "http://80.61.63.103:81/cam_1.cgi",
+        "location": "Live camera WebcamXP in Bodegraven, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 3065827805,
+        "url": "http://195.223.180.50:80/cam_1.cgi",
+        "location": "Live camera WebcamXP in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 1324741023,
+        "url": "http://183.82.102.243:89/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in HYDERABAD, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:53"
+    },
+    {
+        "id": 2001564713,
+        "url": "http://203.181.0.118:6003/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Nagano, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 1796159839,
+        "url": "http://61.246.194.45:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Delhi, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 2084382533,
+        "url": "http://77.89.48.24:89/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Imola, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 1447475496,
+        "url": "http://201.144.24.221:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Puerto Vallarta, Mexico",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 2870518723,
+        "url": "http://181.171.25.136:80/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Buenos Aires, Argentina",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 963506825,
+        "url": "http://210.248.127.20:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:56"
+    },
+    {
+        "id": 1949696364,
+        "url": "http://75.149.26.30:1024/cam_1.cgi",
+        "location": "Live camera WebcamXP in Blairsville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 3862760170,
+        "url": "http://109.233.191.130:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Novi Pazar, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 2468886954,
+        "url": "http://183.82.102.243:83/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in HYDERABAD, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 3838428306,
+        "url": "http://201.174.12.243:1024/mjpg/video.mjpg",
+        "location": "Live camera Axis in Juarez, Mexico",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 3273705849,
+        "url": "http://220.157.222.110:8001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 2899403511,
+        "url": "http://182.171.234.126:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:10:59"
+    },
+    {
+        "id": 3814773881,
+        "url": "http://190.15.193.92:8083/img/video.mjpeg",
+        "location": "Live camera Linksys in Mendoza, Argentina",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 1556806876,
+        "url": "http://190.187.25.25:8001/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Lima, Peru",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 3634543894,
+        "url": "http://198.71.120.207:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Las Vegas, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 917493788,
+        "url": "http://190.208.32.76:90/videostream.cgi?user=admin&pwd=",
+        "location": "Live camera Foscam in Santiago, Chile",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 961552408,
+        "url": "http://220.254.72.199:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 435693118,
+        "url": "http://206.71.252.171:80/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in NEW YORK CITY, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:01"
+    },
+    {
+        "id": 1206674476,
+        "url": "http://217.63.79.153:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Renesse, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 1710922987,
+        "url": "http://71.249.87.61:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 1425996520,
+        "url": "http://200.124.240.79:6001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Guayaquil, Ecuador",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 3449097953,
+        "url": "http://93.118.100.120:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Tehran, Iran, Islamic Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 1793765602,
+        "url": "http://81.45.179.112:8080/video/mjpg.cgi",
+        "location": "Live camera DLink in Madrid, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 2488990633,
+        "url": "http://190.85.112.10:8001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in COTA, Colombia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:04"
+    },
+    {
+        "id": 1779414377,
+        "url": "http://2.136.2.155:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Arevalo, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 1503837847,
+        "url": "http://190.54.107.61:86/mjpg/video.mjpg",
+        "location": "Live camera Axis in Santiago, Chile",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 2510996321,
+        "url": "http://220.128.115.31:8080/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Taoyuan City, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 2445369304,
+        "url": "http://200.46.196.243:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in PANAMA, Panama",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 1513721856,
+        "url": "http://91.231.166.180:86/mjpg/video.mjpg",
+        "location": "Live camera Axis in Naples, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 2513166277,
+        "url": "http://166.165.9.97:8082/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Chicago, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:07"
+    },
+    {
+        "id": 331399045,
+        "url": "http://183.82.102.243:84/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in HYDERABAD, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 124598762,
+        "url": "http://219.101.88.67:60001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in SAPPORO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 1142267414,
+        "url": "http://61.115.115.49:8082/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Shiogama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 1195039137,
+        "url": "http://217.24.53.20:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Coburg, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 81135561,
+        "url": "http://185.94.82.113:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Cesena, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 1599603025,
+        "url": "http://124.143.25.100:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Nakatsugawa, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:11"
+    },
+    {
+        "id": 3625296434,
+        "url": "http://173.164.213.201:8083/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in San Francisco, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 3723192715,
+        "url": "http://78.186.67.194:50001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Ankara, Turkey",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 136004694,
+        "url": "http://192.135.76.230:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in SUNNYVALE, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 85500606,
+        "url": "http://96.78.169.121:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Salinas, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 2393271246,
+        "url": "http://91.108.45.201:80/onvif/snapshot/1/11",
+        "location": "Live camera SunellSecurity in Saint Petersburg, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 3145773053,
+        "url": "http://162.191.81.11:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:15"
+    },
+    {
+        "id": 4032181679,
+        "url": "http://61.216.189.211:80/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Taipei, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 2740222411,
+        "url": "http://161.72.135.5:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in La Laguna, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 3453505252,
+        "url": "http://82.130.141.93:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Derio, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 4011098531,
+        "url": "http://67.53.204.42:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 3667842877,
+        "url": "http://203.135.192.190:8080/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in FUKUOKA, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 1161922792,
+        "url": "http://120.143.50.10:8081/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:19"
+    },
+    {
+        "id": 1522794864,
+        "url": "http://220.233.144.165:8888/mjpg/video.mjpg",
+        "location": "Live camera Axis in Sydney, Australia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 3736280199,
+        "url": "http://168.0.126.43:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Tramandai, Brazil",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 3913096440,
+        "url": "http://99.114.240.169:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 2623194369,
+        "url": "http://92.85.14.184:83/onvif/snapshot/1/11",
+        "location": "Live camera SunellSecurity in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 3525087184,
+        "url": "http://109.206.96.58:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Belgrade, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 3855783892,
+        "url": "http://61.115.115.49:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Shiogama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:21"
+    },
+    {
+        "id": 18837487,
+        "url": "http://221.189.0.181:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Machida, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 1724086808,
+        "url": "http://183.77.121.171:8081/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Kasugai, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 3076044286,
+        "url": "http://213.82.216.229:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 2971881377,
+        "url": "http://78.108.108.184:8001/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Plzen, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 2999121518,
+        "url": "http://183.82.102.243:88/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in HYDERABAD, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 42890557,
+        "url": "http://82.78.92.4:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Sighetu Marmatiei, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:25"
+    },
+    {
+        "id": 3640109664,
+        "url": "http://83.48.111.53:8083/jpg/image.jpg?COUNTER",
+        "location": "Live camera TPLink in Madrid, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 165575108,
+        "url": "http://211.12.199.187:86/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Niigata, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 2202619311,
+        "url": "http://80.32.138.43:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Barcelona, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 3839781456,
+        "url": "http://59.127.116.90:88/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Taipei, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 2973633489,
+        "url": "http://202.213.96.147:60001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 3718424782,
+        "url": "http://59.146.77.13:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:29"
+    },
+    {
+        "id": 3396068555,
+        "url": "http://37.255.228.99:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Shiraz, Iran, Islamic Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 3501382786,
+        "url": "http://2.139.164.105:60001/mjpg/video.mjpg",
+        "location": "Live camera Axis in MADRID, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 1166987431,
+        "url": "http://2.139.183.22:84/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Mostoles, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 221855359,
+        "url": "http://93.87.72.254:8090/mjpg/video.mjpg",
+        "location": "Live camera Axis in NOVI PAZAR, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 3243884587,
+        "url": "http://103.217.216.197:8001/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Bekasi, Indonesia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 4257815562,
+        "url": "http://176.121.197.220:80/IMAGE.JPG",
+        "location": "Live camera NetCam in DONETS'K, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:32"
+    },
+    {
+        "id": 548777641,
+        "url": "http://87.139.153.80:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Koserow, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 3320680810,
+        "url": "http://27.147.247.113:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Chittagong, Bangladesh",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 627806322,
+        "url": "http://218.17.185.106:91/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Shenzhen, China",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 740698763,
+        "url": "http://109.236.111.203:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Saint Petersburg, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 3539102887,
+        "url": "http://195.77.185.114:8081/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Barcelona, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 80369816,
+        "url": "http://93.87.72.254:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in NOVI PAZAR, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:36"
+    },
+    {
+        "id": 890730239,
+        "url": "http://212.154.245.179:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera TPLink in UST'-KAMENOGORSK, Kazakhstan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 3601835834,
+        "url": "http://94.139.67.154:50000/mjpg/video.mjpg",
+        "location": "Live camera Axis in -, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 708791864,
+        "url": "http://81.82.251.41:8082/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Gent, Belgium",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 610949074,
+        "url": "http://89.26.16.109:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Salzburg, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 278304846,
+        "url": "http://183.233.177.152:85/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Foshan, China",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 2981420766,
+        "url": "http://60.33.230.11:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in OSAKA, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:39"
+    },
+    {
+        "id": 1207846794,
+        "url": "http://85.172.126.26:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Volgograd, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 1415913179,
+        "url": "http://185.194.123.84:8001/mjpg/video.mjpg",
+        "location": "Live camera Axis in Pantin, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 797016773,
+        "url": "http://117.3.67.76:8081/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in NHA TRANG, Viet Nam",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 4085886766,
+        "url": "http://72.253.153.216:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Lahaina, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 2443786533,
+        "url": "http://91.247.175.46:8001/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in -, -",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 3216106616,
+        "url": "http://116.39.132.204:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:43"
+    },
+    {
+        "id": 2179990793,
+        "url": "http://166.143.227.69:8000/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 3922397006,
+        "url": "http://185.49.169.66:1024/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Benahavis, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 3559244327,
+        "url": "http://77.250.189.154:82/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Amsterdam, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 3959515921,
+        "url": "http://82.207.51.246:80/IMAGE.JPG",
+        "location": "Live camera NetCam in Kiev, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 4183185369,
+        "url": "http://91.231.166.180:85/mjpg/video.mjpg",
+        "location": "Live camera Axis in Naples, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 23205245,
+        "url": "http://185.51.113.151:82/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Istanbul, Turkey",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:47"
+    },
+    {
+        "id": 3989569022,
+        "url": "http://75.146.47.252:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in EDINA, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 1074286371,
+        "url": "http://118.243.56.46:8001/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Mino, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 782028511,
+        "url": "http://95.9.96.3:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Adana, Turkey",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 551575470,
+        "url": "http://72.45.34.209:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in MIAMI BEACH, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 1822504214,
+        "url": "http://82.102.164.18:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Petah Tikva, Israel",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 1606376205,
+        "url": "http://216.99.126.110:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Wilmington, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:49"
+    },
+    {
+        "id": 3509430098,
+        "url": "http://109.206.96.249:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Belgrade, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 280108568,
+        "url": "http://108.36.119.146:8082/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Philadelphia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 1651683774,
+        "url": "http://124.155.121.218:3000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Asahi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 2880154516,
+        "url": "http://2.136.124.194:83/mjpg/video.mjpg",
+        "location": "Live camera Axis in Mancha Real, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 831176066,
+        "url": "http://185.79.2.66:8081/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Yerevan, Armenia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 3896556675,
+        "url": "http://93.87.72.254:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in NOVI PAZAR, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:53"
+    },
+    {
+        "id": 3886819954,
+        "url": "http://195.32.24.180:1024/mjpg/video.mjpg",
+        "location": "Live camera Axis in Campobasso, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 3897030547,
+        "url": "http://96.91.239.26:1024/mjpg/video.mjpg",
+        "location": "Live camera Axis in Mount Laurel, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 3209146167,
+        "url": "http://162.191.11.144:8000/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 2552589660,
+        "url": "http://200.107.234.131:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Sula, Honduras",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 1165678063,
+        "url": "http://81.67.25.88:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Champs-sur-Marne, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 2415667081,
+        "url": "http://93.39.75.41:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:56"
+    },
+    {
+        "id": 697159843,
+        "url": "http://166.247.40.112:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 3390866824,
+        "url": "http://80.92.117.241:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Hall in Tirol, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 1430196229,
+        "url": "http://23.25.52.58:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in CHICAGO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 3038831248,
+        "url": "http://72.138.175.115:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Toronto, Canada",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 370008523,
+        "url": "http://166.247.77.253:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 2203165266,
+        "url": "http://217.128.254.187:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in PARIS, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:11:59"
+    },
+    {
+        "id": 2896561461,
+        "url": "http://23.114.74.201:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Fresno, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 3257071185,
+        "url": "http://79.10.24.158:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Padova, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 310818139,
+        "url": "http://166.141.177.37:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Albany, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 1332260725,
+        "url": "http://66.215.136.18:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Reno, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 1059282747,
+        "url": "http://77.37.132.86:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Reutov, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 2642427120,
+        "url": "http://145.238.185.10:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in PARIS, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:03"
+    },
+    {
+        "id": 1763851830,
+        "url": "http://61.8.83.214:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 954765364,
+        "url": "http://113.161.131.30:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Hanoi, Viet Nam",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 338147171,
+        "url": "http://74.93.189.58:82/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in PORTLAND, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 3976128589,
+        "url": "http://24.43.198.26:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 3497287118,
+        "url": "http://203.181.31.164:86/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Osaka, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 2988144014,
+        "url": "http://219.100.51.169:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in -, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:05"
+    },
+    {
+        "id": 672979274,
+        "url": "http://72.43.65.7:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Albion, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 390146429,
+        "url": "http://185.124.182.119:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Lavello, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 477809090,
+        "url": "http://218.219.228.113:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Asahi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 2446609343,
+        "url": "http://2.136.124.194:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in Zumarraga, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 2843303534,
+        "url": "http://213.153.223.2:884/cgi-bin/snapshot.cgi?chn=0&u=admin&p=&q=0&COUNTER",
+        "location": "Live camera Defeway in Istanbul, Turkey",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 3079735301,
+        "url": "http://108.41.24.124:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:08"
+    },
+    {
+        "id": 353500125,
+        "url": "http://91.214.60.215:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Portoferraio, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 1156079054,
+        "url": "http://61.214.197.204:1024/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Kitakyushu, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 1317640768,
+        "url": "http://103.37.205.23:8000/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Auckland, New Zealand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 1225788244,
+        "url": "http://203.106.167.189:82/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in George Town, Malaysia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 4063153027,
+        "url": "http://85.187.13.38:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Pernik, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 3648883739,
+        "url": "http://5.10.10.199:50000/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Konstanz, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:12"
+    },
+    {
+        "id": 1613696443,
+        "url": "http://106.242.211.198:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 2772230554,
+        "url": "http://153.142.244.177:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Sapporo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 2996325001,
+        "url": "http://109.10.121.199:82/mjpeg.cgi",
+        "location": "Live camera DLink-DCS-932 in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 3088117128,
+        "url": "http://180.148.146.13:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Hakodate, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 3555567985,
+        "url": "http://166.130.157.186:80/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 2539138601,
+        "url": "http://98.147.54.22:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in San Jose, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:16"
+    },
+    {
+        "id": 137283877,
+        "url": "http://166.247.40.112:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 2793612114,
+        "url": "http://74.142.49.38:8001/mjpg/video.mjpg",
+        "location": "Live camera Axis in LOUISVILLE, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 831993408,
+        "url": "http://119.47.96.204:8001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Okayama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 1306894120,
+        "url": "http://91.247.124.105:8081/cgi-bin/snapshot.cgi?COUNTER",
+        "location": "Live camera Fullhan in Glazov, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 1368789107,
+        "url": "http://75.112.36.194:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Melbourne, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 3320144440,
+        "url": "http://87.248.168.168:8082/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Chisinau, Moldova, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:19"
+    },
+    {
+        "id": 1116406216,
+        "url": "http://81.187.169.212:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Arnold, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 2013136604,
+        "url": "http://212.87.254.166:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Czestochowa, Poland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 458331588,
+        "url": "http://166.165.9.97:8081/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Chicago, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 2335556988,
+        "url": "http://213.3.32.49:9010/mjpg/video.mjpg",
+        "location": "Live camera Axis in Zurich, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 2688415638,
+        "url": "http://109.206.96.230:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Belgrade, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 2426481527,
+        "url": "http://219.68.244.216:90/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Taipei, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:22"
+    },
+    {
+        "id": 786126654,
+        "url": "http://184.151.45.56:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Montreal, Canada",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 1357294877,
+        "url": "http://125.249.162.57:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 2197068249,
+        "url": "http://200.85.175.115:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Managua, Nicaragua",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 4229500977,
+        "url": "http://14.7.47.182:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 2962851814,
+        "url": "http://212.8.113.121:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in Derio, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 2778211850,
+        "url": "http://47.181.86.62:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in Pomona, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:25"
+    },
+    {
+        "id": 2349688539,
+        "url": "http://82.64.237.163:8083/mjpg/video.mjpg",
+        "location": "Live camera Axis in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 3590785704,
+        "url": "http://76.80.75.130:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 2600236789,
+        "url": "http://210.146.59.240:50000/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Mihara, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 2067790783,
+        "url": "http://125.206.12.113:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Kashima, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 428593232,
+        "url": "http://89.107.164.96:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Dessau, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 139266730,
+        "url": "http://193.9.244.207:8084/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Fryazino, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:29"
+    },
+    {
+        "id": 1454801709,
+        "url": "http://210.141.210.36:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Matsuyama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 3442606183,
+        "url": "http://220.135.56.68:83/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Taipei, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 1803750924,
+        "url": "http://184.74.137.62:86/mjpg/video.mjpg",
+        "location": "Live camera Axis in Elmira, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 2824754802,
+        "url": "http://47.49.38.178:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Marquette, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 373378948,
+        "url": "http://82.66.110.175:8888/video/mjpg.cgi",
+        "location": "Live camera DLink in Nesmy, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 2872552943,
+        "url": "http://71.41.121.66:8200/mjpg/video.mjpg",
+        "location": "Live camera Axis in Ormond Beach, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:32"
+    },
+    {
+        "id": 2557704103,
+        "url": "http://133.232.88.184:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 2107117167,
+        "url": "http://175.113.15.151:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 2962016480,
+        "url": "http://82.64.237.163:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 4226476726,
+        "url": "http://206.40.97.180:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Green Bay, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 498434706,
+        "url": "http://77.222.143.3:80/IMAGE.JPG",
+        "location": "Live camera NetCam in Kiev, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 1472381291,
+        "url": "http://166.250.66.102:8081/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Chambersburg, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:35"
+    },
+    {
+        "id": 2626354356,
+        "url": "http://82.8.176.137:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Brighton, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 3932605761,
+        "url": "http://67.98.161.46:10000/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Dededo Village, Guam",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 4147193861,
+        "url": "http://92.198.46.170:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Koeln, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 1271055172,
+        "url": "http://217.92.24.53:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in Altstadt, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 2703999466,
+        "url": "http://61.197.158.5:8084/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Fukui, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 2429673873,
+        "url": "http://84.228.110.101:90/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Petah Tikva, Israel",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:39"
+    },
+    {
+        "id": 3687442601,
+        "url": "http://70.60.107.118:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Charlotte, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 1868258684,
+        "url": "http://195.60.145.122:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Salve, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 3941453256,
+        "url": "http://217.91.58.189:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Berlin, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 2640031276,
+        "url": "http://213.161.172.115:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ALTA, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 170599623,
+        "url": "http://103.30.71.181:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Hong Kong, Hong Kong",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 886424438,
+        "url": "http://93.123.226.39:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Moscow, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:43"
+    },
+    {
+        "id": 87289142,
+        "url": "http://202.245.13.80:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 2683130574,
+        "url": "http://166.144.239.128:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 1550256144,
+        "url": "http://27.113.223.193:8080/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tsu, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 3217719124,
+        "url": "http://96.84.21.221:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in Mount Laurel, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 2342093260,
+        "url": "http://67.61.139.162:8080/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Meridian, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 140612757,
+        "url": "http://68.170.44.165:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Palmdale, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:47"
+    },
+    {
+        "id": 2252037278,
+        "url": "http://161.72.135.23:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in La Laguna, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 188646846,
+        "url": "http://155.31.14.42:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Daytona Beach, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 509328912,
+        "url": "http://185.78.0.10:8082/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Puigcerda, Spain",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 282892441,
+        "url": "http://46.14.231.181:8888/mjpg/video.mjpg",
+        "location": "Live camera Axis in Zurich, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 4149094527,
+        "url": "http://208.124.240.178:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in TORONTO, Canada",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 299201498,
+        "url": "http://79.8.16.194:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Salandra, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:51"
+    },
+    {
+        "id": 1498852664,
+        "url": "http://5.128.68.170:8081/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Novosibirsk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 262363643,
+        "url": "http://14.54.243.66:8083/mjpg/video.mjpg",
+        "location": "Live camera Axis in SEOUL, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 870217608,
+        "url": "http://61.161.192.107:2000/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Shenyang, China",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 629989638,
+        "url": "http://71.41.75.170:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ORLANDO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 4187431335,
+        "url": "http://78.137.136.54:8090/mjpg/video.mjpg",
+        "location": "Live camera Axis in Dublin, Ireland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 3169653130,
+        "url": "http://88.130.211.103:1024/img/video.mjpeg",
+        "location": "Live camera Linksys in Karlsruhe, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:54"
+    },
+    {
+        "id": 1314261267,
+        "url": "http://85.8.92.1:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Mettingen, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 1920607471,
+        "url": "http://46.181.60.194:8080/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Novokuznetsk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 1101889687,
+        "url": "http://58.94.98.128:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 2103763026,
+        "url": "http://97.76.165.226:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Tampa, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 76048000,
+        "url": "http://46.14.203.122:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in ZURICH, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 3078084143,
+        "url": "http://217.91.0.13:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Nuremberg, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:12:58"
+    },
+    {
+        "id": 2280415562,
+        "url": "http://37.53.90.251:8084/IMAGE.JPG",
+        "location": "Live camera NetCam in Kiev, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 2672303244,
+        "url": "http://125.206.12.114:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Kashima, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 711526465,
+        "url": "http://212.139.127.182:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in Norwich, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 2485125581,
+        "url": "http://63.40.250.5:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Philadelphia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 1328193124,
+        "url": "http://78.110.154.63:8080/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Vladikavkaz, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 2694173276,
+        "url": "http://133.232.66.140:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:02"
+    },
+    {
+        "id": 1334952688,
+        "url": "http://212.26.235.210:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in RYAZAN', Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 1264072287,
+        "url": "http://162.17.65.122:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in SAVANNAH, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 2699538958,
+        "url": "http://195.228.161.126:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in BUDAPEST, Hungary",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 2052073528,
+        "url": "http://185.121.102.155:84/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Termeno, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 249178655,
+        "url": "http://80.153.205.89:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Augsburg-Lechviertel, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 1092487791,
+        "url": "http://31.131.70.69:9200/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Simferopol, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:05"
+    },
+    {
+        "id": 1397089870,
+        "url": "http://91.214.60.211:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Portoferraio, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 3348811,
+        "url": "http://97.76.161.227:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ORLANDO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 3504213181,
+        "url": "http://219.117.218.85:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 2905910368,
+        "url": "http://133.175.249.187:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 1089968942,
+        "url": "http://64.106.64.26:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Albuquerque, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 2256101627,
+        "url": "http://91.113.207.170:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Vienna, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:09"
+    },
+    {
+        "id": 3900315247,
+        "url": "http://94.231.131.81:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Samara, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 2964323994,
+        "url": "http://86.120.148.133:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Craiova, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 4064961839,
+        "url": "http://205.215.255.11:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Baltimore, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 1288096229,
+        "url": "http://46.160.254.214:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Moscow, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 1597145017,
+        "url": "http://198.71.120.207:86/out.jpg?q=30&id=0.1317044913727916&r=COUNTER",
+        "location": "Live camera Yawcam in Las Vegas, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 2777485881,
+        "url": "http://89.35.88.16:8001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Ruse, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:13"
+    },
+    {
+        "id": 2102333729,
+        "url": "http://109.206.96.96:8080/cam_1.cgi",
+        "location": "Live camera WebcamXP in Belgrade, Serbia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 1263768201,
+        "url": "http://93.21.67.176:8082/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 2801927248,
+        "url": "http://218.45.5.59:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tanabe, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 1246649636,
+        "url": "http://134.93.182.99:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Mainz, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 4245049763,
+        "url": "http://80.147.196.243:8888/mjpg/video.mjpg",
+        "location": "Live camera Axis in NUREMBERG, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 1060154981,
+        "url": "http://93.49.2.196:8081/videostream.cgi?user=admin&pwd=",
+        "location": "Live camera Foscam in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:18"
+    },
+    {
+        "id": 2444800317,
+        "url": "http://124.241.28.23:84/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Fukui, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 3019639800,
+        "url": "http://166.139.118.183:8081/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 3532705780,
+        "url": "http://61.213.123.156:50001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tsukuba, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 548978365,
+        "url": "http://162.253.25.172:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Tuscaloosa, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 591487476,
+        "url": "http://61.213.89.122:8084/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Oyama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 3724019538,
+        "url": "http://60.45.200.119:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Nisshin, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:22"
+    },
+    {
+        "id": 2271999059,
+        "url": "http://83.172.9.83:8080/?action=stream",
+        "location": "Live camera Streamer in Perm, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 959263059,
+        "url": "http://65.175.133.211:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Concord, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 726066580,
+        "url": "http://186.195.23.77:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Caxias do Sul, Brazil",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 1165578557,
+        "url": "http://62.77.122.122:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in TEPLICE, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 4190209656,
+        "url": "http://97.76.27.170:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ORLANDO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 875212976,
+        "url": "http://82.64.77.27:8080/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:25"
+    },
+    {
+        "id": 3103114013,
+        "url": "http://109.164.252.213:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in Adelboden, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 2437935961,
+        "url": "http://110.4.179.61:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Higashimatsuyama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 1127215829,
+        "url": "http://210.226.45.57:8082/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Kumamoto, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 2860614426,
+        "url": "http://184.69.198.142:80/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in CALGARY, Canada",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 2800276729,
+        "url": "http://86.121.159.16:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 749693686,
+        "url": "http://194.48.218.49:8083/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Volkhov, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:28"
+    },
+    {
+        "id": 2777905654,
+        "url": "http://89.222.132.40:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Moscow, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 3410832521,
+        "url": "http://153.156.235.87:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Osaka, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 2059550090,
+        "url": "http://142.0.109.159:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Nobleboro, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 2691978076,
+        "url": "http://219.100.189.123:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Minamata, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 2842315903,
+        "url": "http://80.66.36.54:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Linz, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 873716992,
+        "url": "http://106.157.4.56:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Kofu, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:31"
+    },
+    {
+        "id": 635714872,
+        "url": "http://208.125.238.230:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Waterville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 1011588854,
+        "url": "http://218.45.5.57:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tanabe, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 2294320840,
+        "url": "http://88.53.197.250:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ROMA, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 2993144974,
+        "url": "http://96.56.77.226:1024/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in BRONX, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 2349800016,
+        "url": "http://195.97.20.246:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Athens, Greece",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 3234784377,
+        "url": "http://50.251.230.5:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Olympia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:35"
+    },
+    {
+        "id": 1441424093,
+        "url": "http://166.252.52.47:83/mjpg/video.mjpg",
+        "location": "Live camera Axis in Houston, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 764384443,
+        "url": "http://125.227.216.86:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Lugu, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 3676030817,
+        "url": "http://218.219.228.132:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Asahi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 3510641645,
+        "url": "http://121.58.135.168:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Kofu, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 2191691545,
+        "url": "http://202.183.63.202:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Takedamachi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 1058785117,
+        "url": "http://202.229.68.194:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Yokohama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:39"
+    },
+    {
+        "id": 2015301639,
+        "url": "http://77.89.39.134:1024/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bari, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 4262191099,
+        "url": "http://170.249.152.2:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Mobile, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 3242546967,
+        "url": "http://184.74.137.62:85/mjpg/video.mjpg",
+        "location": "Live camera Axis in Elmira, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 955951097,
+        "url": "http://203.99.224.22:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Okayama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 2020283303,
+        "url": "http://211.208.152.208:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Guri-si, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 1546665678,
+        "url": "http://121.58.129.215:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Fujiyoshida, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:43"
+    },
+    {
+        "id": 377505117,
+        "url": "http://124.155.113.18:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Saitama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 3308065718,
+        "url": "http://217.100.243.178:10000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Zwolle, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 3253082902,
+        "url": "http://68.66.157.38:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Boca Raton, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 947025863,
+        "url": "http://81.26.28.141:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in KIELCE, Poland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 605693254,
+        "url": "http://109.103.248.185:82/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Timisoara, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 1532496505,
+        "url": "http://78.134.4.205:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in San Colombano al Lam, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:45"
+    },
+    {
+        "id": 2522268293,
+        "url": "http://128.252.39.27:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in SAINT LOUIS, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 1073545459,
+        "url": "http://213.236.250.78:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Oslo, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 2906648447,
+        "url": "http://176.35.124.16:1024/mjpg/video.mjpg",
+        "location": "Live camera Axis in Liverpool, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 1710994804,
+        "url": "http://114.160.219.217:60001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Kyoto, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 1386552164,
+        "url": "http://61.220.233.221:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Taoyuan City, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 2497787044,
+        "url": "http://107.144.23.202:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in RIVERVIEW, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:48"
+    },
+    {
+        "id": 470891959,
+        "url": "http://31.12.82.136:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Umea, Sweden",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 1909408630,
+        "url": "http://82.102.184.109:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Petah Tikva, Israel",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 4075403352,
+        "url": "http://79.120.134.227:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Budaors, Hungary",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 1481550217,
+        "url": "http://67.42.35.34:80/image?speed=0",
+        "location": "Live camera Sony-CS3 in Phoenix, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 3377691229,
+        "url": "http://91.224.237.177:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Milicz, Poland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 3928565111,
+        "url": "http://37.208.44.74:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Oral, Kazakhstan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:51"
+    },
+    {
+        "id": 3870813649,
+        "url": "http://61.45.39.252:6001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Fujisawa, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 1466679817,
+        "url": "http://173.245.150.16:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in COOPERSTOWN, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 435371353,
+        "url": "http://81.133.30.194:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in ALDERLEY EDGE, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 1469292935,
+        "url": "http://219.112.192.74:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 3340112649,
+        "url": "http://185.199.81.198:8082/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Serfaus, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 741367449,
+        "url": "http://5.140.165.117:80/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Krasnovishersk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:54"
+    },
+    {
+        "id": 1530111722,
+        "url": "http://185.33.59.71:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Correggio, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 368692763,
+        "url": "http://207.177.51.214:80/axis-cgi/mjpg/video.cgi?camera=&resolution=640x480",
+        "location": "Live camera Axis2 in FAIRFIELD, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 264240385,
+        "url": "http://193.77.49.122:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera TPLink in LJUBLJANA, Slovenia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 3921893236,
+        "url": "http://86.60.241.94:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Salo, Finland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 228045298,
+        "url": "http://5.129.141.86:8081/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Novosibirsk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 2830759735,
+        "url": "http://217.12.54.147:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Banska Bystrica, Slovakia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:13:58"
+    },
+    {
+        "id": 1327478079,
+        "url": "http://185.68.231.93:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Courchevel, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 25461420,
+        "url": "http://217.91.145.152:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Muenster, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 3437695334,
+        "url": "http://80.151.142.110:8080/?action=stream",
+        "location": "Live camera Streamer in Hamburg, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 936899370,
+        "url": "http://218.45.160.239:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Ichihara, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 3811773425,
+        "url": "http://198.244.125.230:8083/mjpg/video.mjpg",
+        "location": "Live camera Axis in Fernley, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 1108045124,
+        "url": "http://67.52.91.214:8001/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:02"
+    },
+    {
+        "id": 3453256406,
+        "url": "http://125.206.12.112:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Kashima, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 3934862510,
+        "url": "http://69.145.207.52:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Columbia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 3485153702,
+        "url": "http://86.127.212.219:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Braila, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 443573483,
+        "url": "http://188.210.45.124:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Saarlouis, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 3792973038,
+        "url": "http://92.247.13.209:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in SOFIA, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 1603289313,
+        "url": "http://66.103.160.160:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Hutchinson, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:06"
+    },
+    {
+        "id": 1556420575,
+        "url": "http://216.21.219.19:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Kansas City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 2210149893,
+        "url": "http://173.13.228.92:80/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Washington, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 1348597336,
+        "url": "http://210.226.45.57:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Kumamoto, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 1471226591,
+        "url": "http://188.9.108.125:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Florence, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 4225504116,
+        "url": "http://191.101.165.194:8888/out.jpg?q=30&id=0.1317044913727916&r=COUNTER",
+        "location": "Live camera Yawcam in Frankfurt am Main, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 1790945593,
+        "url": "http://122.249.124.12:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Yokohama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:09"
+    },
+    {
+        "id": 985380632,
+        "url": "http://89.97.231.70:8083/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 3173756497,
+        "url": "http://128.22.30.18:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Amagasaki, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 4035339748,
+        "url": "http://133.43.28.115:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Koriyama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 1747031634,
+        "url": "http://14.54.243.66:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in SEOUL, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 4010526719,
+        "url": "http://77.119.231.156:8080/?action=stream",
+        "location": "Live camera Streamer in Andelsbuch, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 2793518440,
+        "url": "http://109.99.208.157:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:12"
+    },
+    {
+        "id": 4102541213,
+        "url": "http://150.42.58.5:8082/axis-cgi/mjpg/video.cgi?camera=&resolution=640x480",
+        "location": "Live camera Axis2 in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 2514648662,
+        "url": "http://83.172.9.83:8081/?action=stream",
+        "location": "Live camera Streamer in Perm, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 2809014960,
+        "url": "http://168.215.226.11:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Honolulu, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 613968966,
+        "url": "http://125.206.47.25:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 462939487,
+        "url": "http://166.139.65.122:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Detroit, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 238461926,
+        "url": "http://88.212.33.173:8001/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Kosice, Slovakia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:16"
+    },
+    {
+        "id": 1162728374,
+        "url": "http://122.252.152.146:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Palmerston North, New Zealand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 2198676091,
+        "url": "http://62.35.32.100:83/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Meudon, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 1854515827,
+        "url": "http://110.3.251.62:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Kawaguchi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 1710930348,
+        "url": "http://24.241.147.230:80/image/Index?time=0",
+        "location": "Live camera BlueIris in Saint Louis, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 1815110697,
+        "url": "http://118.21.109.43:50000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Saito, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 1304384854,
+        "url": "http://199.104.253.5:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in PRESCOTT, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:19"
+    },
+    {
+        "id": 220330372,
+        "url": "http://124.63.46.219:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 1074136751,
+        "url": "http://77.160.68.211:8000/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Amersfoort, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 2710883349,
+        "url": "http://93.38.57.20:8080/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Genova, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 3129861624,
+        "url": "http://182.231.16.212:5000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 2821271057,
+        "url": "http://185.63.13.82:8083/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Fidenza, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 2147994305,
+        "url": "http://75.146.47.251:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in EDINA, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:23"
+    },
+    {
+        "id": 90934379,
+        "url": "http://118.21.116.47:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 1647808859,
+        "url": "http://185.87.69.220:8001/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Carpignano Salentino, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 3195464541,
+        "url": "http://178.161.201.80:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Perm', Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 2194653323,
+        "url": "http://166.166.205.153:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Warrensburg, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 3916740195,
+        "url": "http://218.45.173.232:8000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 2961151670,
+        "url": "http://162.17.198.37:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Baltimore, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:26"
+    },
+    {
+        "id": 1244553287,
+        "url": "http://71.41.85.58:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in ORLANDO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 2465909085,
+        "url": "http://219.101.88.114:60001/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in SAPPORO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 2468150646,
+        "url": "http://47.49.38.178:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Marquette, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 3778842823,
+        "url": "http://173.163.225.58:83/mjpg/video.mjpg",
+        "location": "Live camera Axis in AUGUSTA, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 3190282988,
+        "url": "http://91.143.192.75:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in VIAREGGIO, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 3024223078,
+        "url": "http://91.203.177.39:85/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Smolensk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:30"
+    },
+    {
+        "id": 2540635874,
+        "url": "http://211.116.45.130:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 4000341257,
+        "url": "http://93.241.243.144:50001/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Darmstadt, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 3375655555,
+        "url": "http://210.138.127.130:6002/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Amagasaki, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 1961143390,
+        "url": "http://36.66.133.249:80/tmpfs/auto.jpg?COUNTER",
+        "location": "Live camera FDT in Ciranjang-hilir, Indonesia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 3659667354,
+        "url": "http://46.40.125.10:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Varna, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 40990949,
+        "url": "http://202.208.150.241:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Shiojiri, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:34"
+    },
+    {
+        "id": 2226797135,
+        "url": "http://69.145.207.53:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Columbia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 3326000394,
+        "url": "http://82.79.74.61:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Oradea, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 3260259750,
+        "url": "http://78.111.125.5:80/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in RAKOVNIK, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 2071709499,
+        "url": "http://75.146.47.253:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in EDINA, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 4232458497,
+        "url": "http://80.15.183.96:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Puteaux, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 1878607063,
+        "url": "http://129.89.78.91:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Milwaukee, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:38"
+    },
+    {
+        "id": 272440981,
+        "url": "http://119.12.32.112:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Currajong, Australia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 1667492750,
+        "url": "http://212.147.38.3:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Pully, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 2613361429,
+        "url": "http://178.163.163.92:6003/mjpg/video.mjpg",
+        "location": "Live camera Axis in Minsk, Belarus",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 3618388278,
+        "url": "http://202.208.150.52:50001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Sendai, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 1577499747,
+        "url": "http://64.203.126.178:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in FRESNO, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 2784050301,
+        "url": "http://217.76.38.238:80/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Moscow, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:42"
+    },
+    {
+        "id": 4229380326,
+        "url": "http://194.237.150.19:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in STOCKHOLM, Sweden",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 3597765265,
+        "url": "http://24.180.232.6:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in BAY CITY, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 4025891392,
+        "url": "http://115.179.36.89:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Meguro-ku, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 2035450102,
+        "url": "http://209.124.145.124:84/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Anchorage, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 724682720,
+        "url": "http://202.215.147.19:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 2446267733,
+        "url": "http://87.26.188.210:3000/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bergamo, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:45"
+    },
+    {
+        "id": 834880570,
+        "url": "http://77.193.208.216:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Miramas, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 2707740463,
+        "url": "http://81.133.153.1:8082/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Hamble, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 3628301339,
+        "url": "http://198.160.171.194:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Mankato, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 969756101,
+        "url": "http://71.43.214.238:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Winter Park, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 1094118843,
+        "url": "http://68.195.211.106:1024/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in HICKSVILLE, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 409693363,
+        "url": "http://188.212.25.153:8090/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Chisinau, Moldova, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:49"
+    },
+    {
+        "id": 418099281,
+        "url": "http://93.241.200.98:84/mjpg/video.mjpg",
+        "location": "Live camera Axis in Berlin, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 926514470,
+        "url": "http://94.72.19.56:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Shushary, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 4116833595,
+        "url": "http://218.103.127.44:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Hong Kong, Hong Kong",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 2376016183,
+        "url": "http://95.154.104.9:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Vladivostok, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 2432743910,
+        "url": "http://24.187.234.51:1024/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in HICKSVILLE, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 1208012,
+        "url": "http://209.23.238.227:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in MANCHESTER, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:52"
+    },
+    {
+        "id": 1136974005,
+        "url": "http://194.71.159.8:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in TYRESO, Sweden",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 1400937294,
+        "url": "http://85.204.109.102:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Sint-Oedenrode, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 963361958,
+        "url": "http://155.207.87.43:8080/?action=stream",
+        "location": "Live camera Streamer in Thessaloniki, Greece",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 1898659645,
+        "url": "http://92.85.54.73:80/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 537181830,
+        "url": "http://110.3.251.231:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Kawaguchi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 4260574227,
+        "url": "http://166.156.230.198:8000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in NEWARK, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:54"
+    },
+    {
+        "id": 4192778614,
+        "url": "http://85.172.126.26:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in SOCHI, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 263410896,
+        "url": "http://89.39.108.179:8080/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in BUCHAREST, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 2178880825,
+        "url": "http://86.123.146.146:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sibiu, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 2844028818,
+        "url": "http://217.128.94.112:8082/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Aubervilliers, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 2682249262,
+        "url": "http://94.81.229.117:85/mjpg/video.mjpg",
+        "location": "Live camera Axis in Viadana, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 1012117638,
+        "url": "http://213.108.163.244:802/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Kolin, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:14:58"
+    },
+    {
+        "id": 2899203775,
+        "url": "http://37.24.101.118:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Dortmund, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 586344349,
+        "url": "http://118.21.116.37:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Obihiro, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 3916324754,
+        "url": "http://79.7.31.219:8090/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Pesaro, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 1462149174,
+        "url": "http://218.42.253.97:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Matsubara, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 4074554936,
+        "url": "http://80.147.94.183:82/mjpg/video.mjpg",
+        "location": "Live camera Axis in Munich, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 3148913419,
+        "url": "http://46.14.203.136:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Lausanne, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:00"
+    },
+    {
+        "id": 669288738,
+        "url": "http://118.21.109.46:50000/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in TOKYO, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 3223341126,
+        "url": "http://67.43.220.114:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Torrington, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 3655161431,
+        "url": "http://144.129.162.180:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Greenwood Village, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 2983451795,
+        "url": "http://194.251.19.78:82/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Helsinki, Finland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 629452495,
+        "url": "http://182.227.201.156:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Goyang, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 2371102523,
+        "url": "http://210.153.76.199:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:03"
+    },
+    {
+        "id": 3865376601,
+        "url": "http://220.157.181.27:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Hiroshima, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 2216898786,
+        "url": "http://217.36.68.34:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in London, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 3411347333,
+        "url": "http://77.222.181.11:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in OSLO, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 401447481,
+        "url": "http://218.219.195.24:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Yokkaichi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 4240438400,
+        "url": "http://217.24.54.102:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Coburg, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 4112206122,
+        "url": "http://85.206.177.87:8083/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Vilnius, Lithuania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:06"
+    },
+    {
+        "id": 3956346676,
+        "url": "http://2.234.120.231:91/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in San Lazzaro di Saven, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 274086727,
+        "url": "http://96.1.32.151:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Richmond Hill, Canada",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 1566623072,
+        "url": "http://46.19.234.136:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Pordenone, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 3219744609,
+        "url": "http://96.35.163.110:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in SAINT LOUIS, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 107291692,
+        "url": "http://108.84.74.93:50000/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in San Antonio, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 700707300,
+        "url": "http://213.200.230.69:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Lugano, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:10"
+    },
+    {
+        "id": 3702351468,
+        "url": "http://103.118.94.51:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Niigata, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 1846603286,
+        "url": "http://60.139.96.32:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 2770806335,
+        "url": "http://24.97.151.11:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Greenwich, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 3072446153,
+        "url": "http://195.165.183.74:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Kangasala, Finland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 1735331562,
+        "url": "http://203.141.146.165:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Kawasaki, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 2850697835,
+        "url": "http://116.94.0.139:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in FUKUOKA, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:14"
+    },
+    {
+        "id": 3461901188,
+        "url": "http://74.142.49.38:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in LOUISVILLE, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 4216666456,
+        "url": "http://88.81.111.204:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in CASTLEBAR, Ireland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 1835149280,
+        "url": "http://199.104.253.4:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in PRESCOTT, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 1344799688,
+        "url": "http://86.115.228.123:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Tampere, Finland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 2402415965,
+        "url": "http://193.178.137.50:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Potenza, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 2496514133,
+        "url": "http://185.20.64.215:83/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Todi, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:17"
+    },
+    {
+        "id": 1851937653,
+        "url": "http://84.196.142.208:8080/?action=stream",
+        "location": "Live camera Streamer in Antwerpen, Belgium",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 2600949274,
+        "url": "http://90.152.145.176:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Graz, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 3447829957,
+        "url": "http://153.156.82.99:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Osaka, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 1318444335,
+        "url": "http://74.142.179.46:83/mjpg/video.mjpg",
+        "location": "Live camera Axis in Louisville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 962932817,
+        "url": "http://130.180.105.226:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in Wuppertal, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 3361127086,
+        "url": "http://219.127.113.139:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:21"
+    },
+    {
+        "id": 621135534,
+        "url": "http://218.103.127.44:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Hong Kong, Hong Kong",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 3537659473,
+        "url": "http://160.237.137.206:50001/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 3020287136,
+        "url": "http://92.154.0.63:1024/oneshotimage1?COUNTER",
+        "location": "Live camera Sony in Lyon, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 2105836670,
+        "url": "http://84.16.56.66:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Poprad, Slovakia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 1253376659,
+        "url": "http://86.127.212.113:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Braila, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 2206311109,
+        "url": "http://128.171.116.47:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Honolulu, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:24"
+    },
+    {
+        "id": 1858745937,
+        "url": "http://210.149.154.239:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Inabe, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 1613884705,
+        "url": "http://217.11.41.46:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellinzona, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 582063786,
+        "url": "http://155.31.14.41:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Daytona Beach, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 4277508607,
+        "url": "http://118.21.97.251:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in CHIBA, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 4260895694,
+        "url": "http://219.127.113.137:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 1781439416,
+        "url": "http://178.115.232.117:88/mjpg/video.mjpg",
+        "location": "Live camera Axis in Feldkirch, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:27"
+    },
+    {
+        "id": 3702922373,
+        "url": "http://90.63.255.188:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 1319884255,
+        "url": "http://203.79.55.213:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 659827292,
+        "url": "http://24.30.252.59:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Greenwood Village, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 1569053910,
+        "url": "http://193.87.9.22:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Martin, Slovakia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 1165574542,
+        "url": "http://194.44.38.196:8083/mjpg/video.mjpg",
+        "location": "Live camera Axis in L'viv, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 1069136445,
+        "url": "http://213.213.154.120:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Reykjavik, Iceland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:31"
+    },
+    {
+        "id": 2973567366,
+        "url": "http://209.217.222.214:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in UTICA, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 2841341089,
+        "url": "http://185.146.206.159:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Wertach, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 1556452910,
+        "url": "http://46.14.145.154:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Zurich, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 841147274,
+        "url": "http://109.102.24.214:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 4016851868,
+        "url": "http://188.11.35.193:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Varese, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 3200141461,
+        "url": "http://180.43.84.117:50000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Nagoya, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 21:15:34"
+    },
+    {
+        "id": 126509706,
+        "url": "http://66.27.116.187:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in San Diego, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 1259669692,
+        "url": "http://109.228.134.144:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Halmstad, Sweden",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 1938270943,
+        "url": "http://80.235.76.111:18081/mjpg/video.mjpg",
+        "location": "Live camera Axis in Tallinn, Estonia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 1472690604,
+        "url": "http://45.80.27.109:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Iasi, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 1354929091,
+        "url": "http://68.107.160.109:3000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Las Vegas, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 3815206143,
+        "url": "http://174.141.163.166:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in Boca Raton, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:46"
+    },
+    {
+        "id": 627476753,
+        "url": "http://204.93.117.45:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Signal Mountain, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 1393312893,
+        "url": "http://185.3.36.20:111/mjpg/video.mjpg",
+        "location": "Live camera Axis in Reggio nell'Emilia, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 959911026,
+        "url": "http://84.35.147.6:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Rotterdam, Netherlands",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 1140829192,
+        "url": "http://109.247.170.58:8080/mjpg/video.mjpg",
+        "location": "Live camera Axis in Langesund, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 1631690600,
+        "url": "http://114.179.127.11:8002/mjpg/video.mjpg",
+        "location": "Live camera Axis in Saga, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 1052306394,
+        "url": "http://88.209.215.194:8801/mjpg/video.mjpg",
+        "location": "Live camera Axis in Nyiregyhaza, Hungary",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:49"
+    },
+    {
+        "id": 4057351180,
+        "url": "http://45.21.253.117:8000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Monterey, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 2648681629,
+        "url": "http://80.14.201.251:8010/mjpg/video.mjpg",
+        "location": "Live camera Axis in Aubervilliers, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 4275647194,
+        "url": "http://143.202.198.227:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in El Progreso, Honduras",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 1277152017,
+        "url": "http://217.180.234.228:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Evansville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 1067076410,
+        "url": "http://184.177.43.105:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Providence, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 1794164406,
+        "url": "http://107.12.0.236:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in Morehead City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:53"
+    },
+    {
+        "id": 4068556868,
+        "url": "http://73.111.173.193:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Schaumburg, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 740666407,
+        "url": "http://153.156.20.243:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Mito, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 2544323409,
+        "url": "http://114.179.127.11:8006/mjpg/video.mjpg",
+        "location": "Live camera Axis in Saga, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 259317154,
+        "url": "http://81.247.199.120:8060/mjpg/video.mjpg",
+        "location": "Live camera Axis in Sint-Niklaas, Belgium",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 2464806509,
+        "url": "http://109.166.169.204:9000/mjpg/video.mjpg",
+        "location": "Live camera Axis in Bucharest, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 3078424486,
+        "url": "http://128.146.135.226:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Grandview Heights, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:55:57"
+    },
+    {
+        "id": 2985741058,
+        "url": "http://89.1.82.42:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Koeln, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 562958553,
+        "url": "http://188.175.15.238:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Ostrava, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 819165698,
+        "url": "http://83.222.162.156:8010/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Tripoli, Lebanon",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 1248772354,
+        "url": "http://45.67.8.214:82/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Mo i Rana, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 3980676181,
+        "url": "http://90.49.5.247:80/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Nantes, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 2804380252,
+        "url": "http://82.135.236.222:88/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Vilnius, Lithuania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:01"
+    },
+    {
+        "id": 2574831440,
+        "url": "http://5.226.58.5:9001/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Cranfield, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 1469771334,
+        "url": "http://94.32.86.58:8090/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Cagliari, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 3062623098,
+        "url": "http://65.76.100.63:85/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Nashville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 3231281259,
+        "url": "http://77.140.89.250:83/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Paris, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 2679210770,
+        "url": "http://5.226.58.4:9003/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Cranfield, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 3407204911,
+        "url": "http://89.79.151.247:12000/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Oswiecim, Poland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:04"
+    },
+    {
+        "id": 1395936570,
+        "url": "http://179.62.210.138:8088/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in La Mendieta, Argentina",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 3187650394,
+        "url": "http://86.233.186.187:81/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Chef-Boutonne, France",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 3197608357,
+        "url": "http://202.216.1.24:83/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 1458393827,
+        "url": "http://94.101.60.59:6666/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Capaccio, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 2469760262,
+        "url": "http://91.102.60.75:9001/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Cranfield, United Kingdom",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 1356468142,
+        "url": "http://176.95.177.220:8086/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Sulzbach, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:07"
+    },
+    {
+        "id": 1288296741,
+        "url": "http://151.14.98.27:80/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Milan, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:10"
+    },
+    {
+        "id": 2027617471,
+        "url": "http://218.159.54.226:80/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:10"
+    },
+    {
+        "id": 3276808592,
+        "url": "http://85.4.116.213:80/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&COUNTER",
+        "location": "Live camera Megapixel in Bern, Switzerland",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:10"
+    },
+    {
+        "id": 3903621989,
+        "url": "http://220.134.94.62:8080/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Taipei, Taiwan, Province Of ",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:10"
+    },
+    {
+        "id": 136112127,
+        "url": "http://106.51.52.52:60001/cgi-bin/snapshot.cgi?chn=0&u=admin&p=&q=0&COUNTER",
+        "location": "Live camera Defeway in Visakhapatnam, India",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:17"
+    },
+    {
+        "id": 247135456,
+        "url": "http://212.39.117.154:8888/mjpg/video.mjpg",
+        "location": "Live camera Axis in Drinovci, Bosnia And Herzegovina",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:20"
+    },
+    {
+        "id": 3904119899,
+        "url": "http://119.75.169.196:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:24"
+    },
+    {
+        "id": 4105440598,
+        "url": "http://176.105.214.139:8888/cgi-bin/snapshot.cgi?COUNTER",
+        "location": "Live camera Fullhan in Nova Odesa, Ukraine",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:24"
+    },
+    {
+        "id": 1037542769,
+        "url": "http://80.209.98.155:8888/mjpeg.cgi",
+        "location": "Live camera DLink-DCS-932 in Haslev, Denmark",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:27"
+    },
+    {
+        "id": 712758441,
+        "url": "http://85.187.18.60:8081/mjpg/video.mjpg",
+        "location": "Live camera Axis in Byala, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:33"
+    },
+    {
+        "id": 2653796684,
+        "url": "http://95.78.171.175:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Chelyabinsk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:36"
+    },
+    {
+        "id": 1576183643,
+        "url": "http://24.116.18.81:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Pocatello, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:36"
+    },
+    {
+        "id": 4186093744,
+        "url": "http://24.116.18.81:8082/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Pocatello, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:36"
+    },
+    {
+        "id": 1122437794,
+        "url": "http://182.52.50.152:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sai Noi, Thailand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:36"
+    },
+    {
+        "id": 539133438,
+        "url": "http://182.52.50.152:82/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sai Noi, Thailand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:36"
+    },
+    {
+        "id": 1574002482,
+        "url": "http://176.66.85.47:82/videostream.cgi?user=admin&pwd=",
+        "location": "Live camera Foscam in Vienna, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:43"
+    },
+    {
+        "id": 3344653267,
+        "url": "http://176.66.85.47:88/videostream.cgi?user=admin&pwd=",
+        "location": "Live camera Foscam in Vienna, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:43"
+    },
+    {
+        "id": 3645789709,
+        "url": "http://185.97.122.32:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Cesena, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:43"
+    },
+    {
+        "id": 545600520,
+        "url": "http://39.125.155.11:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:45"
+    },
+    {
+        "id": 3373134953,
+        "url": "http://80.120.76.3:81/mjpg/video.mjpg",
+        "location": "Live camera Axis in Vienna, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:45"
+    },
+    {
+        "id": 878464513,
+        "url": "http://91.139.123.217:80/mjpeg.cgi",
+        "location": "Live camera DLink-DCS-932 in Cvikov, Czech Republic",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:45"
+    },
+    {
+        "id": 964848319,
+        "url": "http://58.224.242.205:8000/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:45"
+    },
+    {
+        "id": 827798038,
+        "url": "http://153.142.244.176:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Sapporo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:49"
+    },
+    {
+        "id": 3128173792,
+        "url": "http://91.244.114.179:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Biysk, Russian Federation",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:49"
+    },
+    {
+        "id": 2832793098,
+        "url": "http://142.105.253.172:50000/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Saranac Lake, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:49"
+    },
+    {
+        "id": 3762613940,
+        "url": "http://221.164.166.166:50000/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:49"
+    },
+    {
+        "id": 2046673790,
+        "url": "http://165.255.251.102:60001/cgi-bin/snapshot.cgi?chn=0&u=admin&p=&q=0&COUNTER",
+        "location": "Live camera Defeway in Pretoria, South Africa",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:52"
+    },
+    {
+        "id": 3610268904,
+        "url": "http://94.110.74.26:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Hasselt, Belgium",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:55"
+    },
+    {
+        "id": 286573941,
+        "url": "http://62.204.141.210:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Smyadovo, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:55"
+    },
+    {
+        "id": 3662871600,
+        "url": "http://166.251.9.197:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Bedminster, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:55"
+    },
+    {
+        "id": 44201051,
+        "url": "http://220.87.131.172:90/asp/video.cgi",
+        "location": "Live camera Vije in Seoul, Korea, Republic Of",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:58"
+    },
+    {
+        "id": 3271685336,
+        "url": "http://185.121.102.155:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Termeno, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:58"
+    },
+    {
+        "id": 1715333364,
+        "url": "http://67.60.210.90:8081/axis-cgi/mjpg/video.cgi?camera=&resolution=640x480",
+        "location": "Live camera Axis2 in Pocatello, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:58"
+    },
+    {
+        "id": 2453465018,
+        "url": "http://81.167.67.93:8080/?action=stream",
+        "location": "Live camera Streamer in Stavanger, Norway",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:56:58"
+    },
+    {
+        "id": 3098161620,
+        "url": "http://69.12.5.58:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Livermore, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:02"
+    },
+    {
+        "id": 186651445,
+        "url": "http://138.236.62.30:8080/?action=stream",
+        "location": "Live camera Streamer in Saint Peter, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:02"
+    },
+    {
+        "id": 4175492695,
+        "url": "http://202.211.86.177:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Suzuka, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:02"
+    },
+    {
+        "id": 3237679821,
+        "url": "http://86.123.146.149:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sibiu, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:06"
+    },
+    {
+        "id": 3860125613,
+        "url": "http://86.123.146.147:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sibiu, Romania",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:06"
+    },
+    {
+        "id": 2194651119,
+        "url": "http://182.52.50.152:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Sai Noi, Thailand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:06"
+    },
+    {
+        "id": 801379064,
+        "url": "http://162.191.134.130:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:06"
+    },
+    {
+        "id": 2385063777,
+        "url": "http://103.151.177.124:90/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Jakarta, Indonesia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:08"
+    },
+    {
+        "id": 1468650328,
+        "url": "http://103.151.177.124:89/mjpg/video.mjpg",
+        "location": "Live camera Axis in Jakarta, Indonesia",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:08"
+    },
+    {
+        "id": 4294143599,
+        "url": "http://184.82.149.76:83/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Bangkok, Thailand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:08"
+    },
+    {
+        "id": 2882150701,
+        "url": "http://184.82.149.76:82/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Bangkok, Thailand",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:08"
+    },
+    {
+        "id": 4290889634,
+        "url": "http://212.67.232.2:10000/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Live camera Bosch in Vienna, Austria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:08"
+    },
+    {
+        "id": 1136582238,
+        "url": "http://14.14.95.219:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Saitama, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:11"
+    },
+    {
+        "id": 1027005150,
+        "url": "http://83.211.180.206:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Rome, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:11"
+    },
+    {
+        "id": 2544426990,
+        "url": "http://210.172.201.69:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Gifu, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:11"
+    },
+    {
+        "id": 2068977086,
+        "url": "http://219.121.11.202:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Asahi, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:15"
+    },
+    {
+        "id": 1327750807,
+        "url": "http://219.127.113.138:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:15"
+    },
+    {
+        "id": 2272211289,
+        "url": "http://210.161.174.118:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:15"
+    },
+    {
+        "id": 3249691366,
+        "url": "http://220.108.89.119:50000/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:15"
+    },
+    {
+        "id": 1875029842,
+        "url": "http://118.21.101.221:90/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:15"
+    },
+    {
+        "id": 2205177921,
+        "url": "http://210.161.174.119:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:17"
+    },
+    {
+        "id": 3109608964,
+        "url": "http://182.171.246.61:81/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:17"
+    },
+    {
+        "id": 2048184034,
+        "url": "http://80.152.138.183:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Bonn, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:17"
+    },
+    {
+        "id": 3392658836,
+        "url": "http://210.161.174.117:80/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Tokyo, Japan",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:17"
+    },
+    {
+        "id": 3936448230,
+        "url": "http://130.180.21.202:8081/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Kerpen, Germany",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:17"
+    },
+    {
+        "id": 1258691997,
+        "url": "http://84.252.40.201:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Kyustendil, Bulgaria",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:20"
+    },
+    {
+        "id": 1367335556,
+        "url": "http://5.186.57.183:83/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Ryomgard, Denmark",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:20"
+    },
+    {
+        "id": 1768956443,
+        "url": "http://5.186.57.183:81/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Ryomgard, Denmark",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:20"
+    },
+    {
+        "id": 2633814186,
+        "url": "http://5.186.57.183:82/GetData.cgi?CH=1",
+        "location": "Live camera ChannelVision in Ryomgard, Denmark",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:20"
+    },
+    {
+        "id": 1811351105,
+        "url": "http://194.116.11.176:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Torino, Italy",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 22:57:20"
+    },
+    {
+        "id": 3539150735,
+        "url": "http://166.248.104.41:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Bedminster, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:33"
+    },
+    {
+        "id": 2010775756,
+        "url": "http://205.149.147.162:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:33"
+    },
+    {
+        "id": 443750535,
+        "url": "http://205.149.147.156:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:33"
+    },
+    {
+        "id": 187334596,
+        "url": "http://205.149.147.151:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 3442211947,
+        "url": "http://205.149.147.164:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 2494754968,
+        "url": "http://205.149.147.158:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 1431349164,
+        "url": "http://205.149.147.154:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 1172631372,
+        "url": "http://205.149.147.146:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 4066162569,
+        "url": "http://205.149.147.144:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:35"
+    },
+    {
+        "id": 1767194504,
+        "url": "http://168.215.226.12:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Honolulu, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:38"
+    },
+    {
+        "id": 1041705453,
+        "url": "http://205.149.147.147:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:38"
+    },
+    {
+        "id": 2066478996,
+        "url": "http://205.149.147.142:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:38"
+    },
+    {
+        "id": 3338493512,
+        "url": "http://205.149.147.143:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:38"
+    },
+    {
+        "id": 3599041105,
+        "url": "http://205.149.147.165:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:38"
+    },
+    {
+        "id": 2120282629,
+        "url": "http://205.149.147.155:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:42"
+    },
+    {
+        "id": 3134718166,
+        "url": "http://205.149.147.149:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:42"
+    },
+    {
+        "id": 3771904639,
+        "url": "http://166.152.34.71:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Chicago, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:42"
+    },
+    {
+        "id": 3384157804,
+        "url": "http://144.92.62.155:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Madison, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:42"
+    },
+    {
+        "id": 3079013654,
+        "url": "http://205.149.147.153:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:42"
+    },
+    {
+        "id": 2141811546,
+        "url": "http://205.149.147.161:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 3288834810,
+        "url": "http://205.149.147.150:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 65896786,
+        "url": "http://205.149.147.141:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 1051284173,
+        "url": "http://205.149.147.157:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 2834718651,
+        "url": "http://205.149.147.140:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 2126567696,
+        "url": "http://205.149.147.148:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:45"
+    },
+    {
+        "id": 629130477,
+        "url": "http://35.8.156.190:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in East Lansing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 3184361768,
+        "url": "http://205.149.147.159:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 3559632661,
+        "url": "http://64.194.69.17:8081/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Whitethorn, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 1445931218,
+        "url": "http://205.149.147.163:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 1454792593,
+        "url": "http://128.171.206.15:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Honolulu, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 3367832027,
+        "url": "http://166.151.205.132:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:48"
+    },
+    {
+        "id": 3134214623,
+        "url": "http://205.149.147.160:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 60287274,
+        "url": "http://35.8.156.153:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in East Lansing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 1141831802,
+        "url": "http://205.149.147.145:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 1786330351,
+        "url": "http://129.236.23.32:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 3749670831,
+        "url": "http://205.149.147.152:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in Hibbing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 546424298,
+        "url": "http://35.8.156.154:80/nph-jpeg.cgi?0",
+        "location": "Live camera StarDot in East Lansing, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:52"
+    },
+    {
+        "id": 3221266585,
+        "url": "http://108.30.103.58:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:55"
+    },
+    {
+        "id": 1543082381,
+        "url": "http://198.202.199.200:80/asp/video.cgi",
+        "location": "Live camera Vije in Santa Cruz, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:55"
+    },
+    {
+        "id": 1406354643,
+        "url": "http://192.173.155.111:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Philomath, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:55"
+    },
+    {
+        "id": 2402321093,
+        "url": "http://162.191.146.123:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:55"
+    },
+    {
+        "id": 297881252,
+        "url": "http://216.14.224.48:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Missoula, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:55"
+    },
+    {
+        "id": 4178746985,
+        "url": "http://68.170.125.44:50000/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Brainerd, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 4232379373,
+        "url": "http://162.191.109.192:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 2815673366,
+        "url": "http://216.14.224.50:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Missoula, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 1599009409,
+        "url": "http://162.191.105.29:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 1956378802,
+        "url": "http://69.75.51.194:8001/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Los Angeles, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 18544791,
+        "url": "http://162.191.224.159:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:03:57"
+    },
+    {
+        "id": 251363024,
+        "url": "http://216.14.224.49:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Missoula, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:00"
+    },
+    {
+        "id": 2690195649,
+        "url": "http://216.14.224.51:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Missoula, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:00"
+    },
+    {
+        "id": 3838028089,
+        "url": "http://166.146.177.148:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Doylestown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:00"
+    },
+    {
+        "id": 8653776,
+        "url": "http://99.172.0.26:8888/out.jpg?q=30&id=0.1317044913727916&r=COUNTER",
+        "location": "Live camera Yawcam in Lowmansville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:00"
+    },
+    {
+        "id": 1778662685,
+        "url": "http://75.144.87.12:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Livonia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:00"
+    },
+    {
+        "id": 3359754811,
+        "url": "http://162.191.205.206:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 897835540,
+        "url": "http://162.191.132.184:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 3441393657,
+        "url": "http://63.40.149.166:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Philadelphia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 393481912,
+        "url": "http://47.44.156.124:8082/mjpg/video.mjpg",
+        "location": "Live camera Axis in Traverse City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 897043374,
+        "url": "http://162.191.164.58:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 1504115556,
+        "url": "http://162.191.253.22:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:04"
+    },
+    {
+        "id": 2574002485,
+        "url": "http://162.191.105.153:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:08"
+    },
+    {
+        "id": 3617490890,
+        "url": "http://162.191.222.121:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:08"
+    },
+    {
+        "id": 3805455032,
+        "url": "http://166.252.152.10:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bedminster, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:08"
+    },
+    {
+        "id": 487225229,
+        "url": "http://75.144.87.13:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Livonia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:08"
+    },
+    {
+        "id": 335116337,
+        "url": "http://166.241.55.215:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in Danboro, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:11"
+    },
+    {
+        "id": 3825252343,
+        "url": "http://162.191.148.104:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:11"
+    },
+    {
+        "id": 1816891979,
+        "url": "http://162.191.150.111:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:11"
+    },
+    {
+        "id": 1833463528,
+        "url": "http://166.241.194.19:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bedminster, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:11"
+    },
+    {
+        "id": 2884845709,
+        "url": "http://162.191.160.62:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:11"
+    },
+    {
+        "id": 941892049,
+        "url": "http://24.236.159.170:8081/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Kalamazoo, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:15"
+    },
+    {
+        "id": 4283601130,
+        "url": "http://173.219.84.12:8000/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Pikeville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:15"
+    },
+    {
+        "id": 3483087011,
+        "url": "http://66.76.193.12:8001/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Marietta, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:15"
+    },
+    {
+        "id": 781222077,
+        "url": "http://70.61.109.142:80/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in Charlotte, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:19"
+    },
+    {
+        "id": 2393052773,
+        "url": "http://66.76.192.50:8001/jpg/image.jpg?COUNTER",
+        "location": "Live camera AxisMkII in New Bern, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:19"
+    },
+    {
+        "id": 2607873442,
+        "url": "http://162.191.10.116:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:19"
+    },
+    {
+        "id": 1872458269,
+        "url": "http://209.124.145.124:82/SnapshotJPEG?Resolution=640x480&amp;Quality=Clarity&amp;COUNTER",
+        "location": "Live camera Panasonic in Anchorage, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:19"
+    },
+    {
+        "id": 2146874874,
+        "url": "http://166.154.247.73:8081/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:19"
+    },
+    {
+        "id": 1060773605,
+        "url": "http://130.44.103.174:80/img/video.mjpeg",
+        "location": "Live camera Linksys in Princeton, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:23"
+    },
+    {
+        "id": 2008882491,
+        "url": "http://50.252.224.205:80/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Morrisville, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:23"
+    },
+    {
+        "id": 819183554,
+        "url": "http://162.191.157.177:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:23"
+    },
+    {
+        "id": 2883839121,
+        "url": "http://24.35.236.132:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Marshall, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:23"
+    },
+    {
+        "id": 2680337899,
+        "url": "http://162.191.21.62:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 4131273743,
+        "url": "http://162.191.21.62:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 1517791821,
+        "url": "http://162.191.33.81:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 656173581,
+        "url": "http://162.191.251.206:82/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 3776284559,
+        "url": "http://162.191.207.103:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 551412207,
+        "url": "http://208.107.246.94:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Sioux Falls, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:27"
+    },
+    {
+        "id": 2252488221,
+        "url": "http://63.46.210.99:80/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:30"
+    },
+    {
+        "id": 2863616881,
+        "url": "http://63.47.84.71:8001/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Live camera Canon in New York City, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:30"
+    },
+    {
+        "id": 2931078731,
+        "url": "http://72.52.116.27:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Fremont, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:30"
+    },
+    {
+        "id": 928939327,
+        "url": "http://63.44.105.207:8081/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Philadelphia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:30"
+    },
+    {
+        "id": 4134927846,
+        "url": "http://208.84.62.12:81/webcapture.jpg?command=snap&channel=1?COUNTER",
+        "location": "Live camera Hi3516 in Holyoke, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:30"
+    },
+    {
+        "id": 2693344415,
+        "url": "http://64.19.73.203:8083/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Watertown, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 964969603,
+        "url": "http://63.44.105.206:8081/cgi-bin/viewer/video.jpg?r=COUNTER",
+        "location": "Live camera Vivotek in Philadelphia, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 3428549468,
+        "url": "http://23.123.91.202:50000/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Chicago, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 1891008575,
+        "url": "http://162.191.93.187:81/cgi-bin/camera?resolution=640&amp;quality=1&amp;Language=0&amp;COUNTER",
+        "location": "Live camera PanasonicHD in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 1856643707,
+        "url": "http://162.191.93.186:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 482213533,
+        "url": "http://162.191.93.186:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:34"
+    },
+    {
+        "id": 1726187720,
+        "url": "http://166.252.95.158:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bedminster, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:39"
+    },
+    {
+        "id": 2445640666,
+        "url": "http://162.191.117.154:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:39"
+    },
+    {
+        "id": 285998686,
+        "url": "http://162.191.117.154:82/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Bellevue, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:39"
+    },
+    {
+        "id": 218083904,
+        "url": "http://207.32.162.139:80/mjpg/video.mjpg",
+        "location": "Live camera Axis in Lopez, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:39"
+    },
+    {
+        "id": 3760020309,
+        "url": "http://166.141.236.121:81/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Live camera Mobotix in Houston, United States",
+        "status": "ACTIVE",
+        "last_seen": "2026-02-22 23:04:39"
+    }
+]

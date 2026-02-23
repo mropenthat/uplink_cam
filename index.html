@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPLINK_CAM — INTERCEPT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Legal overlay: must accept before using the site -->
+  <div id="legal-modal" class="modal-overlay">
+    <div class="terminal-box">
+      <div class="terminal-header">[ LEGAL_OVERRIDE : READ_BEFORE_ACCESS ]</div>
+      <div class="terminal-body">
+        <p><span class="highlight">1. SOURCING & METADATA:</span> UPLINK_CAM is a directory and visualization tool. We do not host, own, or operate any of the surveillance feeds displayed on this interface. All data is indexed from public network sources via Insecam.org. We act as a "window," not a broadcaster.</p>
+        <p><span class="highlight">2. ANTI-HACKING POLICY:</span> No systems were bypassed to create this site. Every camera displayed here is unprotected by password security and is currently broadcasting openly to the public internet. We do not support or engage in unauthorized access to private systems.</p>
+        <p><span class="highlight">3. PRIVACY & THE "GHOST" CLAUSE:</span> If you are the owner of a camera displayed here and wish to be de-indexed, email <span class="link">uplink_cam@proton.me</span> with the camera IP/URL. Note: To truly secure your feed, you <span class="warning">MUST</span> set a password on your camera hardware.</p>
+        <p><span class="highlight">4. USER RESPONSIBILITY:</span> By clicking [ CONNECT ], you acknowledge that you are viewing publicly available information. Use this data for educational and discovery purposes only.</p>
+        <button type="button" id="connect-btn" class="legal-connect-btn">[ CONNECT ]</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="landing">
+    <p class="landing-pulse">CLICK TO INTERCEPT SIGNAL</p>
+    <p class="landing-sub">UPLINK_CAM</p>
+  </div>
+
+  <div id="viewscreen" class="hidden">
+    <!-- Glitch / scanline overlay -->
+    <div class="glitch-overlay" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- Live feed: two imgs so next is preloaded for instant UPLINK -->
+    <div class="feed-wrap">
+      <img id="camera-feed" alt="Live feed" />
+      <img id="camera-feed-next" class="hidden" alt="" aria-hidden="true" />
+      <div id="feed-placeholder">SIGNAL_LOST</div>
+    </div>
+
+    <!-- HUD top-left: feed info + Network Intelligence (IP Profile) -->
+    <div class="hud top-left">
+      <p class="blink">● SIGNAL_LIVE</p>
+      <a id="ip-link" href="#" target="_blank" rel="noopener" class="hud-link">SRC_IP: —</a>
+      <a id="map-link" href="#" target="_blank" rel="noopener" class="hud-link">LOC: —</a>
+      <p id="local-time">LOCAL_TIME: —</p>
+      <p class="hud-section-label">NET_INTEL</p>
+      <p id="net-isp">NET_ISP: —</p>
+      <p id="net-asn">ASN: —</p>
+      <p id="node-uptime">NODE_UPTIME: —</p>
+    </div>
+
+    <!-- HUD top-right: weather + countdown -->
+    <div class="hud top-right">
+      <p id="weather-display">TEMP: — | COND: —</p>
+      <p>NEXT_SHIFT: <span id="timer">05:00</span></p>
+    </div>
+
+    <!-- Bottom HUD buttons (evenly spaced) -->
+    <div class="hud-buttons-wrap">
+      <button type="button" id="snapshot-btn" class="hud-btn" title="Capture Polaroid">[ SNAPSHOT ]</button>
+      <button type="button" id="mute-feed-btn" class="hud-btn" title="Toggle feed sound">[ MUTE ]</button>
+      <button type="button" id="matrix-btn" class="hud-btn matrix-trigger" title="Command center view">[ OPEN_MATRIX ]</button>
+      <a id="report-link" href="#" class="hud-btn" title="Report this feed for review">[ REPORT_NODE ]</a>
+    </div>
+
+    <!-- Node Matrix overlay (grid of live thumbnails) -->
+    <div id="node-matrix" class="hidden">
+      <div class="matrix-header">NODE_MATRIX — Click a feed to uplink</div>
+      <div id="matrix-grid" class="matrix-grid"></div>
+      <button type="button" id="matrix-close" class="hud-btn">[ CLOSE ]</button>
+    </div>
+
+    <!-- Comms: Black Box Chat -->
+    <div id="comms-link">
+      <div class="comms-header">
+        <span>COMMS</span>
+        <span id="callsign">USER_---</span>
+      </div>
+      <div id="chat-history"></div>
+      <div class="chat-input-wrap">
+        <input type="text" id="chat-input" placeholder="TYPE_MESSAGE_" maxlength="200" />
+      </div>
+    </div>
+
+    <!-- Rare find alert (hidden by default) -->
+    <div id="rare-alert" class="hidden">
+      <p>HIGH_VALUE_FEED_DETECTED</p>
+    </div>
+
+    <!-- Flash overlay for shift -->
+    <div id="shift-flash" class="hidden"></div>
+  </div>
+
+  <!-- Snapshot canvas (offscreen for capture) -->
+  <canvas id="snapshot-canvas"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
