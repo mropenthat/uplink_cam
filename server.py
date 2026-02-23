@@ -60,7 +60,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         url,
                         headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
                     )
-                    with urllib.request.urlopen(req, timeout=20) as resp:
+                    timeout_sec = 20 if single else 300
+                    with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
                         self.send_response(200)
                         ct = resp.headers.get("Content-Type", "image/jpeg")
                         self.send_header("Content-Type", ct or "image/jpeg")
