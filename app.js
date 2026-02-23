@@ -460,13 +460,6 @@
 
   function startFeedRefresh() {
     if (feedRefreshTimer) clearInterval(feedRefreshTimer);
-    if (window.location.protocol === "https:") return;
-    feedRefreshTimer = setInterval(() => {
-      const cam = cams[currentIndex];
-      if (!cam || !visibleFeedEl) return;
-      if (visibleFeedEl.src)
-        visibleFeedEl.src = feedDisplayUrl(cam.url);
-    }, FEED_REFRESH_MS);
   }
 
   function runCountdown() {
@@ -736,9 +729,7 @@
       img.alt = cam.locationShort || "Feed";
       img.loading = "lazy";
       img.style.background = "#0a0a0a";
-      setTimeout(function () {
-        img.src = feedDisplayUrl(cam.url, true);
-      }, idx * 120);
+      img.src = feedDisplayUrl(cam.url, true);
 
       const tooltip = document.createElement("div");
       tooltip.className = "matrix-tooltip";
