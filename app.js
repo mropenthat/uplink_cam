@@ -14,6 +14,8 @@
   let cams = [];
   let thumbnailIds = new Set();
   let currentIndex = 0;
+  /** { type: 'country', value: 'Japan' } | { type: 'region', value: 'Tokyo, Japan' } | null = all */
+  let filterBy = null;
   let feedRefreshTimer = null;
   let snapshotRefreshIntervalId = null;
   let countdownTimer = null;
@@ -371,10 +373,25 @@
     return COUNTRY_CENTER[country] || [0, 0];
   }
 
+  function getFilteredCams() {
+    if (!cams.length) return [];
+    if (!filterBy) return cams;
+    if (filterBy.type === "country") {
+      return cams.filter(function (c) {
+        return c.locationShort && c.locationShort.endsWith(", " + filterBy.value);
+      });
+    }
+    if (filterBy.type === "region") {
+      return cams.filter(function (c) { return c.locationShort === filterBy.value; });
+    }
+    return cams;
+  }
+
   function getCurrentShiftIndex() {
+    const filtered = getFilteredCams();
+    if (!filtered.length) return 0;
     const shiftNumber = Math.floor(Date.now() / SHIFT_INTERVAL_MS);
-    if (!cams.length) return 0;
-    return shiftNumber % cams.length;
+    return shiftNumber % filtered.length;
   }
 
   function getNextShiftTime() {
@@ -452,13 +469,14 @@
   }
 
   function showFeed(index) {
-    if (!cams.length) return;
+    const filtered = getFilteredCams();
+    if (!filtered.length) return;
     if (snapshotRefreshIntervalId) {
       clearInterval(snapshotRefreshIntervalId);
       snapshotRefreshIntervalId = null;
     }
-    currentIndex = ((index % cams.length) + cams.length) % cams.length;
-    const cam = cams[currentIndex];
+    currentIndex = ((index % filtered.length) + filtered.length) % filtered.length;
+    const cam = filtered[currentIndex];
     const mainFeed = document.getElementById("camera-feed");
     const nextFeed = document.getElementById("camera-feed-next");
     const placeholder = document.getElementById("feed-placeholder");
@@ -467,6 +485,7 @@
     visibleFeedEl = mainFeed;
     preloadFeedEl = nextFeed;
 
+    if (placeholder) placeholder.textContent = "SIGNAL_LOST";
     placeholder.classList.remove("visible");
     mainFeed.classList.remove("hidden");
     if (nextFeed) nextFeed.classList.add("hidden");
@@ -495,15 +514,16 @@
   }
 
   function swapToPreloadedFeed() {
-    if (!cams.length || !visibleFeedEl || !preloadFeedEl) return;
-    currentIndex = (currentIndex + 1) % cams.length;
-    var cam = cams[currentIndex];
+    var filtered = getFilteredCams();
+    if (!filtered.length || !visibleFeedEl || !preloadFeedEl) return;
+    currentIndex = (currentIndex + 1) % filtered.length;
+    var cam = filtered[currentIndex];
 
     visibleFeedEl.classList.add("hidden");
     preloadFeedEl.classList.remove("hidden");
 
-    var nextIdx = (currentIndex + 1) % cams.length;
-    visibleFeedEl.src = feedDisplayUrl(cams[nextIdx].url);
+    var nextIdx = (currentIndex + 1) % filtered.length;
+    visibleFeedEl.src = feedDisplayUrl(filtered[nextIdx].url);
     setFeedErrorHandlers(visibleFeedEl);
 
     var tmp = visibleFeedEl;
@@ -601,6 +621,7 @@
       viewscreen.classList.remove("hidden");
       startFeedAmbientSound();
       loadCams().then(() => {
+        initFilterPanel();
         showFeed(getCurrentShiftIndex());
         runCountdown();
         initChat();
@@ -671,8 +692,9 @@
     input.addEventListener("keydown", (e) => {
       if (e.key !== "Enter") return;
       const text = input.value.trim();
-      if (!text || !cams[currentIndex]) return;
-      const camId = cams[currentIndex].id;
+      var filtered = getFilteredCams();
+      if (!text || !filtered[currentIndex]) return;
+      const camId = filtered[currentIndex].id;
       const msg = { callsign, text, ts: Date.now() };
       saveMessage(camId, msg);
       const history = document.getElementById("chat-history");
@@ -733,9 +755,10 @@
     const btn = document.getElementById("live-view-btn");
     if (!btn) return;
     btn.addEventListener("click", function () {
-      var cam = cams[currentIndex];
+      var cam = getFilteredCams()[currentIndex];
       if (!cam || !cam.url) return;
-      window.open(cam.url, "_blank", "noopener,noreferrer");
+      var streamUrl = getLiveStreamUrl(cam.url);
+      window.open(streamUrl, "_blank", "noopener,noreferrer");
     });
   }
 
@@ -754,6 +777,26 @@
   /** True if this URL returns one image per request (needs refresh to "play" on main feed). */
   function isSnapshotOnly(url) {
     return snapshotScore(url) >= 2;
+  }
+
+  /** For Live View: return a stream URL when the stored URL is snapshot-only (e.g. SnapshotJPEG → nphMotionJpeg). */
+  function getLiveStreamUrl(camUrl) {
+    if (!camUrl) return "";
+    var url = camUrl.trim();
+    if (snapshotScore(url) <= 1) return url;
+    try {
+      var a = document.createElement("a");
+      a.href = url;
+      var origin = a.origin || (a.protocol + "//" + a.hostname + (a.port ? ":" + a.port : ""));
+      var u = url.toLowerCase();
+      if (u.includes("snapshotjpeg")) {
+        return origin + "/nphMotionJpeg?Resolution=640x480&Quality=Standard";
+      }
+      if (u.includes("image.jpg") || u.includes("image.jpeg")) {
+        return origin + "/mjpg/video.mjpg";
+      }
+    } catch (e) {}
+    return url;
   }
 
   /*
@@ -848,10 +891,11 @@
     const prevBtn = document.getElementById("feed-prev-btn");
     const nextBtn = document.getElementById("feed-next-btn");
     function goToRandomFeed() {
-      if (!cams.length) return;
-      let idx = Math.floor(Math.random() * cams.length);
-      if (cams.length > 1 && idx === currentIndex) {
-        idx = (idx + 1) % cams.length;
+      var filtered = getFilteredCams();
+      if (!filtered.length) return;
+      let idx = Math.floor(Math.random() * filtered.length);
+      if (filtered.length > 1 && idx === currentIndex) {
+        idx = (idx + 1) % filtered.length;
       }
       showFeed(idx);
       runCountdown();
@@ -875,6 +919,90 @@
         applyFeedAmbientMute();
       });
     }
+  }
+
+  function initFilterPanel() {
+    const listEl = document.getElementById("geo-filter-list");
+    if (!listEl) return;
+
+    function applyFilter(type, value) {
+      filterBy = (type == null || type === "") ? null : { type: type, value: value };
+      currentIndex = 0;
+      var filtered = getFilteredCams();
+      listEl.querySelectorAll(".geo-filter-item").forEach(function (el) {
+        var isAll = !el.dataset.type && !el.dataset.value;
+        var isActive = (filterBy === null && isAll) || (filterBy && el.dataset.type === filterBy.type && el.dataset.value === filterBy.value);
+        el.classList.toggle("active", isActive);
+      });
+      if (filtered.length) {
+        showFeed(0);
+        runCountdown();
+      } else {
+        var mainFeed = document.getElementById("camera-feed");
+        var placeholder = document.getElementById("feed-placeholder");
+        if (mainFeed) mainFeed.classList.add("hidden");
+        if (placeholder) {
+          placeholder.textContent = "NO_NODES_IN_REGION";
+          placeholder.classList.add("visible");
+        }
+      }
+    }
+
+    listEl.innerHTML = "";
+
+    var allBtn = document.createElement("button");
+    allBtn.className = "geo-filter-item active";
+    allBtn.textContent = "[ ALL ]";
+    allBtn.dataset.type = "";
+    allBtn.dataset.value = "";
+    allBtn.addEventListener("click", function () { applyFilter("", ""); });
+    listEl.appendChild(allBtn);
+
+    var countries = {};
+    var regions = {};
+    cams.forEach(function (c) {
+      var loc = c.locationShort || "";
+      if (!loc) return;
+      var parts = loc.split(",").map(function (s) { return s.trim(); });
+      var country = parts[parts.length - 1];
+      if (country) {
+        countries[country] = (countries[country] || 0) + 1;
+        regions[loc] = (regions[loc] || 0) + 1;
+      }
+    });
+
+    var countryNames = Object.keys(countries).sort();
+    countryNames.forEach(function (country) {
+      var btn = document.createElement("button");
+      btn.className = "geo-filter-item";
+      btn.dataset.type = "country";
+      btn.dataset.value = country;
+      btn.innerHTML = escapeHtml(country) + ' <span class="count">(' + countries[country] + ")</span>";
+      btn.addEventListener("click", function () { applyFilter("country", country); });
+      listEl.appendChild(btn);
+    });
+
+    var regionNames = Object.keys(regions).filter(function (r) { return regions[r] >= 1; }).sort();
+    if (regionNames.length > 0) {
+      var sep = document.createElement("div");
+      sep.className = "geo-filter-sub";
+      sep.style.marginTop = "0.35rem";
+      sep.textContent = "— REGIONS —";
+      listEl.appendChild(sep);
+      regionNames.forEach(function (region) {
+        var btn = document.createElement("button");
+        btn.className = "geo-filter-item";
+        btn.dataset.type = "region";
+        btn.dataset.value = region;
+        btn.innerHTML = escapeHtml(region) + ' <span class="count">(' + regions[region] + ")</span>';
+        btn.addEventListener("click", function () { applyFilter("region", region); });
+        listEl.appendChild(btn);
+      });
+    }
+
+    listEl.querySelectorAll(".geo-filter-item").forEach(function (el) {
+      el.classList.toggle("active", !el.dataset.type && !el.dataset.value);
+    });
   }
 
   function initMuteButton() {
