@@ -93,13 +93,18 @@ def main():
     to_fetch = cams[:limit]
     print(f"Capturing snippets for {len(to_fetch)} nodes (limit={limit})...")
     ok = 0
+    saved_ids = []
     for c in to_fetch:
         cam_id = c.get("id")
         url = c.get("url")
         if capture_snippet(url, cam_id):
             ok += 1
+            saved_ids.append(str(cam_id))
         time.sleep(delay)
-    print(f"Done: {ok}/{len(to_fetch)} thumbnails saved to {THUMBNAILS_DIR}/")
+    list_path = os.path.join(THUMBNAILS_DIR, "list.json")
+    with open(list_path, "w", encoding="utf-8") as f:
+        json.dump(saved_ids, f)
+    print(f"Done: {ok}/{len(to_fetch)} thumbnails saved to {THUMBNAILS_DIR}/ (list.json updated)")
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@
   const STORAGE_CALLSIGN = "uplink_callsign";
   const STORAGE_CHAT = "uplink_chat";
   let cams = [];
+  let thumbnailIds = new Set();
   let currentIndex = 0;
   let feedRefreshTimer = null;
   let countdownTimer = null;
@@ -404,22 +405,32 @@
   }
 
   function loadCams() {
-    return fetch("cams.json")
-      .then((r) => r.json())
-      .then((data) => {
-        cams = (data || []).map((c) => ({
-          ...c,
-          url: normalizeUrl(c.url),
-          locationShort: parseLocation(c.location),
-        }));
-        shuffleArray(cams);
-        return cams;
+    const loadList = fetch("thumbnails/list.json")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((ids) => {
+        thumbnailIds = new Set((ids || []).map(String));
+        return thumbnailIds;
       })
-      .catch((e) => {
-        console.error("[UPLINK] Failed to load cams.json", e);
-        cams = [];
-        return cams;
-      });
+      .catch(() => (thumbnailIds = new Set()));
+    return Promise.all([
+      fetch("cams.json")
+        .then((r) => r.json())
+        .then((data) => {
+          cams = (data || []).map((c) => ({
+            ...c,
+            url: normalizeUrl(c.url),
+            locationShort: parseLocation(c.location),
+          }));
+          shuffleArray(cams);
+          return cams;
+        })
+        .catch((e) => {
+          console.error("[UPLINK] Failed to load cams.json", e);
+          cams = [];
+          return cams;
+        }),
+      loadList,
+    ]).then(([c]) => c);
   }
 
   function setFeedErrorHandlers(img) {
@@ -735,8 +746,13 @@
 
   function getRandomMatrixSlice() {
     if (!cams.length) return [];
-    const size = Math.min(MATRIX_SIZE, cams.length);
-    const shuffled = cams.slice().sort((a, b) => {
+    let pool = cams;
+    if (thumbnailIds.size > 0) {
+      pool = cams.filter((c) => thumbnailIds.has(String(c.id)));
+      if (pool.length === 0) pool = cams;
+    }
+    const size = Math.min(MATRIX_SIZE, pool.length);
+    const shuffled = pool.slice().sort((a, b) => {
       const scoreA = snapshotScore(a.url);
       const scoreB = snapshotScore(b.url);
       if (scoreB !== scoreA) return scoreB - scoreA;
