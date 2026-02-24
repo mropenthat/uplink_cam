@@ -419,7 +419,7 @@
         .then((data) => {
           cams = (data || []).map((c) => ({
             ...c,
-            url: normalizeUrl(c.url),
+            url: normalizeUrl(c.embed_url || c.url || ""),
             locationShort: parseLocation(c.location),
           }));
           shuffleArray(cams);
@@ -459,7 +459,6 @@
     }
     currentIndex = ((index % cams.length) + cams.length) % cams.length;
     const cam = cams[currentIndex];
-    // Always resolve from DOM so the correct element is updated (e.g. after matrix click).
     const mainFeed = document.getElementById("camera-feed");
     const nextFeed = document.getElementById("camera-feed-next");
     const placeholder = document.getElementById("feed-placeholder");
@@ -468,12 +467,23 @@
     visibleFeedEl = mainFeed;
     preloadFeedEl = nextFeed;
 
-    // Clear any previous error state so the new stream can show.
+    if (!cam.url) {
+      mainFeed.classList.add("hidden");
+      if (placeholder) placeholder.classList.add("visible");
+      return;
+    }
+
     placeholder.classList.remove("visible");
     mainFeed.classList.remove("hidden");
     if (nextFeed) nextFeed.classList.add("hidden");
-    mainFeed.src = feedDisplayUrl(cam.url);
-    setFeedErrorHandlers(mainFeed);
+    mainFeed.removeAttribute("src");
+    requestAnimationFrame(function () {
+      if (!mainFeed || !cams.length) return;
+      var c = cams[currentIndex];
+      if (!c || !c.url) return;
+      mainFeed.src = feedDisplayUrl(c.url);
+      setFeedErrorHandlers(mainFeed);
+    });
 
     // Only one live stream at a time (no preload) to keep Railway stress low.
     preloadFeedEl.src = "";
@@ -603,7 +613,6 @@
         showFeed(getCurrentShiftIndex());
         runCountdown();
         initChat();
-        initMatrix();
         initFeedNav();
         initMuteButton();
       });
@@ -863,16 +872,18 @@
     const prevBtn = document.getElementById("feed-prev-btn");
     const nextBtn = document.getElementById("feed-next-btn");
     if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
+      prevBtn.addEventListener("click", function () {
         if (!cams.length) return;
-        showFeed(currentIndex - 1);
+        const prevIdx = (currentIndex - 1 + cams.length) % cams.length;
+        showFeed(prevIdx);
         runCountdown();
       });
     }
     if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
+      nextBtn.addEventListener("click", function () {
         if (!cams.length) return;
-        showFeed(currentIndex + 1);
+        const nextIdx = (currentIndex + 1) % cams.length;
+        showFeed(nextIdx);
         runCountdown();
       });
     }
