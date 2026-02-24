@@ -15,6 +15,7 @@
   let thumbnailIds = new Set();
   let currentIndex = 0;
   let feedRefreshTimer = null;
+  let snapshotRefreshIntervalId = null;
   let countdownTimer = null;
   let visibleFeedEl = null;
   let preloadFeedEl = null;
@@ -452,6 +453,10 @@
 
   function showFeed(index) {
     if (!cams.length) return;
+    if (snapshotRefreshIntervalId) {
+      clearInterval(snapshotRefreshIntervalId);
+      snapshotRefreshIntervalId = null;
+    }
     currentIndex = ((index % cams.length) + cams.length) % cams.length;
     const cam = cams[currentIndex];
     if (!visibleFeedEl) visibleFeedEl = document.getElementById("camera-feed");
@@ -466,6 +471,16 @@
 
     // Only one live stream at a time (no preload) to keep Railway stress low.
     preloadFeedEl.src = "";
+
+    if (isSnapshotOnly(cam.url)) {
+      snapshotRefreshIntervalId = setInterval(function () {
+        if (!cams.length || !visibleFeedEl) return;
+        var c = cams[currentIndex];
+        if (c && isSnapshotOnly(c.url)) {
+          visibleFeedEl.src = feedDisplayUrl(c.url);
+        }
+      }, 2500);
+    }
 
     updateNodeHUD(cam);
     startFeedRefresh();
@@ -742,6 +757,11 @@
     if (u.includes("video.jpg") || u.includes("video.jpeg") || u.includes("/jpg/") || u.includes("nph-jpeg")) return 2;
     if (u.includes("mjpg") || u.includes("mjpeg") || u.includes("faststream") || u.includes("videostream")) return 1;
     return 0;
+  }
+
+  /** True if this URL returns one image per request (needs refresh to "play" on main feed). */
+  function isSnapshotOnly(url) {
+    return snapshotScore(url) >= 2;
   }
 
   /** Only cams that have a thumbnail file; matrix shows only these so every tile loads. */
