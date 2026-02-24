@@ -764,6 +764,10 @@
     return snapshotScore(url) >= 2;
   }
 
+  /*
+   * Matrix shows only cams with a thumbnail. Each tile shows the snapshot for that cam (thumbnails/{id}.jpg).
+   * Click sets main feed to that cam's stream.
+   */
   /** Only cams that have a thumbnail file; matrix shows only these so every tile loads. */
   function getRandomMatrixSlice() {
     if (!cams.length) return [];
@@ -805,6 +809,7 @@
       const globalIndex = cams.findIndex((c) => c.id === cam.id);
       const item = document.createElement("div");
       item.className = "matrix-item";
+      // index = cams array index so showFeed(i) loads the correct stream
       item.dataset.index = String(globalIndex >= 0 ? globalIndex : idx);
 
       // Matrix = static thumbnails only (no live proxy). Keeps Railway to one live stream (main feed).

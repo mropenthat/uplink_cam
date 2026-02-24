@@ -1,6 +1,7 @@
 """
 UPLINK_SITE thumbnail cache: grab one frame per camera and save to thumbnails/.
-Run periodically (e.g. cron every 6h) so the Node Matrix shows static snippets.
+Each thumbnails/{id}.jpg is a snapshot from the stream at the cam with that id in
+cams.json. Matrix shows these; click loads that cam's stream.
 Usage: python3 thumbnail_scraper.py [--limit 500] [--delay 0.5]
 """
 import json
@@ -35,6 +36,8 @@ def extract_one_image(body):
 
 def capture_snippet(cam_url, cam_id):
     """Fetch one frame from cam_url and save to thumbnails/{cam_id}.jpg (or .png)."""
+    if cam_id is None:
+        return False
     url = normalize_url(cam_url)
     if not url.startswith(("http://", "https://")):
         return False

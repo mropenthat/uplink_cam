@@ -215,6 +215,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(400, "Missing or invalid url")
             return
 
+        # Returns the list of cam ids that have a snapshot so the matrix can show only those and link thumbnail → stream by id.
         if path == "/api/thumbnail-ids":
             list_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "thumbnails", "list.json")
             try:
