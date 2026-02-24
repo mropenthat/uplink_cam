@@ -45,9 +45,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
-                self.wfile.write(body)
+                try:
+                    self.wfile.write(body)
+                except (BrokenPipeError, OSError):
+                    pass
+            except (BrokenPipeError, OSError):
+                pass
             except Exception as e:
-                self.send_error(502, "IP info error: " + str(e))
+                try:
+                    self.send_error(502, "IP info error: " + str(e))
+                except (BrokenPipeError, OSError):
+                    pass
             return
 
         if path == "/feed-proxy" and parsed.query:
@@ -71,7 +79,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                                 self.send_header("Cache-Control", "no-cache")
                                 self.send_header("Content-Length", str(len(body)))
                                 self.end_headers()
-                                self.wfile.write(body)
+                                try:
+                                    self.wfile.write(body)
+                                except (BrokenPipeError, OSError):
+                                    pass
                             else:
                                 soi = body.find(b"\xff\xd8")
                                 eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
@@ -85,9 +96,15 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                                     self.send_header("Cache-Control", "no-cache")
                                     self.send_header("Content-Length", str(len(body)))
                                     self.end_headers()
-                                    self.wfile.write(body)
+                                    try:
+                                        self.wfile.write(body)
+                                    except (BrokenPipeError, OSError):
+                                        pass
                                 else:
-                                    self.send_error(502, "No JPEG frame")
+                                    try:
+                                        self.send_error(502, "No JPEG frame")
+                                    except (BrokenPipeError, OSError):
+                                        pass
                         else:
                             self.send_response(200)
                             ct = resp.headers.get("Content-Type", "image/jpeg")
@@ -103,8 +120,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                                     self.wfile.flush()
                                 except (BrokenPipeError, OSError):
                                     break
+                except (BrokenPipeError, OSError):
+                    pass
                 except Exception as e:
-                    self.send_error(502, "Proxy error: " + str(e))
+                    try:
+                        self.send_error(502, "Proxy error: " + str(e))
+                    except (BrokenPipeError, OSError):
+                        pass
                 return
             self.send_error(400, "Missing or invalid url")
             return
@@ -126,23 +148,37 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         self.send_header("Cache-Control", "no-cache")
                         self.send_header("Content-Length", str(len(body)))
                         self.end_headers()
-                        self.wfile.write(body)
+                        try:
+                            self.wfile.write(body)
+                        except (BrokenPipeError, OSError):
+                            pass
                     else:
                         soi = body.find(b"\xff\xd8")
                         eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
                         if soi >= 0 and eoi > soi:
                             body = body[soi : eoi + 2]
                         else:
-                            self.send_error(404, "Thumbnail unavailable")
+                            try:
+                                self.send_error(404, "Thumbnail unavailable")
+                            except (BrokenPipeError, OSError):
+                                pass
                             return
                         self.send_response(200)
                         self.send_header("Content-Type", "image/jpeg")
                         self.send_header("Cache-Control", "no-cache")
                         self.send_header("Content-Length", str(len(body)))
                         self.end_headers()
-                        self.wfile.write(body)
+                        try:
+                            self.wfile.write(body)
+                        except (BrokenPipeError, OSError):
+                            pass
+                except (BrokenPipeError, OSError):
+                    pass
                 except Exception:
-                    self.send_error(404, "Thumbnail unavailable")
+                    try:
+                        self.send_error(404, "Thumbnail unavailable")
+                    except (BrokenPipeError, OSError):
+                        pass
                 return
             self.send_error(400, "Missing or invalid url")
             return
@@ -163,9 +199,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         self.send_header("Content-Type", ct)
                         self.send_header("Content-Length", str(len(body)))
                         self.end_headers()
-                        self.wfile.write(body)
+                        try:
+                            self.wfile.write(body)
+                        except (BrokenPipeError, OSError):
+                            pass
+                except (BrokenPipeError, OSError):
+                    pass
                 except Exception as e:
-                    self.send_error(502, "Proxy error: " + str(e))
+                    try:
+                        self.send_error(502, "Proxy error: " + str(e))
+                    except (BrokenPipeError, OSError):
+                        pass
                 return
             self.send_error(400, "Missing or invalid url")
             return
