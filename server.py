@@ -4,6 +4,7 @@ Run: python3 server.py
 Then open http://localhost:8080
 """
 import http.server
+import json
 import urllib.request
 import urllib.parse
 import socketserver
@@ -212,6 +213,25 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         pass
                 return
             self.send_error(400, "Missing or invalid url")
+            return
+
+        if path == "/api/thumbnail-ids":
+            list_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "thumbnails", "list.json")
+            try:
+                with open(list_path, "r", encoding="utf-8") as f:
+                    ids = json.load(f)
+            except (FileNotFoundError, json.JSONDecodeError):
+                ids = []
+            body = json.dumps(ids).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-cache")
+            self.end_headers()
+            try:
+                self.wfile.write(body)
+            except (BrokenPipeError, OSError):
+                pass
             return
 
         return http.server.SimpleHTTPRequestHandler.do_GET(self)

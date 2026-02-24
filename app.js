@@ -405,7 +405,7 @@
   }
 
   function loadCams() {
-    const loadList = fetch("thumbnails/list.json")
+    const loadList = fetch("/api/thumbnail-ids")
       .then((r) => (r.ok ? r.json() : []))
       .then((ids) => {
         thumbnailIds = new Set((ids || []).map(String));
@@ -744,13 +744,13 @@
     return 0;
   }
 
+  /** Only cams that have a thumbnail file; matrix shows only these so every tile loads. */
   function getRandomMatrixSlice() {
     if (!cams.length) return [];
-    let pool = cams;
-    if (thumbnailIds.size > 0) {
-      pool = cams.filter((c) => thumbnailIds.has(String(c.id)));
-      if (pool.length === 0) pool = cams;
-    }
+    const pool = thumbnailIds.size > 0
+      ? cams.filter((c) => thumbnailIds.has(String(c.id)))
+      : [];
+    if (pool.length === 0) return [];
     const size = Math.min(MATRIX_SIZE, pool.length);
     const shuffled = pool.slice().sort((a, b) => {
       const scoreA = snapshotScore(a.url);
@@ -774,6 +774,13 @@
     grid.innerHTML = "";
 
     const slice = getRandomMatrixSlice();
+    if (slice.length === 0) {
+      const msg = document.createElement("p");
+      msg.className = "matrix-empty-msg";
+      msg.textContent = "No thumbnail cache. Run thumbnail_scraper to populate matrix previews.";
+      grid.appendChild(msg);
+      return;
+    }
     slice.forEach((cam, idx) => {
       const globalIndex = cams.findIndex((c) => c.id === cam.id);
       const item = document.createElement("div");

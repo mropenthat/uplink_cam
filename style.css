@@ -447,6 +447,14 @@ a.hud-btn {
   opacity: 1;
 }
 
+.matrix-empty-msg {
+  color: var(--cyber-blue);
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
 #matrix-close {
   margin-top: 1rem;
 }
