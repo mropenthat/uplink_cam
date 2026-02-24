@@ -121,6 +121,31 @@
     return withTime;
   }
 
+  /** Static thumbnail cache: pre-generated snippets in /thumbnails/{id}.jpg (or .png). Use these first. */
+  function matrixStaticThumbnailUrl(camId) {
+    if (camId == null) return "";
+    return "/thumbnails/" + camId + ".jpg";
+  }
+
+  /** Fallback: try .png if .jpg missing (scraper may save PNG). */
+  function matrixStaticThumbnailPngUrl(camId) {
+    if (camId == null) return "";
+    return "/thumbnails/" + camId + ".png";
+  }
+
+  /** On-demand proxy fallback when no cached thumbnail (single frame, not video). */
+  function matrixFallbackUrl(camUrl) {
+    if (!camUrl) return "";
+    const withTime = camUrl + (camUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+    return "/feed-proxy?url=" + encodeURIComponent(withTime) + "&single=1";
+  }
+
+  var NO_SIGNAL_DATA_URI =
+    "data:image/svg+xml," +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100"><rect fill="#0f0f0f" width="150" height="100"/><text x="75" y="52" text-anchor="middle" fill="#2a2a2a" font-size="9" font-family="monospace">NO SIGNAL</text></svg>'
+    );
+
   function parseLocation(locationStr) {
     const match = locationStr && locationStr.match(/\s+in\s+(.+)$/);
     return match ? match[1].trim() : "Unknown";
@@ -428,9 +453,8 @@
     visibleFeedEl.src = feedDisplayUrl(cam.url);
     setFeedErrorHandlers(visibleFeedEl);
 
-    var nextIdx = (currentIndex + 1) % cams.length;
-    preloadFeedEl.src = feedDisplayUrl(cams[nextIdx].url);
-    setFeedErrorHandlers(preloadFeedEl);
+    // Only one live stream at a time (no preload) to keep Railway stress low.
+    preloadFeedEl.src = "";
 
     updateNodeHUD(cam);
     startFeedRefresh();
@@ -699,10 +723,25 @@
 
   const MATRIX_SIZE = 24;
 
+  /** Prefer cams that return a single image (snapshot URLs) so matrix thumbnails load reliably. */
+  function snapshotScore(url) {
+    if (!url) return 0;
+    const u = url.toLowerCase();
+    if (u.includes("snapshotjpeg") || u.includes("snapshot.cgi") || u.includes("image.jpg") || u.includes("image.jpeg")) return 3;
+    if (u.includes("video.jpg") || u.includes("video.jpeg") || u.includes("/jpg/") || u.includes("nph-jpeg")) return 2;
+    if (u.includes("mjpg") || u.includes("mjpeg") || u.includes("faststream") || u.includes("videostream")) return 1;
+    return 0;
+  }
+
   function getRandomMatrixSlice() {
     if (!cams.length) return [];
     const size = Math.min(MATRIX_SIZE, cams.length);
-    const shuffled = cams.slice().sort(() => Math.random() - 0.5);
+    const shuffled = cams.slice().sort((a, b) => {
+      const scoreA = snapshotScore(a.url);
+      const scoreB = snapshotScore(b.url);
+      if (scoreB !== scoreA) return scoreB - scoreA;
+      return Math.random() - 0.5;
+    });
     return shuffled.slice(0, size);
   }
 
@@ -725,11 +764,22 @@
       item.className = "matrix-item";
       item.dataset.index = String(globalIndex >= 0 ? globalIndex : idx);
 
+      // Matrix = static thumbnails only (no live proxy). Keeps Railway to one live stream (main feed).
       const img = document.createElement("img");
       img.alt = cam.locationShort || "Feed";
       img.loading = "lazy";
       img.style.background = "#0a0a0a";
-      img.src = feedDisplayUrl(cam.url, true);
+      img.dataset.pngUrl = matrixStaticThumbnailPngUrl(cam.id);
+      img.src = matrixStaticThumbnailUrl(cam.id);
+      img.onerror = function () {
+        if (!this.dataset.triedPng && this.dataset.pngUrl) {
+          this.dataset.triedPng = "1";
+          this.src = this.dataset.pngUrl;
+        } else {
+          this.onerror = null;
+          this.src = NO_SIGNAL_DATA_URI;
+        }
+      };
 
       const tooltip = document.createElement("div");
       tooltip.className = "matrix-tooltip";

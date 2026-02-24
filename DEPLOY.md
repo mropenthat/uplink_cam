@@ -68,6 +68,24 @@ Use a host that runs the Python server so the feed proxy works over HTTPS. Then 
 
 ---
 
+## Thumbnail cache (Node Matrix)
+
+The Node Matrix shows **static image previews** from a `thumbnails/` folder so you don’t stream 20+ cameras at once.
+
+1. **Generate thumbnails** (run from the app root, e.g. `UPLINK_SITE/`):
+   ```bash
+   python3 thumbnail_scraper.py --limit 500 --delay 0.3
+   ```
+   This pings each camera, grabs one frame, and saves it as `thumbnails/{cam_id}.jpg` (or `.png`). Default limit is 500; use `--limit 1000` for more.
+
+2. **Commit and push** the `thumbnails/` folder so your deployed site serves them. The matrix will load `/thumbnails/123.jpg` first; if missing, it falls back to the live proxy once, then “NO SIGNAL”.
+
+3. **Refresh thumbnails periodically** (e.g. every 6 hours) so the matrix stays up to date:
+   - **Railway:** Cron job or scheduled task that runs `python3 thumbnail_scraper.py` (e.g. via GitHub Actions or a separate cron service that hits your app root).
+   - **Locally:** `0 */6 * * * cd /path/to/UPLINK_SITE && python3 thumbnail_scraper.py --limit 500`.
+
+---
+
 ## Summary
 
 | Step | What to do |

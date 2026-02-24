@@ -62,37 +62,87 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     )
                     timeout_sec = 20 if single else 300
                     with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
-                        self.send_response(200)
-                        ct = resp.headers.get("Content-Type", "image/jpeg")
-                        self.send_header("Content-Type", ct or "image/jpeg")
-                        self.send_header("Cache-Control", "no-cache")
-                        self.end_headers()
-                        deadline = (_t.monotonic() + 3) if single else None
-                        max_bytes = (400 * 1024) if single else None
-                        total = 0
-                        while True:
-                            if deadline is not None and _t.monotonic() >= deadline:
-                                break
-                            chunk = resp.read(8192)
-                            if not chunk:
-                                break
-                            if max_bytes is not None and total + len(chunk) > max_bytes:
-                                take = max_bytes - total
-                                if take > 0:
-                                    try:
-                                        self.wfile.write(chunk[:take])
-                                        self.wfile.flush()
-                                    except (BrokenPipeError, OSError):
-                                        pass
-                                break
-                            total += len(chunk)
-                            try:
-                                self.wfile.write(chunk)
-                                self.wfile.flush()
-                            except (BrokenPipeError, OSError):
-                                break
+                        if single:
+                            body = resp.read(512 * 1024)
+                            ct_resp = resp.headers.get("Content-Type", "").lower()
+                            if body[:8] == b"\x89PNG\r\n\x1a\n":
+                                self.send_response(200)
+                                self.send_header("Content-Type", "image/png")
+                                self.send_header("Cache-Control", "no-cache")
+                                self.send_header("Content-Length", str(len(body)))
+                                self.end_headers()
+                                self.wfile.write(body)
+                            else:
+                                soi = body.find(b"\xff\xd8")
+                                eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
+                                if soi >= 0 and eoi > soi:
+                                    body = body[soi : eoi + 2]
+                                else:
+                                    body = None
+                                if body:
+                                    self.send_response(200)
+                                    self.send_header("Content-Type", "image/jpeg")
+                                    self.send_header("Cache-Control", "no-cache")
+                                    self.send_header("Content-Length", str(len(body)))
+                                    self.end_headers()
+                                    self.wfile.write(body)
+                                else:
+                                    self.send_error(502, "No JPEG frame")
+                        else:
+                            self.send_response(200)
+                            ct = resp.headers.get("Content-Type", "image/jpeg")
+                            self.send_header("Content-Type", ct or "image/jpeg")
+                            self.send_header("Cache-Control", "no-cache")
+                            self.end_headers()
+                            while True:
+                                chunk = resp.read(8192)
+                                if not chunk:
+                                    break
+                                try:
+                                    self.wfile.write(chunk)
+                                    self.wfile.flush()
+                                except (BrokenPipeError, OSError):
+                                    break
                 except Exception as e:
                     self.send_error(502, "Proxy error: " + str(e))
+                return
+            self.send_error(400, "Missing or invalid url")
+            return
+
+        if path == "/thumbnail" and parsed.query:
+            params = urllib.parse.parse_qs(parsed.query)
+            url = params.get("url", [None])[0]
+            if url and url.startswith(("http://", "https://")):
+                try:
+                    req = urllib.request.Request(
+                        url,
+                        headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
+                    )
+                    with urllib.request.urlopen(req, timeout=12) as resp:
+                        body = resp.read(512 * 1024)
+                    if body[:8] == b"\x89PNG\r\n\x1a\n":
+                        self.send_response(200)
+                        self.send_header("Content-Type", "image/png")
+                        self.send_header("Cache-Control", "no-cache")
+                        self.send_header("Content-Length", str(len(body)))
+                        self.end_headers()
+                        self.wfile.write(body)
+                    else:
+                        soi = body.find(b"\xff\xd8")
+                        eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
+                        if soi >= 0 and eoi > soi:
+                            body = body[soi : eoi + 2]
+                        else:
+                            self.send_error(404, "Thumbnail unavailable")
+                            return
+                        self.send_response(200)
+                        self.send_header("Content-Type", "image/jpeg")
+                        self.send_header("Cache-Control", "no-cache")
+                        self.send_header("Content-Length", str(len(body)))
+                        self.end_headers()
+                        self.wfile.write(body)
+                except Exception:
+                    self.send_error(404, "Thumbnail unavailable")
                 return
             self.send_error(400, "Missing or invalid url")
             return
@@ -129,6 +179,7 @@ if __name__ == "__main__":
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("Serving UPLINK_SITE at http://localhost:" + str(PORT))
         print("Feed proxy: /feed-proxy?url=... (for HTTPS)")
+        print("Thumbnail: /thumbnail?url=... (matrix static previews)")
         print("Snapshot proxy: /snapshot-proxy?url=...")
         print("IP info: /ipinfo?ip=...")
         httpd.serve_forever()

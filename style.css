@@ -379,9 +379,23 @@ a.hud-btn {
   padding: 1rem;
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(57, 255, 20, 0.25);
-  filter: grayscale(100%) contrast(1.2);
   flex: 1;
   align-content: start;
+  position: relative;
+}
+
+.matrix-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
 }
 
 .matrix-item {
@@ -406,6 +420,12 @@ a.hud-btn {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(100%) brightness(0.7);
+  transition: filter 0.3s;
+}
+
+.matrix-item:hover img {
+  filter: grayscale(0) brightness(1);
 }
 
 .matrix-item .matrix-tooltip {
