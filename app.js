@@ -459,15 +459,21 @@
     }
     currentIndex = ((index % cams.length) + cams.length) % cams.length;
     const cam = cams[currentIndex];
-    if (!visibleFeedEl) visibleFeedEl = document.getElementById("camera-feed");
-    if (!preloadFeedEl) preloadFeedEl = document.getElementById("camera-feed-next");
+    // Always resolve from DOM so the correct element is updated (e.g. after matrix click).
+    const mainFeed = document.getElementById("camera-feed");
+    const nextFeed = document.getElementById("camera-feed-next");
     const placeholder = document.getElementById("feed-placeholder");
+    if (!mainFeed) return;
 
+    visibleFeedEl = mainFeed;
+    preloadFeedEl = nextFeed;
+
+    // Clear any previous error state so the new stream can show.
     placeholder.classList.remove("visible");
-    visibleFeedEl.classList.remove("hidden");
-    preloadFeedEl.classList.add("hidden");
-    visibleFeedEl.src = feedDisplayUrl(cam.url);
-    setFeedErrorHandlers(visibleFeedEl);
+    mainFeed.classList.remove("hidden");
+    if (nextFeed) nextFeed.classList.add("hidden");
+    mainFeed.src = feedDisplayUrl(cam.url);
+    setFeedErrorHandlers(mainFeed);
 
     // Only one live stream at a time (no preload) to keep Railway stress low.
     preloadFeedEl.src = "";
@@ -598,6 +604,7 @@
         runCountdown();
         initChat();
         initMatrix();
+        initFeedNav();
         initMuteButton();
       });
     });
@@ -841,6 +848,7 @@
         var i = parseInt(item.dataset.index, 10);
         if (Number.isNaN(i) || i < 0) return;
         showFeed(i);
+        runCountdown();
         viewscreen.classList.remove("matrix-open");
         panel.classList.add("hidden");
         feedMatrixOpen = false;
@@ -849,6 +857,25 @@
 
       grid.appendChild(item);
     });
+  }
+
+  function initFeedNav() {
+    const prevBtn = document.getElementById("feed-prev-btn");
+    const nextBtn = document.getElementById("feed-next-btn");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        if (!cams.length) return;
+        showFeed(currentIndex - 1);
+        runCountdown();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (!cams.length) return;
+        showFeed(currentIndex + 1);
+        runCountdown();
+      });
+    }
   }
 
   function initMatrix() {
