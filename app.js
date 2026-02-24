@@ -467,34 +467,27 @@
     visibleFeedEl = mainFeed;
     preloadFeedEl = nextFeed;
 
-    if (!cam.url) {
-      mainFeed.classList.add("hidden");
-      if (placeholder) placeholder.classList.add("visible");
-      return;
-    }
-
     placeholder.classList.remove("visible");
     mainFeed.classList.remove("hidden");
     if (nextFeed) nextFeed.classList.add("hidden");
-    mainFeed.removeAttribute("src");
-    requestAnimationFrame(function () {
-      if (!mainFeed || !cams.length) return;
-      var c = cams[currentIndex];
-      if (!c || !c.url) return;
-      mainFeed.src = feedDisplayUrl(c.url);
-      setFeedErrorHandlers(mainFeed);
-    });
-
-    // Only one live stream at a time (no preload) to keep Railway stress low.
     preloadFeedEl.src = "";
 
-    // Proxy returns one frame per request (no long-lived stream). Refresh so the feed keeps updating.
-    var refreshMs = 3000;
-    snapshotRefreshIntervalId = setInterval(function () {
-      if (!cams.length || !visibleFeedEl) return;
-      var c = cams[currentIndex];
-      if (c && c.url) visibleFeedEl.src = feedDisplayUrl(c.url);
-    }, refreshMs);
+    // Main view = thumbnails only (no proxy) to keep bandwidth down.
+    mainFeed.removeAttribute("src");
+    mainFeed.dataset.pngUrl = matrixStaticThumbnailPngUrl(cam.id);
+    mainFeed.src = matrixStaticThumbnailUrl(cam.id);
+    mainFeed.onerror = function () {
+      if (!this.dataset.triedPng && this.dataset.pngUrl) {
+        this.dataset.triedPng = "1";
+        this.src = this.dataset.pngUrl;
+      } else {
+        this.onerror = null;
+        this.src = NO_SIGNAL_DATA_URI;
+      }
+    };
+    mainFeed.onload = function () {
+      if (placeholder) placeholder.classList.remove("visible");
+    };
 
     updateNodeHUD(cam);
     startFeedRefresh();
@@ -612,6 +605,7 @@
         runCountdown();
         initChat();
         initFeedNav();
+        initLiveView();
         initMuteButton();
       });
     });
@@ -735,29 +729,13 @@
     img.src = proxyUrl;
   }
 
-  function initSnapshot() {
-    const btn = document.getElementById("snapshot-btn");
-    const canvas = document.getElementById("snapshot-canvas");
-    btn.addEventListener("click", () => {
-      const cam = cams[currentIndex];
-      drawSnapshotToCanvas(canvas, cam, (err) => {
-        if (err) {
-          const feed = visibleFeedEl || document.getElementById("camera-feed");
-          if (cam && feed && feed.src) {
-            const a = document.createElement("a");
-            a.href = feed.src;
-            a.download = "uplink_snapshot_" + Date.now() + ".jpg";
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.click();
-          }
-          return;
-        }
-        const link = document.createElement("a");
-        link.download = "uplink_snapshot_" + Date.now() + ".png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-      });
+  function initLiveView() {
+    const btn = document.getElementById("live-view-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var cam = cams[currentIndex];
+      if (!cam || !cam.url) return;
+      window.open(cam.url, "_blank", "noopener,noreferrer");
     });
   }
 
@@ -923,7 +901,6 @@
     const connectBtn = document.getElementById("connect-btn");
     if (connectBtn) connectBtn.addEventListener("click", acceptLegal);
     initLanding();
-    initSnapshot();
   }
 
   init();
