@@ -13,6 +13,9 @@ import re
 import time as _t
 
 PORT = int(os.environ.get("PORT", "8080"))
+# One-frame timeout: avoid long-lived streams so Railway doesn't overload (concurrent connection limit).
+FEED_PROXY_TIMEOUT = 8
+FEED_PROXY_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 
 def is_safe_ip(ip):
@@ -62,21 +65,32 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if path == "/feed-proxy" and parsed.query:
             params = urllib.parse.parse_qs(parsed.query)
             url = params.get("url", [None])[0]
-            single = params.get("single", [None])[0] in ("1", "true", "yes")
             if url and url.startswith(("http://", "https://")):
                 try:
                     req = urllib.request.Request(
                         url,
-                        headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
+                        headers={"User-Agent": FEED_PROXY_USER_AGENT},
                     )
-                    timeout_sec = 20 if single else 300
-                    with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
-                        if single:
-                            body = resp.read(512 * 1024)
-                            ct_resp = resp.headers.get("Content-Type", "").lower()
-                            if body[:8] == b"\x89PNG\r\n\x1a\n":
+                    # One frame only + short timeout: avoid long-lived MJPEG streams so Railway doesn't overload.
+                    with urllib.request.urlopen(req, timeout=FEED_PROXY_TIMEOUT) as resp:
+                        body = resp.read(512 * 1024)
+                        if body[:8] == b"\x89PNG\r\n\x1a\n":
+                            self.send_response(200)
+                            self.send_header("Content-Type", "image/png")
+                            self.send_header("Cache-Control", "no-cache")
+                            self.send_header("Content-Length", str(len(body)))
+                            self.end_headers()
+                            try:
+                                self.wfile.write(body)
+                            except (BrokenPipeError, OSError):
+                                pass
+                        else:
+                            soi = body.find(b"\xff\xd8")
+                            eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
+                            if soi >= 0 and eoi > soi:
+                                body = body[soi : eoi + 2]
                                 self.send_response(200)
-                                self.send_header("Content-Type", "image/png")
+                                self.send_header("Content-Type", "image/jpeg")
                                 self.send_header("Cache-Control", "no-cache")
                                 self.send_header("Content-Length", str(len(body)))
                                 self.end_headers()
@@ -85,47 +99,15 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                                 except (BrokenPipeError, OSError):
                                     pass
                             else:
-                                soi = body.find(b"\xff\xd8")
-                                eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
-                                if soi >= 0 and eoi > soi:
-                                    body = body[soi : eoi + 2]
-                                else:
-                                    body = None
-                                if body:
-                                    self.send_response(200)
-                                    self.send_header("Content-Type", "image/jpeg")
-                                    self.send_header("Cache-Control", "no-cache")
-                                    self.send_header("Content-Length", str(len(body)))
-                                    self.end_headers()
-                                    try:
-                                        self.wfile.write(body)
-                                    except (BrokenPipeError, OSError):
-                                        pass
-                                else:
-                                    try:
-                                        self.send_error(502, "No JPEG frame")
-                                    except (BrokenPipeError, OSError):
-                                        pass
-                        else:
-                            self.send_response(200)
-                            ct = resp.headers.get("Content-Type", "image/jpeg")
-                            self.send_header("Content-Type", ct or "image/jpeg")
-                            self.send_header("Cache-Control", "no-cache")
-                            self.end_headers()
-                            while True:
-                                chunk = resp.read(8192)
-                                if not chunk:
-                                    break
                                 try:
-                                    self.wfile.write(chunk)
-                                    self.wfile.flush()
+                                    self.send_error(502, "No JPEG frame")
                                 except (BrokenPipeError, OSError):
-                                    break
+                                    pass
                 except (BrokenPipeError, OSError):
                     pass
                 except Exception as e:
                     try:
-                        self.send_error(502, "Proxy error: " + str(e))
+                        self.send_error(504, "Proxy error: " + str(e))
                     except (BrokenPipeError, OSError):
                         pass
                 return

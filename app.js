@@ -488,15 +488,13 @@
     // Only one live stream at a time (no preload) to keep Railway stress low.
     preloadFeedEl.src = "";
 
-    if (isSnapshotOnly(cam.url)) {
-      snapshotRefreshIntervalId = setInterval(function () {
-        if (!cams.length || !visibleFeedEl) return;
-        var c = cams[currentIndex];
-        if (c && isSnapshotOnly(c.url)) {
-          visibleFeedEl.src = feedDisplayUrl(c.url);
-        }
-      }, 2500);
-    }
+    // Proxy returns one frame per request (no long-lived stream). Refresh so the feed keeps updating.
+    var refreshMs = 3000;
+    snapshotRefreshIntervalId = setInterval(function () {
+      if (!cams.length || !visibleFeedEl) return;
+      var c = cams[currentIndex];
+      if (c && c.url) visibleFeedEl.src = feedDisplayUrl(c.url);
+    }, refreshMs);
 
     updateNodeHUD(cam);
     startFeedRefresh();
@@ -871,22 +869,17 @@
   function initFeedNav() {
     const prevBtn = document.getElementById("feed-prev-btn");
     const nextBtn = document.getElementById("feed-next-btn");
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        if (!cams.length) return;
-        const prevIdx = (currentIndex - 1 + cams.length) % cams.length;
-        showFeed(prevIdx);
-        runCountdown();
-      });
+    function goToRandomFeed() {
+      if (!cams.length) return;
+      let idx = Math.floor(Math.random() * cams.length);
+      if (cams.length > 1 && idx === currentIndex) {
+        idx = (idx + 1) % cams.length;
+      }
+      showFeed(idx);
+      runCountdown();
     }
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        if (!cams.length) return;
-        const nextIdx = (currentIndex + 1) % cams.length;
-        showFeed(nextIdx);
-        runCountdown();
-      });
-    }
+    if (prevBtn) prevBtn.addEventListener("click", goToRandomFeed);
+    if (nextBtn) nextBtn.addEventListener("click", goToRandomFeed);
   }
 
   function initMatrix() {
