@@ -1,24 +1,17 @@
 /**
- * UPLINK_CAM — Sync-jump, Black Box Chat, Snapshot, Node Matrix
+ * UPLINK_CAM — Sync-jump, Snapshot
  * Feeds from cams.json (scraper output).
  */
 
 (function () {
   "use strict";
 
-  const SHIFT_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — everyone jumps at same UTC window
   const FEED_REFRESH_MS = 3000;
-  const MSG_BURN_MS = 60 * 1000;
-  const STORAGE_CALLSIGN = "uplink_callsign";
-  const STORAGE_CHAT = "uplink_chat";
   let cams = [];
+  let feedCams = []; // only cams with thumbnails (signal); no-signal feeds excluded
   let thumbnailIds = new Set();
   let currentIndex = 0;
-  /** { type: 'country', value: 'Japan' } | { type: 'region', value: 'Tokyo, Japan' } | null = all */
-  let filterBy = null;
   let feedRefreshTimer = null;
-  let snapshotRefreshIntervalId = null;
-  let countdownTimer = null;
   let visibleFeedEl = null;
   let preloadFeedEl = null;
   let feedAudioCtx = null;
@@ -53,6 +46,12 @@
     "Lima, Peru": [-12.05, -77.04],
     "Blairsville, United States": [34.88, -83.96],
     "Sochi, Russian Federation": [43.59, 39.73],
+    "San Diego, United States": [32.72, -117.16],
+    "Las Vegas, United States": [36.17, -115.14],
+    "Boca Raton, United States": [26.35, -80.09],
+    "Albany, United States": [42.65, -73.76],
+    "Monterey, United States": [36.60, -121.89],
+    "Evansville, United States": [37.97, -87.57],
   };
 
   const COUNTRY_CENTER = {
@@ -113,11 +112,11 @@
     return url.replace(/&amp;/g, "&");
   }
 
-  /** When page is HTTPS, browser blocks HTTP images (mixed content). Use same-origin proxy. singleFrame=true for matrix thumbnails (one snapshot). */
+  /** singleFrame=true: always use proxy so we get one still image (no MJPEG stream in <img>). Otherwise use proxy on HTTPS for mixed content. */
   function feedDisplayUrl(camUrl, singleFrame) {
     if (!camUrl) return "";
     const withTime = camUrl + (camUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
-    if (window.location.protocol === "https:" && camUrl.startsWith("http://")) {
+    if (singleFrame || (window.location.protocol === "https:" && camUrl.startsWith("http://"))) {
       var proxy = "/feed-proxy?url=" + encodeURIComponent(withTime);
       if (singleFrame) proxy += "&single=1";
       return proxy;
@@ -150,9 +149,55 @@
       '<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100"><rect fill="#0f0f0f" width="150" height="100"/><text x="75" y="52" text-anchor="middle" fill="#2a2a2a" font-size="9" font-family="monospace">NO SIGNAL</text></svg>'
     );
 
+  /** Cyrillic -> Latin for US city names that appear in Cyrillic in source data */
+  var CYRILLIC_TO_LATIN = {
+    "\u0410": "A", "\u0411": "B", "\u0412": "V", "\u0413": "G", "\u0414": "D", "\u0415": "E", "\u0416": "Zh", "\u0417": "Z",
+    "\u0418": "I", "\u0419": "Y", "\u041a": "K", "\u041b": "L", "\u041c": "M", "\u041d": "N", "\u041e": "O", "\u041f": "P",
+    "\u0420": "R", "\u0421": "S", "\u0422": "T", "\u0423": "U", "\u0424": "F", "\u0425": "Kh", "\u0426": "Ts", "\u0427": "Ch",
+    "\u0428": "Sh", "\u0429": "Shch", "\u042a": "", "\u042b": "Y", "\u042c": "", "\u042d": "E", "\u042e": "Yu", "\u042f": "Ya",
+    "\u0430": "a", "\u0431": "b", "\u0432": "v", "\u0433": "g", "\u0434": "d", "\u0435": "e", "\u0436": "zh", "\u0437": "z",
+    "\u0438": "i", "\u0439": "y", "\u043a": "k", "\u043b": "l", "\u043c": "m", "\u043d": "n", "\u043e": "o", "\u043f": "p",
+    "\u0440": "r", "\u0441": "s", "\u0442": "t", "\u0443": "u", "\u0444": "f", "\u0445": "kh", "\u0446": "ts", "\u0447": "ch",
+    "\u0448": "sh", "\u0449": "shch", "\u044a": "", "\u044b": "y", "\u044c": "", "\u044d": "e", "\u044e": "yu", "\u044f": "ya",
+    "\u0451": "e", "\u0401": "E"
+  };
+  function transliterateCyrillicToLatin(str) {
+    if (!str || !/[\u0400-\u04FF]/.test(str)) return str;
+    var out = "";
+    for (var i = 0; i < str.length; i++) {
+      out += CYRILLIC_TO_LATIN[str[i]] !== undefined ? CYRILLIC_TO_LATIN[str[i]] : str[i];
+    }
+    return out;
+  }
+
   function parseLocation(locationStr) {
-    const match = locationStr && locationStr.match(/\s+in\s+(.+)$/);
-    return match ? match[1].trim() : "Unknown";
+    if (!locationStr || !locationStr.trim()) return "Unknown";
+    const s = locationStr.trim();
+    // View-page format: "Click here to enter the camera located in United States, region California, San Diego"
+    const regionMatch = s.match(/located\s+in\s+([^,]+),\s*region\s+[^,]+,\s*(.+)$/i);
+    var result = regionMatch ? (regionMatch[2] + ", " + regionMatch[1]).trim() : null;
+    if (!result) {
+      // Listing format: "Live camera Axis in San Diego, United States"
+      const inMatch = s.match(/\s+in\s+(.+)$/);
+      result = inMatch ? inMatch[1].trim() : s;
+    }
+    // If it's a US location with Cyrillic city name, show city in English
+    if (result && /,\s*United States\s*$/i.test(result) && /[\u0400-\u04FF]/.test(result)) {
+      var cityPart = result.replace(/\s*,\s*United States\s*$/i, "");
+      var englishCity = {
+        "Лас-Вегас": "Las Vegas", "Бока-Ратон": "Boca Raton", "Олбани": "Albany", "Монтерей": "Monterey",
+        "Эвансвилл": "Evansville", "Лас Вегас": "Las Vegas", "Бока Ратон": "Boca Raton"
+      }[cityPart];
+      if (englishCity) result = englishCity + ", United States";
+      else {
+        var parts = result.split(/\s*,\s*/);
+        if (parts.length >= 2) {
+          parts[0] = transliterateCyrillicToLatin(parts[0]).trim();
+          result = parts.join(", ");
+        }
+      }
+    }
+    return result;
   }
 
   function extractIP(url) {
@@ -221,6 +266,77 @@
     return Date.now() - d.getTime();
   }
 
+  /** US state / region name → IANA timezone (for camera local time). */
+  var LOCATION_TO_TZ = {
+    Alabama: "America/Chicago", Alaska: "America/Anchorage", Arizona: "America/Phoenix", Arkansas: "America/Chicago",
+    California: "America/Los_Angeles", Colorado: "America/Denver", Connecticut: "America/New_York",
+    Delaware: "America/New_York", "District of Columbia": "America/New_York", Florida: "America/New_York",
+    Georgia: "America/New_York", Hawaii: "Pacific/Honolulu", Idaho: "America/Boise", Illinois: "America/Chicago",
+    Indiana: "America/Indiana/Indianapolis", Iowa: "America/Chicago", Kansas: "America/Chicago",
+    Kentucky: "America/Kentucky/Louisville", Louisiana: "America/Chicago", Maine: "America/New_York",
+    Maryland: "America/New_York", Massachusetts: "America/New_York", Michigan: "America/Detroit",
+    Minnesota: "America/Chicago", Mississippi: "America/Chicago", Missouri: "America/Chicago",
+    Montana: "America/Denver", Nebraska: "America/Chicago", Nevada: "America/Los_Angeles",
+    "New Hampshire": "America/New_York", "New Jersey": "America/New_York", "New Mexico": "America/Denver",
+    "New York": "America/New_York", "North Carolina": "America/New_York", "North Dakota": "America/Chicago",
+    Ohio: "America/New_York", Oklahoma: "America/Chicago", Oregon: "America/Los_Angeles",
+    Pennsylvania: "America/New_York", "Rhode Island": "America/New_York", "South Carolina": "America/New_York",
+    "South Dakota": "America/Chicago", Tennessee: "America/Chicago", Texas: "America/Chicago",
+    Utah: "America/Denver", Vermont: "America/New_York", Virginia: "America/New_York",
+    Washington: "America/Los_Angeles", "West Virginia": "America/New_York", Wisconsin: "America/Chicago",
+    Wyoming: "America/Denver"
+  };
+  var COUNTRY_TO_TZ = {
+    Japan: "Asia/Tokyo", Mexico: "America/Mexico_City", "United Kingdom": "Europe/London", UK: "Europe/London",
+    Germany: "Europe/Berlin", France: "Europe/Paris", Spain: "Europe/Madrid", Italy: "Europe/Rome",
+    "South Korea": "Asia/Seoul", Korea: "Asia/Seoul", India: "Asia/Kolkata", Brazil: "America/Sao_Paulo",
+    Canada: "America/Toronto", Australia: "Australia/Sydney", Russia: "Europe/Moscow", China: "Asia/Shanghai"
+  };
+
+  function getTimezoneForLocation(locationStr) {
+    if (!locationStr || !String(locationStr).trim()) return null;
+    var s = String(locationStr).trim();
+    var regionMatch = s.match(/region\s+([^,]+)/i);
+    if (regionMatch) {
+      var region = regionMatch[1].trim();
+      if (LOCATION_TO_TZ[region]) return LOCATION_TO_TZ[region];
+    }
+    if (/United States/i.test(s)) return "America/New_York";
+    for (var country in COUNTRY_TO_TZ) {
+      if (s.indexOf(country) >= 0) return COUNTRY_TO_TZ[country];
+    }
+    return null;
+  }
+
+  function pad2(n) { return String(n).length >= 2 ? String(n) : "0" + n; }
+
+  /** Format current time in the camera's local timezone (YYYY-MM-DD HH:MM:SS). */
+  function formatLocalTimeForCam(cam) {
+    if (!cam) return "—";
+    var tz = getTimezoneForLocation(cam.location);
+    try {
+      if (tz) {
+        var d = new Date();
+        var formatter = new Intl.DateTimeFormat("en-CA", {
+          timeZone: tz,
+          year: "numeric", month: "2-digit", day: "2-digit",
+          hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+        });
+        var parts = formatter.formatToParts(d);
+        var get = function (type) { return (parts.find(function (p) { return p.type === type; }) || {}).value || ""; };
+        return get("year") + "-" + pad2(get("month")) + "-" + pad2(get("day")) + " " +
+          pad2(get("hour")) + ":" + pad2(get("minute")) + ":" + pad2(get("second"));
+      }
+      var d = new Date();
+      return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()) + " " +
+        pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + ":" + pad2(d.getSeconds());
+    } catch (e) {
+      var d = new Date();
+      return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()) + " " +
+        pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + ":" + pad2(d.getSeconds());
+    }
+  }
+
   function updateNodeHUD(cam) {
     const ipLink = document.getElementById("ip-link");
     const mapLink = document.getElementById("map-link");
@@ -241,8 +357,28 @@
       mapLink.textContent = "LOC: " + cam.locationShort;
     }
     if (localTimeEl)
-      localTimeEl.textContent =
-        "LOCAL_TIME: " + new Date().toISOString().slice(0, 19).replace("T", " ");
+      localTimeEl.textContent = "LOCAL_TIME: " + formatLocalTimeForCam(cam);
+
+    var visitsEl = document.getElementById("viewers-count");
+    if (visitsEl) visitsEl.textContent = "…";
+    var camId = cam && (cam.id != null) ? String(cam.id) : "";
+    if (!camId) {
+      if (visitsEl) visitsEl.textContent = "—";
+    } else {
+      fetch("/api/cam-visit?cam_id=" + encodeURIComponent(camId))
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          var el = document.getElementById("viewers-count");
+          if (el) el.textContent = typeof data.count === "number" ? data.count : "—";
+        })
+        .catch(function () {
+          var el = document.getElementById("viewers-count");
+          if (el) el.textContent = "—";
+        });
+    }
 
     if (netIspEl) netIspEl.textContent = "NET_ISP: —";
     if (netAsnEl) netAsnEl.textContent = "ASN: —";
@@ -373,47 +509,6 @@
     return COUNTRY_CENTER[country] || [0, 0];
   }
 
-  function getFilteredCams() {
-    if (!cams.length) return [];
-    if (!filterBy) return cams;
-    if (filterBy.type === "country") {
-      return cams.filter(function (c) {
-        return c.locationShort && c.locationShort.endsWith(", " + filterBy.value);
-      });
-    }
-    if (filterBy.type === "region") {
-      return cams.filter(function (c) { return c.locationShort === filterBy.value; });
-    }
-    return cams;
-  }
-
-  function getCurrentShiftIndex() {
-    const filtered = getFilteredCams();
-    if (!filtered.length) return 0;
-    const shiftNumber = Math.floor(Date.now() / SHIFT_INTERVAL_MS);
-    return shiftNumber % filtered.length;
-  }
-
-  function getNextShiftTime() {
-    return (Math.floor(Date.now() / SHIFT_INTERVAL_MS) + 1) * SHIFT_INTERVAL_MS;
-  }
-
-  function formatCountdown(ms) {
-    const s = Math.max(0, Math.ceil(ms / 1000));
-    const m = Math.floor(s / 60);
-    const sec = s % 60;
-    return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-  }
-
-  function getCallsign() {
-    let id = sessionStorage.getItem(STORAGE_CALLSIGN);
-    if (!id) {
-      id = "USER_" + String(Math.floor(Math.random() * 900) + 100);
-      sessionStorage.setItem(STORAGE_CALLSIGN, id);
-    }
-    return id;
-  }
-
   function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -431,7 +526,7 @@
       })
       .catch(() => (thumbnailIds = new Set()));
     return Promise.all([
-      fetch("cams.json")
+      fetch("cams.json?t=" + Date.now())
         .then((r) => r.json())
         .then((data) => {
           cams = (data || []).map((c) => ({
@@ -468,15 +563,18 @@
     };
   }
 
+  /** When current feed shows no signal, skip to the next feed (keep cam in list so pool stays full). */
+  function skipNoSignalToNext() {
+    if (feedCams.length <= 0) return;
+    var nextIdx = (currentIndex + 1) % feedCams.length;
+    if (nextIdx === currentIndex) return; // only one cam left
+    showFeed(nextIdx);
+  }
+
   function showFeed(index) {
-    const filtered = getFilteredCams();
-    if (!filtered.length) return;
-    if (snapshotRefreshIntervalId) {
-      clearInterval(snapshotRefreshIntervalId);
-      snapshotRefreshIntervalId = null;
-    }
-    currentIndex = ((index % filtered.length) + filtered.length) % filtered.length;
-    const cam = filtered[currentIndex];
+    if (!feedCams.length) return;
+    currentIndex = ((index % feedCams.length) + feedCams.length) % feedCams.length;
+    const cam = feedCams[currentIndex];
     const mainFeed = document.getElementById("camera-feed");
     const nextFeed = document.getElementById("camera-feed-next");
     const placeholder = document.getElementById("feed-placeholder");
@@ -485,45 +583,70 @@
     visibleFeedEl = mainFeed;
     preloadFeedEl = nextFeed;
 
-    if (placeholder) placeholder.textContent = "SIGNAL_LOST";
+    if (!cam.url) {
+      mainFeed.classList.add("hidden");
+      if (placeholder) placeholder.classList.add("visible");
+      return;
+    }
+
     placeholder.classList.remove("visible");
     mainFeed.classList.remove("hidden");
     if (nextFeed) nextFeed.classList.add("hidden");
     preloadFeedEl.src = "";
 
-    // Main view = thumbnails only (no proxy) to keep bandwidth down.
+    // Main view = screenshot/thumbnail only; click opens live feed in new tab.
     mainFeed.removeAttribute("src");
     mainFeed.dataset.pngUrl = matrixStaticThumbnailPngUrl(cam.id);
-    mainFeed.src = matrixStaticThumbnailUrl(cam.id);
-    mainFeed.onerror = function () {
-      if (!this.dataset.triedPng && this.dataset.pngUrl) {
-        this.dataset.triedPng = "1";
-        this.src = this.dataset.pngUrl;
-      } else {
+    // If we know this cam has no thumbnail file, use snapshot URL (via proxy on HTTPS) immediately.
+    var hasThumb = thumbnailIds.size > 0 && thumbnailIds.has(String(cam.id));
+    if (!hasThumb && cam.url) {
+      mainFeed.src = feedDisplayUrl(cam.url, true);
+      mainFeed.onerror = function () {
         this.onerror = null;
         this.src = NO_SIGNAL_DATA_URI;
-      }
-    };
+        skipNoSignalToNext();
+      };
+    } else {
+      mainFeed.src = matrixStaticThumbnailUrl(cam.id);
+      mainFeed.onerror = function () {
+        if (!this.dataset.triedPng && this.dataset.pngUrl) {
+          this.dataset.triedPng = "1";
+          this.src = this.dataset.pngUrl;
+        } else if (!this.dataset.triedSnapshot && cam.url) {
+          this.dataset.triedSnapshot = "1";
+          var el = this;
+          this.onerror = function () {
+            el.onerror = null;
+            el.src = NO_SIGNAL_DATA_URI;
+            skipNoSignalToNext();
+          };
+          this.src = feedDisplayUrl(cam.url, true);
+        } else {
+          this.onerror = null;
+          this.src = NO_SIGNAL_DATA_URI;
+          skipNoSignalToNext();
+        }
+      };
+    }
     mainFeed.onload = function () {
       if (placeholder) placeholder.classList.remove("visible");
     };
+    if (placeholder) placeholder.textContent = "SIGNAL_LOST";
 
     updateNodeHUD(cam);
     startFeedRefresh();
-    renderChatForCam(cam.id);
   }
 
   function swapToPreloadedFeed() {
-    var filtered = getFilteredCams();
-    if (!filtered.length || !visibleFeedEl || !preloadFeedEl) return;
-    currentIndex = (currentIndex + 1) % filtered.length;
-    var cam = filtered[currentIndex];
+    if (!feedCams.length || !visibleFeedEl || !preloadFeedEl) return;
+    currentIndex = (currentIndex + 1) % feedCams.length;
+    var cam = feedCams[currentIndex];
 
     visibleFeedEl.classList.add("hidden");
     preloadFeedEl.classList.remove("hidden");
 
-    var nextIdx = (currentIndex + 1) % filtered.length;
-    visibleFeedEl.src = feedDisplayUrl(filtered[nextIdx].url);
+    var nextIdx = (currentIndex + 1) % feedCams.length;
+    visibleFeedEl.src = feedDisplayUrl(feedCams[nextIdx].url, true);
     setFeedErrorHandlers(visibleFeedEl);
 
     var tmp = visibleFeedEl;
@@ -531,7 +654,6 @@
     preloadFeedEl = tmp;
 
     updateNodeHUD(cam);
-    renderChatForCam(cam.id);
     startFeedRefresh();
   }
 
@@ -539,35 +661,22 @@
     if (feedRefreshTimer) clearInterval(feedRefreshTimer);
   }
 
-  function runCountdown() {
-    const el = document.getElementById("timer");
-    function tick() {
-      const next = getNextShiftTime();
-      const left = next - Date.now();
-      el.textContent = formatCountdown(left);
-      if (left <= 0) {
-        triggerShift();
+  var localTimeInterval = null;
+
+  function startViewerTracking() {
+    try {
+      if (localTimeInterval) clearInterval(localTimeInterval);
+      var localTimeEl = document.getElementById("local-time");
+      if (localTimeEl) {
+        function tickLocalTime() {
+          if (!localTimeEl) return;
+          var cam = feedCams.length ? feedCams[currentIndex] : null;
+          localTimeEl.textContent = "LOCAL_TIME: " + formatLocalTimeForCam(cam);
+        }
+        tickLocalTime();
+        localTimeInterval = setInterval(tickLocalTime, 1000);
       }
-    }
-    tick();
-    if (countdownTimer) clearInterval(countdownTimer);
-    countdownTimer = setInterval(tick, 1000);
-  }
-
-  function doShiftToIndex(index) {
-    const flash = document.getElementById("shift-flash");
-    flash.classList.remove("hidden");
-    flash.classList.add("flash");
-    setTimeout(() => {
-      flash.classList.remove("flash");
-      flash.classList.add("hidden");
-    }, 300);
-    showFeed(index);
-    runCountdown();
-  }
-
-  function triggerShift() {
-    doShiftToIndex(getCurrentShiftIndex());
+    } catch (e) {}
   }
 
   function startFeedAmbientSound() {
@@ -592,6 +701,9 @@
       feedAmbientSource.connect(feedAmbientGain);
       feedAmbientGain.connect(feedAudioCtx.destination);
       feedAmbientSource.start(0);
+      if (feedAudioCtx.state === "suspended") {
+        feedAudioCtx.resume().catch(function () {});
+      }
     } catch (e) {
       console.warn("[UPLINK] Feed ambient audio not available", e);
     }
@@ -612,154 +724,43 @@
   }
 
   function initLanding() {
-    const landing = document.getElementById("landing");
-    const viewscreen = document.getElementById("viewscreen");
-    document.getElementById("callsign").textContent = getCallsign();
+    var landing = document.getElementById("landing");
+    var viewscreen = document.getElementById("viewscreen");
+    if (!landing || !viewscreen) return;
 
-    landing.addEventListener("click", () => {
+    landing.addEventListener("click", function () {
       landing.classList.add("hidden");
       viewscreen.classList.remove("hidden");
       startFeedAmbientSound();
-      loadCams().then(() => {
-        initFilterPanel();
-        showFeed(getCurrentShiftIndex());
-        runCountdown();
-        initChat();
-        initFeedNav();
-        initLiveView();
-        initMuteButton();
-      });
+      startViewerTracking();
+      // Re-attach feed/nav handlers now that viewscreen is visible (in case init() ran before DOM ready)
+      initFeedNav();
+      initFeedClick();
+      initMuteButton();
+      loadCams()
+        .then(function () {
+          feedCams = cams.filter(function (c) {
+            var u = (c.url || "").trim();
+            if (!u) return false;
+            return snapshotScore(u) <= 1 || getLiveStreamUrl(u) !== u;
+          });
+          if (feedCams.length === 0) feedCams = cams;
+          try {
+            showFeed(0);
+          } catch (e) {
+            console.error("[UPLINK] showFeed(0) failed", e);
+          }
+        })
+        .catch(function (err) {
+          console.error("[UPLINK] loadCams failed", err);
+        });
     });
-  }
-
-  function getChatKey(camId) {
-    return STORAGE_CHAT + "_" + camId;
-  }
-
-  function getStoredMessages(camId) {
-    try {
-      const raw = localStorage.getItem(getChatKey(camId));
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveMessage(camId, msg) {
-    const list = getStoredMessages(camId);
-    list.push(msg);
-    localStorage.setItem(getChatKey(camId), JSON.stringify(list));
-  }
-
-  function renderChatForCam(camId) {
-    const history = document.getElementById("chat-history");
-    history.innerHTML = "";
-    const list = getStoredMessages(camId);
-    const now = Date.now();
-    list.forEach((m) => {
-      const age = now - m.ts;
-      const el = document.createElement("div");
-      el.className = "msg" + (age >= MSG_BURN_MS ? " burning" : "");
-      el.dataset.ts = m.ts;
-      el.innerHTML = '<span class="callsign">' + escapeHtml(m.callsign) + "</span> " + escapeHtml(m.text);
-      history.appendChild(el);
-    });
-    history.scrollTop = history.scrollHeight;
-    scheduleBurn(history);
-  }
-
-  function scheduleBurn(container) {
-    setTimeout(() => {
-      const now = Date.now();
-      container.querySelectorAll(".msg").forEach((el) => {
-        const ts = Number(el.dataset.ts);
-        if (now - ts >= MSG_BURN_MS) el.classList.add("burning");
-      });
-    }, 1000);
   }
 
   function escapeHtml(s) {
     const div = document.createElement("div");
     div.textContent = s;
     return div.innerHTML;
-  }
-
-  function initChat() {
-    const input = document.getElementById("chat-input");
-    const callsign = getCallsign();
-    document.getElementById("callsign").textContent = callsign;
-
-    input.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter") return;
-      const text = input.value.trim();
-      var filtered = getFilteredCams();
-      if (!text || !filtered[currentIndex]) return;
-      const camId = filtered[currentIndex].id;
-      const msg = { callsign, text, ts: Date.now() };
-      saveMessage(camId, msg);
-      const history = document.getElementById("chat-history");
-      const el = document.createElement("div");
-      el.className = "msg";
-      el.dataset.ts = msg.ts;
-      el.innerHTML = '<span class="callsign">' + escapeHtml(callsign) + "</span> " + escapeHtml(text);
-      history.appendChild(el);
-      history.scrollTop = history.scrollHeight;
-      input.value = "";
-      scheduleBurn(history);
-    });
-  }
-
-  function drawSnapshotToCanvas(canvas, cam, callback) {
-    if (!cam) {
-      if (callback) callback(new Error("No feed"));
-      return;
-    }
-    const ctx = canvas.getContext("2d");
-    const w = 640;
-    const h = 480;
-    canvas.width = w;
-    canvas.height = h;
-    // Use current cam URL so we always capture the right feed (no reliance on which img is visible)
-    const feedUrl = (cam.url || "").trim();
-    if (!feedUrl) {
-      if (callback) callback(new Error("No feed"));
-      return;
-    }
-    const proxyUrl =
-      "/snapshot-proxy?url=" + encodeURIComponent(feedUrl + (feedUrl.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now());
-    const img = new Image();
-    img.onload = () => {
-      try {
-        ctx.drawImage(img, 0, 0, w, h);
-        ctx.fillStyle = "rgba(0,0,0,0.4)";
-        ctx.fillRect(0, h - 80, w, 80);
-        ctx.font = "14px JetBrains Mono, monospace";
-        ctx.fillStyle = "#39FF14";
-        ctx.fillText("LOC: " + cam.locationShort, 20, h - 50);
-        ctx.fillText("CAPTURE: " + new Date().toISOString().slice(0, 19).replace("T", " "), 20, h - 28);
-        for (let i = 0; i < 4000; i++) {
-          ctx.fillStyle = "rgba(255,255,255," + Math.random() * 0.03 + ")";
-          ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1);
-        }
-        if (callback) callback(null);
-      } catch (e) {
-        if (callback) callback(e);
-      }
-    };
-    img.onerror = () => { if (callback) callback(new Error("Image load failed")); };
-    img.crossOrigin = "anonymous";
-    img.src = proxyUrl;
-  }
-
-  function initLiveView() {
-    const btn = document.getElementById("live-view-btn");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var cam = getFilteredCams()[currentIndex];
-      if (!cam || !cam.url) return;
-      var streamUrl = getLiveStreamUrl(cam.url);
-      window.open(streamUrl, "_blank", "noopener,noreferrer");
-    });
   }
 
   const MATRIX_SIZE = 24;
@@ -769,6 +770,7 @@
     if (!url) return 0;
     const u = url.toLowerCase();
     if (u.includes("snapshotjpeg") || u.includes("snapshot.cgi") || u.includes("image.jpg") || u.includes("image.jpeg")) return 3;
+    if (u.includes("webcapture") && u.includes("command=snap")) return 3;
     if (u.includes("video.jpg") || u.includes("video.jpeg") || u.includes("/jpg/") || u.includes("nph-jpeg")) return 2;
     if (u.includes("mjpg") || u.includes("mjpeg") || u.includes("faststream") || u.includes("videostream")) return 1;
     return 0;
@@ -788,11 +790,28 @@
       var a = document.createElement("a");
       a.href = url;
       var origin = a.origin || (a.protocol + "//" + a.hostname + (a.port ? ":" + a.port : ""));
+      var pathname = (a.pathname || "/").replace(/\/+$/, "") || "/";
       var u = url.toLowerCase();
       if (u.includes("snapshotjpeg")) {
         return origin + "/nphMotionJpeg?Resolution=640x480&Quality=Standard";
       }
       if (u.includes("image.jpg") || u.includes("image.jpeg")) {
+        return origin + "/mjpg/video.mjpg";
+      }
+      // Vivotek / similar: cgi-bin/viewer/video.jpg → cgi-bin/viewer/mjpg/video.mjpg (MJPEG stream)
+      if (u.includes("video.jpg") || u.includes("video.jpeg")) {
+        return origin + pathname.replace(/\/video\.(jpg|jpeg)$/i, "/mjpg/video.mjpg");
+      }
+      // webcapture.jpg?command=snap → same path without query = MJPEG stream (Hi3516 etc.)
+      if (u.includes("webcapture") && u.includes("command=snap")) {
+        return origin + pathname || origin + "/webcapture.jpg";
+      }
+      // snapshot.cgi / nph-jpeg → try common stream path
+      if (u.includes("snapshot.cgi") || u.includes("nph-jpeg")) {
+        return origin + "/nphMotionJpeg?Resolution=640x480&Quality=Standard";
+      }
+      // /jpg/ or /jpeg/ single-frame path → try /mjpg/video.mjpg on same host
+      if (u.includes("/jpg/") || u.includes("/jpeg/")) {
         return origin + "/mjpg/video.mjpg";
       }
     } catch (e) {}
@@ -876,7 +895,6 @@
         var i = parseInt(item.dataset.index, 10);
         if (Number.isNaN(i) || i < 0) return;
         showFeed(i);
-        runCountdown();
         viewscreen.classList.remove("matrix-open");
         panel.classList.add("hidden");
         feedMatrixOpen = false;
@@ -887,21 +905,37 @@
     });
   }
 
+  function initFeedClick() {
+    var wrap = document.querySelector(".feed-wrap");
+    if (!wrap) return;
+    wrap.style.cursor = "pointer";
+    wrap.title = "Click to open live stream";
+    wrap.addEventListener("click", function () {
+      if (!feedCams.length) return;
+      var cam = feedCams[currentIndex];
+      if (!cam || !cam.url) return;
+      var liveUrl = getLiveStreamUrl(cam.url);
+      if (liveUrl) window.open("/live-viewer.html?url=" + encodeURIComponent(liveUrl), "_blank", "noopener");
+    });
+  }
+
   function initFeedNav() {
-    const prevBtn = document.getElementById("feed-prev-btn");
-    const nextBtn = document.getElementById("feed-next-btn");
-    function goToRandomFeed() {
-      var filtered = getFilteredCams();
-      if (!filtered.length) return;
-      let idx = Math.floor(Math.random() * filtered.length);
-      if (filtered.length > 1 && idx === currentIndex) {
-        idx = (idx + 1) % filtered.length;
-      }
-      showFeed(idx);
-      runCountdown();
+    var prevBtn = document.getElementById("feed-prev-btn");
+    var nextBtn = document.getElementById("feed-next-btn");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (!feedCams.length) return;
+        var prevIdx = (currentIndex - 1 + feedCams.length) % feedCams.length;
+        showFeed(prevIdx);
+      });
     }
-    if (prevBtn) prevBtn.addEventListener("click", goToRandomFeed);
-    if (nextBtn) nextBtn.addEventListener("click", goToRandomFeed);
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (!feedCams.length) return;
+        var nextIdx = (currentIndex + 1) % feedCams.length;
+        showFeed(nextIdx);
+      });
+    }
   }
 
   function initMatrix() {
@@ -921,90 +955,6 @@
     }
   }
 
-  function initFilterPanel() {
-    const listEl = document.getElementById("geo-filter-list");
-    if (!listEl) return;
-
-    function applyFilter(type, value) {
-      filterBy = (type == null || type === "") ? null : { type: type, value: value };
-      currentIndex = 0;
-      var filtered = getFilteredCams();
-      listEl.querySelectorAll(".geo-filter-item").forEach(function (el) {
-        var isAll = !el.dataset.type && !el.dataset.value;
-        var isActive = (filterBy === null && isAll) || (filterBy && el.dataset.type === filterBy.type && el.dataset.value === filterBy.value);
-        el.classList.toggle("active", isActive);
-      });
-      if (filtered.length) {
-        showFeed(0);
-        runCountdown();
-      } else {
-        var mainFeed = document.getElementById("camera-feed");
-        var placeholder = document.getElementById("feed-placeholder");
-        if (mainFeed) mainFeed.classList.add("hidden");
-        if (placeholder) {
-          placeholder.textContent = "NO_NODES_IN_REGION";
-          placeholder.classList.add("visible");
-        }
-      }
-    }
-
-    listEl.innerHTML = "";
-
-    var allBtn = document.createElement("button");
-    allBtn.className = "geo-filter-item active";
-    allBtn.textContent = "[ ALL ]";
-    allBtn.dataset.type = "";
-    allBtn.dataset.value = "";
-    allBtn.addEventListener("click", function () { applyFilter("", ""); });
-    listEl.appendChild(allBtn);
-
-    var countries = {};
-    var regions = {};
-    cams.forEach(function (c) {
-      var loc = c.locationShort || "";
-      if (!loc) return;
-      var parts = loc.split(",").map(function (s) { return s.trim(); });
-      var country = parts[parts.length - 1];
-      if (country) {
-        countries[country] = (countries[country] || 0) + 1;
-        regions[loc] = (regions[loc] || 0) + 1;
-      }
-    });
-
-    var countryNames = Object.keys(countries).sort();
-    countryNames.forEach(function (country) {
-      var btn = document.createElement("button");
-      btn.className = "geo-filter-item";
-      btn.dataset.type = "country";
-      btn.dataset.value = country;
-      btn.innerHTML = escapeHtml(country) + ' <span class="count">(' + countries[country] + ")</span>";
-      btn.addEventListener("click", function () { applyFilter("country", country); });
-      listEl.appendChild(btn);
-    });
-
-    var regionNames = Object.keys(regions).filter(function (r) { return regions[r] >= 1; }).sort();
-    if (regionNames.length > 0) {
-      var sep = document.createElement("div");
-      sep.className = "geo-filter-sub";
-      sep.style.marginTop = "0.35rem";
-      sep.textContent = "— REGIONS —";
-      listEl.appendChild(sep);
-      regionNames.forEach(function (region) {
-        var btn = document.createElement("button");
-        btn.className = "geo-filter-item";
-        btn.dataset.type = "region";
-        btn.dataset.value = region;
-        btn.innerHTML = escapeHtml(region) + ' <span class="count">(' + regions[region] + ")</span>';
-        btn.addEventListener("click", function () { applyFilter("region", region); });
-        listEl.appendChild(btn);
-      });
-    }
-
-    listEl.querySelectorAll(".geo-filter-item").forEach(function (el) {
-      el.classList.toggle("active", !el.dataset.type && !el.dataset.value);
-    });
-  }
-
   function initMuteButton() {
     const btn = document.getElementById("mute-feed-btn");
     if (!btn) return;
@@ -1016,17 +966,21 @@
   }
 
   function acceptLegal() {
-    localStorage.setItem("uplink_agreed", "true");
-    const modal = document.getElementById("legal-modal");
+    try {
+      localStorage.setItem("uplink_agreed", "true");
+    } catch (e) {}
+    var modal = document.getElementById("legal-modal");
     if (modal) modal.classList.add("hidden");
   }
 
   function init() {
-    if (localStorage.getItem("uplink_agreed") === "true") {
-      const modal = document.getElementById("legal-modal");
-      if (modal) modal.classList.add("hidden");
-    }
-    const connectBtn = document.getElementById("connect-btn");
+    try {
+      if (localStorage.getItem("uplink_agreed") === "true") {
+        var modal = document.getElementById("legal-modal");
+        if (modal) modal.classList.add("hidden");
+      }
+    } catch (e) {}
+    var connectBtn = document.getElementById("connect-btn");
     if (connectBtn) connectBtn.addEventListener("click", acceptLegal);
     initLanding();
   }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPLINK_CAM — LIVE FEED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { margin: 0; background: #050505; color: #39FF14; font-family: "JetBrains Mono", Consolas, monospace; min-height: 100vh; overflow: hidden; }
+    .live-viewer-wrap { position: fixed; inset: 0; display: flex; flex-direction: column; background: #000; }
+    .live-viewer-header { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(57, 255, 20, 0.3); font-size: 0.8rem; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; gap: 1rem; }
+    .live-viewer-header .label { color: #39FF14; text-shadow: 0 0 10px rgba(57, 255, 20, 0.5); }
+    .live-viewer-header a, .live-viewer-header .snapshot-btn { color: #00F3FF; text-decoration: none; background: none; border: none; font: inherit; cursor: pointer; padding: 0; }
+    .live-viewer-header a:hover, .live-viewer-header .snapshot-btn:hover { text-decoration: underline; }
+    .live-viewer-header .snapshot-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .live-viewer-feed { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; background: #0a0a0a; overflow: hidden; }
+    .live-viewer-feed img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .live-viewer-feed .no-signal { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; color: rgba(57, 255, 20, 0.5); font-size: 0.9rem; }
+    .live-viewer-feed .no-signal.hidden { display: none !important; }
+    .scanlines-overlay { position: fixed; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.03) 50%); background-size: 100% 4px; opacity: 0.5; mix-blend-mode: overlay; }
+  </style>
+</head>
+<body>
+  <div class="live-viewer-wrap">
+    <div class="live-viewer-header">
+      <span class="label">● LIVE_FEED — UPLINK_CAM</span>
+      <span class="header-actions">
+        <button type="button" class="snapshot-btn" id="snapshot-btn" title="Capture current frame">[ SNAPSHOT ]</button>
+        <a href="#" id="back-link">[ ← BACK TO INTERCEPT ]</a>
+      </span>
+    </div>
+    <div class="live-viewer-feed">
+      <img id="stream-img" alt="Live stream" />
+      <p id="no-signal" class="no-signal hidden">NO SIGNAL — Feed unavailable or disconnected.</p>
+    </div>
+    <div class="scanlines-overlay" aria-hidden="true"></div>
+  </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var url = params.get("url") || "";
+      var backLink = document.getElementById("back-link");
+      var streamImg = document.getElementById("stream-img");
+      var noSignal = document.getElementById("no-signal");
+
+      if (backLink) backLink.href = document.referrer || "/";
+
+      if (!url.trim()) {
+        noSignal.classList.remove("hidden");
+        noSignal.textContent = "NO STREAM URL — Open from the main intercept page.";
+        return;
+      }
+
+      // Use stream-proxy on HTTPS (same-origin = snapshot works; avoids mixed content). On HTTP use direct URL so feed displays.
+      var streamSrc = window.location.protocol === "https:"
+        ? "/stream-proxy?url=" + encodeURIComponent(url)
+        : url;
+      var streamEverLoaded = false;
+      streamImg.onload = function () {
+        streamEverLoaded = true;
+        noSignal.classList.add("hidden");
+      };
+      streamImg.onerror = function () {
+        if (!streamEverLoaded) {
+          noSignal.classList.remove("hidden");
+          noSignal.textContent = "NO SIGNAL — Feed unavailable or disconnected.";
+        }
+      };
+      streamImg.src = streamSrc;
+
+      var snapshotBtn = document.getElementById("snapshot-btn");
+      if (snapshotBtn) {
+        snapshotBtn.addEventListener("click", function () {
+          if (!url.trim()) return;
+          snapshotBtn.disabled = true;
+          var snapshotUrl = "/feed-proxy?url=" + encodeURIComponent(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now());
+          fetch(snapshotUrl)
+            .then(function (res) {
+              if (!res.ok) throw new Error(res.status);
+              return res.blob();
+            })
+            .then(function (blob) {
+              var ext = (blob.type || "").indexOf("png") >= 0 ? "png" : "jpg";
+              var a = document.createElement("a");
+              a.href = URL.createObjectURL(blob);
+              a.download = "uplink_live_snapshot_" + Date.now() + "." + ext;
+              a.click();
+              URL.revokeObjectURL(a.href);
+            })
+            .catch(function () {
+              if (noSignal) {
+                noSignal.classList.remove("hidden");
+                noSignal.textContent = "SNAPSHOT FAILED — Could not get frame from stream.";
+              }
+            })
+            .then(function () {
+              snapshotBtn.disabled = false;
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

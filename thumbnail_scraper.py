@@ -2,7 +2,9 @@
 UPLINK_SITE thumbnail cache: grab one frame per camera and save to thumbnails/.
 Each thumbnails/{id}.jpg is a snapshot from the stream at the cam with that id in
 cams.json. Matrix shows these; click loads that cam's stream.
-Usage: python3 thumbnail_scraper.py [--limit 500] [--delay 0.5]
+By default only scrapes cams that don't already have a thumbnail file.
+Usage: python3 thumbnail_scraper.py [--limit 500] [--delay 0.5] [--all]
+  --all   scrape from the top of cams list (ignore existing thumbnails)
 """
 import json
 import os
@@ -15,6 +17,18 @@ THUMBNAILS_DIR = os.path.join(SCRIPT_DIR, "thumbnails")
 MAX_READ = 200 * 1024  # 200KB enough for one frame
 TIMEOUT = 8
 USER_AGENT = "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"
+
+
+def existing_thumbnail_ids():
+    """Set of cam ids that already have a file in thumbnails/ (any extension)."""
+    ids = set()
+    if not os.path.isdir(THUMBNAILS_DIR):
+        return ids
+    for name in os.listdir(THUMBNAILS_DIR):
+        base, ext = os.path.splitext(name)
+        if ext.lower() in (".jpg", ".jpeg", ".png") and base.isdigit():
+            ids.add(base)
+    return ids
 
 
 def normalize_url(url):
@@ -64,12 +78,15 @@ def main():
     os.chdir(SCRIPT_DIR)
     limit = 500
     delay = 0.3
+    scrape_all = False
     args = sys.argv[1:]
     for i, arg in enumerate(args):
         if arg == "--limit" and i + 1 < len(args):
             limit = int(args[i + 1])
         elif arg == "--delay" and i + 1 < len(args):
             delay = float(args[i + 1])
+        elif arg == "--all":
+            scrape_all = True
 
     if not os.path.exists("cams.json"):
         print("cams.json not found. Run from UPLINK_SITE directory.")
@@ -80,6 +97,19 @@ def main():
         cams = json.load(f)
     if not cams:
         print("No cams in cams.json.")
+        sys.exit(0)
+
+    existing = existing_thumbnail_ids()
+    if not scrape_all and existing:
+        cams = [c for c in cams if str(c.get("id")) not in existing]
+        print(f"Skipping {len(existing)} cams that already have thumbnails; {len(cams)} left to try.")
+    if not cams:
+        print("No cams left to scrape (all have thumbnails or list empty).")
+        # Keep list.json in sync with disk
+        list_path = os.path.join(THUMBNAILS_DIR, "list.json")
+        all_ids = sorted(existing_thumbnail_ids())
+        with open(list_path, "w", encoding="utf-8") as f:
+            json.dump(all_ids, f)
         sys.exit(0)
 
     # Prefer snapshot-style URLs so we get more successes
@@ -99,15 +129,18 @@ def main():
     saved_ids = []
     for c in to_fetch:
         cam_id = c.get("id")
-        url = c.get("url")
+        url = c.get("url") or c.get("embed_url")
         if capture_snippet(url, cam_id):
             ok += 1
             saved_ids.append(str(cam_id))
         time.sleep(delay)
+
+    # Merge with existing: list.json = all ids that have a thumbnail file (so incremental runs don't lose previous)
+    all_ids = sorted(existing_thumbnail_ids())
     list_path = os.path.join(THUMBNAILS_DIR, "list.json")
     with open(list_path, "w", encoding="utf-8") as f:
-        json.dump(saved_ids, f)
-    print(f"Done: {ok}/{len(to_fetch)} thumbnails saved to {THUMBNAILS_DIR}/ (list.json updated)")
+        json.dump(all_ids, f)
+    print(f"Done: {ok}/{len(to_fetch)} thumbnails saved to {THUMBNAILS_DIR}/ ({len(all_ids)} total, list.json updated)")
 
 
 if __name__ == "__main__":
