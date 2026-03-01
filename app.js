@@ -9,8 +9,10 @@
   const FEED_REFRESH_MS = 3000;
   let cams = [];
   let feedCams = []; // only cams with thumbnails (signal); no-signal feeds excluded
+  let countryFilter = null; // null = All, or country name string
   let thumbnailIds = new Set();
   let currentIndex = 0;
+  let currentHudCamId = "";
   let feedRefreshTimer = null;
   let visibleFeedEl = null;
   let preloadFeedEl = null;
@@ -53,6 +55,37 @@
     "Monterey, United States": [36.60, -121.89],
     "Evansville, United States": [37.97, -87.57],
   };
+
+  /** ISO 2-letter country code → full name for filter display (ipinfo returns codes; show full names). */
+  const COUNTRY_CODE_TO_NAME = {
+    US: "United States", GB: "United Kingdom", FR: "France", DE: "Germany", IT: "Italy", ES: "Spain",
+    NL: "Netherlands", BE: "Belgium", AT: "Austria", CH: "Switzerland", PL: "Poland", CZ: "Czech Republic",
+    SE: "Sweden", NO: "Norway", DK: "Denmark", FI: "Finland", EE: "Estonia", LV: "Latvia", LT: "Lithuania",
+    RO: "Romania", HU: "Hungary", BG: "Bulgaria", HR: "Croatia", SK: "Slovakia", SI: "Slovenia",
+    RU: "Russian Federation", UA: "Ukraine", BY: "Belarus", JP: "Japan", KR: "South Korea", CN: "China",
+    IN: "India", TH: "Thailand", VN: "Vietnam", PH: "Philippines", MY: "Malaysia", ID: "Indonesia",
+    AU: "Australia", NZ: "New Zealand", AR: "Argentina", BR: "Brazil", MX: "Mexico", CA: "Canada",
+    CO: "Colombia", CL: "Chile", PE: "Peru", HN: "Honduras", BA: "Bosnia and Herzegovina",
+    GR: "Greece", PT: "Portugal", TR: "Turkey", IL: "Israel", AE: "United Arab Emirates", SA: "Saudi Arabia",
+    EG: "Egypt", ZA: "South Africa", IE: "Ireland", LU: "Luxembourg", MT: "Malta", CY: "Cyprus",
+  };
+  function countryDisplayName(countryStr) {
+    if (!countryStr || !String(countryStr).trim()) return countryStr || "";
+    var s = String(countryStr).trim();
+    return COUNTRY_CODE_TO_NAME[s] || s;
+  }
+  /** Full name → code so "United States" and "US" both normalize to "US" (one filter option). */
+  var COUNTRY_NAME_TO_CODE = {};
+  for (var code in COUNTRY_CODE_TO_NAME) {
+    if (COUNTRY_CODE_TO_NAME.hasOwnProperty(code)) {
+      COUNTRY_NAME_TO_CODE[COUNTRY_CODE_TO_NAME[code]] = code;
+    }
+  }
+  function canonicalCountry(countryStr) {
+    if (!countryStr || !String(countryStr).trim()) return countryStr || "";
+    var s = String(countryStr).trim();
+    return COUNTRY_NAME_TO_CODE[s] || s;
+  }
 
   const COUNTRY_CENTER = {
     Japan: [36.2, 138.25],
@@ -173,15 +206,19 @@
   function parseLocation(locationStr) {
     if (!locationStr || !locationStr.trim()) return "Unknown";
     const s = locationStr.trim();
-    // View-page format: "Click here to enter the camera located in United States, region California, San Diego"
+    // Already clean format from scraper: "City, Country" or "City, Region, Country" (no "Click here" / "located in")
+    if (!/click\s+here|located\s+in/i.test(s)) {
+      var result = s;
+      if (/[\u0400-\u04FF]/.test(result)) result = transliterateCyrillicToLatin(result);
+      return result;
+    }
+    // Legacy: "Click here to enter the camera located in United States, region California, San Diego"
     const regionMatch = s.match(/located\s+in\s+([^,]+),\s*region\s+[^,]+,\s*(.+)$/i);
     var result = regionMatch ? (regionMatch[2] + ", " + regionMatch[1]).trim() : null;
     if (!result) {
-      // Listing format: "Live camera Axis in San Diego, United States"
       const inMatch = s.match(/\s+in\s+(.+)$/);
       result = inMatch ? inMatch[1].trim() : s;
     }
-    // If it's a US location with Cyrillic city name, show city in English
     if (result && /,\s*United States\s*$/i.test(result) && /[\u0400-\u04FF]/.test(result)) {
       var cityPart = result.replace(/\s*,\s*United States\s*$/i, "");
       var englishCity = {
@@ -189,15 +226,29 @@
         "Эвансвилл": "Evansville", "Лас Вегас": "Las Vegas", "Бока Ратон": "Boca Raton"
       }[cityPart];
       if (englishCity) result = englishCity + ", United States";
-      else {
-        var parts = result.split(/\s*,\s*/);
-        if (parts.length >= 2) {
-          parts[0] = transliterateCyrillicToLatin(parts[0]).trim();
-          result = parts.join(", ");
-        }
-      }
+    }
+    if (result && /[\u0400-\u04FF]/.test(result)) {
+      result = transliterateCyrillicToLatin(result);
     }
     return result;
+  }
+
+  /** Extract country from location string. Handles "located in X, ..." and clean "City, Country". */
+  function getCountryFromLocation(locationStr) {
+    if (!locationStr || !String(locationStr).trim()) return null;
+    var s = String(locationStr).trim();
+    var m = s.match(/located\s+in\s+([^,]+)/i);
+    if (m) return m[1].trim();
+    var parts = s.split(",").map(function (p) { return p.trim(); }).filter(Boolean);
+    return parts.length >= 2 ? parts[parts.length - 1] : null;
+  }
+
+  /** Feed list for PREV/NEXT: all feedCams or filtered by country. */
+  function getVisibleFeedCams() {
+    if (!countryFilter) return feedCams;
+    return feedCams.filter(function (c) {
+      return canonicalCountry(getCountryFromLocation(c.location)) === countryFilter;
+    });
   }
 
   function extractIP(url) {
@@ -350,18 +401,20 @@
       ipLink.textContent = "SRC_IP: " + ip;
       ipLink.href = ip !== "—" ? "https://ipinfo.io/" + ip : "#";
     }
+    // Use saved location immediately (from cams.json); only live data is local time and weather.
     if (mapLink) {
-      mapLink.href =
-        "https://www.google.com/maps/search/?api=1&query=" +
-        encodeURIComponent(cam.locationShort);
-      mapLink.textContent = "LOC: " + cam.locationShort;
+      mapLink.textContent = "LOC: " + (cam.locationShort || "—");
+      mapLink.href = "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(cam.locationShort || "");
     }
+    updateWeather(cam.locationShort);
     if (localTimeEl)
       localTimeEl.textContent = "LOCAL_TIME: " + formatLocalTimeForCam(cam);
 
     var visitsEl = document.getElementById("viewers-count");
     if (visitsEl) visitsEl.textContent = "…";
     var camId = cam && (cam.id != null) ? String(cam.id) : "";
+    currentHudCamId = camId || "";
     if (!camId) {
       if (visitsEl) visitsEl.textContent = "—";
     } else {
@@ -379,6 +432,32 @@
           if (el) el.textContent = "—";
         });
     }
+    var thumbsUpEl = document.getElementById("thumbs-up-count");
+    var thumbsDownEl = document.getElementById("thumbs-down-count");
+    if (thumbsUpEl) thumbsUpEl.textContent = "…";
+    if (thumbsDownEl) thumbsDownEl.textContent = "…";
+    if (camId) {
+      // Restore voted state from localStorage immediately so "already liked" shows when returning to a feed
+      updateThumbsButtonState(camId);
+      fetch("/api/cam-thumbs?cam_id=" + encodeURIComponent(camId))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (currentHudCamId !== camId) return;
+          if (data && thumbsUpEl) thumbsUpEl.textContent = typeof data.up === "number" ? data.up : "0";
+          if (data && thumbsDownEl) thumbsDownEl.textContent = typeof data.down === "number" ? data.down : "0";
+          updateThumbsButtonState(camId);
+        })
+        .catch(function () {
+          if (currentHudCamId !== camId) return;
+          if (thumbsUpEl) thumbsUpEl.textContent = "0";
+          if (thumbsDownEl) thumbsDownEl.textContent = "0";
+          updateThumbsButtonState(camId);
+        });
+    } else {
+      if (thumbsUpEl) thumbsUpEl.textContent = "0";
+      if (thumbsDownEl) thumbsDownEl.textContent = "0";
+      updateThumbsButtonState("");
+    }
 
     if (netIspEl) netIspEl.textContent = "NET_ISP: —";
     if (netAsnEl) netAsnEl.textContent = "ASN: —";
@@ -388,6 +467,11 @@
       if (!data || data.error) {
         if (netIspEl) netIspEl.textContent = "NET_ISP: —";
         if (netAsnEl) netAsnEl.textContent = "ASN: —";
+        if (mapLink && ip !== "—") {
+          mapLink.textContent = "LOC: " + (cam.locationShort || "—");
+          mapLink.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(cam.locationShort || "");
+        }
+        updateWeather(cam.locationShort);
         return;
       }
       const org = data.org || data.organisation || "";
@@ -401,6 +485,25 @@
       } else {
         if (netIspEl) netIspEl.textContent = "NET_ISP: —";
         if (netAsnEl) netAsnEl.textContent = "ASN: —";
+      }
+      // When we have an IP, use ipinfo's location to correct wrong/misspelled scraper data (e.g. Filadelfiya → Philadelphia).
+      var locParts = [data.city, data.region, data.country].filter(Boolean);
+      var ipinfoLoc = locParts.length ? locParts.join(", ") : null;
+      if (ipinfoLoc && mapLink) {
+        mapLink.textContent = "LOC: " + ipinfoLoc;
+        mapLink.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(ipinfoLoc);
+      }
+      var latLon = null;
+      if (data.loc && typeof data.loc === "string") {
+        var parts = data.loc.split(",").map(function (p) { return parseFloat(p.trim()); });
+        if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+          latLon = { lat: parts[0], lon: parts[1] };
+        }
+      }
+      if (latLon) {
+        updateWeather(ipinfoLoc || cam.locationShort, latLon);
+      } else if (ipinfoLoc) {
+        updateWeather(ipinfoLoc);
       }
     });
 
@@ -419,7 +522,6 @@
     }
 
     updateReportLink(ip, cam.id);
-    updateWeather(cam.locationShort);
   }
 
   function updateReportLink(ip, id) {
@@ -449,20 +551,28 @@
     return map[code] || "CODE_" + code;
   }
 
-  async function updateWeather(locationName) {
+  var weatherCache = {};
+  async function updateWeather(locationName, directCoords) {
     const el = document.getElementById("weather-display");
     if (!el) return;
-    const loc = (locationName || "").trim();
-    if (!loc) {
-      el.textContent = "TEMP: — | COND: — | WIND: — | HUM: —";
-      return;
-    }
     let lat, lon;
-    const coords = getCoordsForLocation(loc);
-    if (coords[0] !== 0 || coords[1] !== 0) {
-      lat = coords[0];
-      lon = coords[1];
+    var cacheKey = "";
+    if (directCoords && typeof directCoords.lat === "number" && typeof directCoords.lon === "number") {
+      lat = directCoords.lat;
+      lon = directCoords.lon;
+      cacheKey = lat + "," + lon;
     } else {
+      const loc = (locationName || "").trim();
+      if (!loc) {
+        el.textContent = "TEMP: — | COND: — | WIND: — | HUM: —";
+        return;
+      }
+      cacheKey = loc;
+      const coords = getCoordsForLocation(loc);
+      if (coords[0] !== 0 || coords[1] !== 0) {
+        lat = coords[0];
+        lon = coords[1];
+      } else {
       try {
         const geo = await fetch(
           "https://geocoding-api.open-meteo.com/v1/search?name=" +
@@ -477,6 +587,10 @@
         el.textContent = "WEATHER_SIGNAL_LOST";
         return;
       }
+      }
+    }
+    if (weatherCache[cacheKey]) {
+      el.textContent = weatherCache[cacheKey];
     }
     try {
       const url =
@@ -495,10 +609,11 @@
       const windVal = c.wind_speed_10m != null ? c.wind_speed_10m : (c.windspeed != null ? c.windspeed : null);
       const wind = windVal != null ? Math.round(windVal) + "" : "—";
       const hum = c.relative_humidity_2m != null ? c.relative_humidity_2m : "—";
-      el.textContent =
-        "TEMP: " + temp + "°F | COND: " + cond + " | WIND: " + wind + " mph | HUM: " + hum + "%";
+      const text = "TEMP: " + temp + "°F | COND: " + cond + " | WIND: " + wind + " mph | HUM: " + hum + "%";
+      el.textContent = text;
+      weatherCache[cacheKey] = text;
     } catch (e) {
-      el.textContent = "WEATHER_SIGNAL_LOST";
+      if (!weatherCache[cacheKey]) el.textContent = "WEATHER_SIGNAL_LOST";
     }
   }
 
@@ -526,7 +641,7 @@
       })
       .catch(() => (thumbnailIds = new Set()));
     return Promise.all([
-      fetch("cams.json?t=" + Date.now())
+      fetch("cams.json")
         .then((r) => r.json())
         .then((data) => {
           cams = (data || []).map((c) => ({
@@ -565,16 +680,18 @@
 
   /** When current feed shows no signal, skip to the next feed (keep cam in list so pool stays full). */
   function skipNoSignalToNext() {
-    if (feedCams.length <= 0) return;
-    var nextIdx = (currentIndex + 1) % feedCams.length;
+    var visible = getVisibleFeedCams();
+    if (visible.length <= 0) return;
+    var nextIdx = (currentIndex + 1) % visible.length;
     if (nextIdx === currentIndex) return; // only one cam left
     showFeed(nextIdx);
   }
 
   function showFeed(index) {
-    if (!feedCams.length) return;
-    currentIndex = ((index % feedCams.length) + feedCams.length) % feedCams.length;
-    const cam = feedCams[currentIndex];
+    var visible = getVisibleFeedCams();
+    if (!visible.length) return;
+    currentIndex = ((index % visible.length) + visible.length) % visible.length;
+    const cam = visible[currentIndex];
     const mainFeed = document.getElementById("camera-feed");
     const nextFeed = document.getElementById("camera-feed-next");
     const placeholder = document.getElementById("feed-placeholder");
@@ -638,15 +755,16 @@
   }
 
   function swapToPreloadedFeed() {
-    if (!feedCams.length || !visibleFeedEl || !preloadFeedEl) return;
-    currentIndex = (currentIndex + 1) % feedCams.length;
-    var cam = feedCams[currentIndex];
+    var visible = getVisibleFeedCams();
+    if (!visible.length || !visibleFeedEl || !preloadFeedEl) return;
+    currentIndex = (currentIndex + 1) % visible.length;
+    var cam = visible[currentIndex];
 
     visibleFeedEl.classList.add("hidden");
     preloadFeedEl.classList.remove("hidden");
 
-    var nextIdx = (currentIndex + 1) % feedCams.length;
-    visibleFeedEl.src = feedDisplayUrl(feedCams[nextIdx].url, true);
+    var nextIdx = (currentIndex + 1) % visible.length;
+    visibleFeedEl.src = feedDisplayUrl(visible[nextIdx].url, true);
     setFeedErrorHandlers(visibleFeedEl);
 
     var tmp = visibleFeedEl;
@@ -670,7 +788,8 @@
       if (localTimeEl) {
         function tickLocalTime() {
           if (!localTimeEl) return;
-          var cam = feedCams.length ? feedCams[currentIndex] : null;
+          var visible = getVisibleFeedCams();
+          var cam = visible.length ? visible[currentIndex] : null;
           localTimeEl.textContent = "LOCAL_TIME: " + formatLocalTimeForCam(cam);
         }
         tickLocalTime();
@@ -739,12 +858,19 @@
       initMuteButton();
       loadCams()
         .then(function () {
-          feedCams = cams.filter(function (c) {
-            var u = (c.url || "").trim();
-            if (!u) return false;
-            return snapshotScore(u) <= 1 || getLiveStreamUrl(u) !== u;
-          });
+          // Only show cams that have a saved thumbnail so the carousel uses static files, not live proxy.
+          if (thumbnailIds.size > 0) {
+            feedCams = cams.filter(function (c) { return thumbnailIds.has(String(c.id)); });
+          }
+          if (feedCams.length === 0) {
+            feedCams = cams.filter(function (c) {
+              var u = (c.url || "").trim();
+              if (!u) return false;
+              return snapshotScore(u) <= 1 || getLiveStreamUrl(u) !== u;
+            });
+          }
           if (feedCams.length === 0) feedCams = cams;
+          initCountryFilter();
           try {
             showFeed(0);
           } catch (e) {
@@ -792,6 +918,10 @@
       var origin = a.origin || (a.protocol + "//" + a.hostname + (a.port ? ":" + a.port : ""));
       var pathname = (a.pathname || "/").replace(/\/+$/, "") || "/";
       var u = url.toLowerCase();
+      // Snapshot-only APIs we can't reliably convert to a stream path — pass through so live viewer shows at least one frame
+      if (u.includes("jpgmulreq") || u.includes("getoneshot") || u.includes("onvif/snapshot")) {
+        return url;
+      }
       if (u.includes("snapshotjpeg")) {
         return origin + "/nphMotionJpeg?Resolution=640x480&Quality=Standard";
       }
@@ -859,12 +989,10 @@
       grid.appendChild(msg);
       return;
     }
-    slice.forEach((cam, idx) => {
-      const globalIndex = cams.findIndex((c) => c.id === cam.id);
+    slice.forEach((cam) => {
       const item = document.createElement("div");
       item.className = "matrix-item";
-      // index = cams array index so showFeed(i) loads the correct stream
-      item.dataset.index = String(globalIndex >= 0 ? globalIndex : idx);
+      item.dataset.camId = String(cam.id);
 
       // Matrix = static thumbnails only (no live proxy). Keeps Railway to one live stream (main feed).
       const img = document.createElement("img");
@@ -892,9 +1020,16 @@
       item.appendChild(tooltip);
 
       item.addEventListener("click", function () {
-        var i = parseInt(item.dataset.index, 10);
-        if (Number.isNaN(i) || i < 0) return;
-        showFeed(i);
+        var camId = item.dataset.camId;
+        if (!camId) return;
+        var visible = getVisibleFeedCams();
+        var i = visible.findIndex(function (c) { return String(c.id) === camId; });
+        if (i >= 0) {
+          currentIndex = i;
+          showFeed(i);
+        } else {
+          showFeed(0);
+        }
         viewscreen.classList.remove("matrix-open");
         panel.classList.add("hidden");
         feedMatrixOpen = false;
@@ -911,11 +1046,40 @@
     wrap.style.cursor = "pointer";
     wrap.title = "Click to open live stream";
     wrap.addEventListener("click", function () {
-      if (!feedCams.length) return;
-      var cam = feedCams[currentIndex];
+      var visible = getVisibleFeedCams();
+      if (!visible.length) return;
+      var cam = visible[currentIndex];
       if (!cam || !cam.url) return;
       var liveUrl = getLiveStreamUrl(cam.url);
       if (liveUrl) window.open("/live-viewer.html?url=" + encodeURIComponent(liveUrl), "_blank", "noopener");
+    });
+  }
+
+  function initCountryFilter() {
+    var select = document.getElementById("country-filter");
+    if (!select) return;
+    var countries = [];
+    var seen = {};
+    for (var i = 0; i < feedCams.length; i++) {
+      var raw = getCountryFromLocation(feedCams[i].location);
+      var canon = raw ? canonicalCountry(raw) : "";
+      if (canon && !seen[canon]) {
+        seen[canon] = true;
+        countries.push(canon);
+      }
+    }
+    countries.sort();
+    select.innerHTML = "<option value=\"\">All</option>";
+    for (var j = 0; j < countries.length; j++) {
+      var opt = document.createElement("option");
+      opt.value = countries[j];
+      opt.textContent = countryDisplayName(countries[j]);
+      select.appendChild(opt);
+    }
+    select.addEventListener("change", function () {
+      countryFilter = select.value || null;
+      currentIndex = 0;
+      showFeed(0);
     });
   }
 
@@ -924,15 +1088,17 @@
     var nextBtn = document.getElementById("feed-next-btn");
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
-        if (!feedCams.length) return;
-        var prevIdx = (currentIndex - 1 + feedCams.length) % feedCams.length;
+        var visible = getVisibleFeedCams();
+        if (!visible.length) return;
+        var prevIdx = (currentIndex - 1 + visible.length) % visible.length;
         showFeed(prevIdx);
       });
     }
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        if (!feedCams.length) return;
-        var nextIdx = (currentIndex + 1) % feedCams.length;
+        var visible = getVisibleFeedCams();
+        if (!visible.length) return;
+        var nextIdx = (currentIndex + 1) % visible.length;
         showFeed(nextIdx);
       });
     }
@@ -965,6 +1131,68 @@
     });
   }
 
+  function updateThumbsButtonState(camId) {
+    var thumbUp = document.getElementById("thumb-up-btn");
+    var thumbDown = document.getElementById("thumb-down-btn");
+    if (!thumbUp || !thumbDown) return;
+    var voted;
+    try { voted = camId ? localStorage.getItem("thumb_" + camId) : null; } catch (e) { voted = null; }
+    thumbUp.disabled = !!voted;
+    thumbDown.disabled = !!voted;
+    thumbUp.title = voted === "up" ? "You voted thumbs up" : "Thumbs up";
+    thumbDown.title = voted === "down" ? "You voted thumbs down" : "Thumbs down";
+  }
+
+  function initThumbsButtons() {
+    var thumbUp = document.getElementById("thumb-up-btn");
+    var thumbDown = document.getElementById("thumb-down-btn");
+    function sendVote(vote, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      var camId = currentHudCamId;
+      if (!camId) {
+        var visible = getVisibleFeedCams();
+        if (visible.length && visible[currentIndex] && visible[currentIndex].id != null) {
+          camId = String(visible[currentIndex].id);
+        }
+      }
+      if (!camId) return;
+      try {
+        if (localStorage.getItem("thumb_" + camId)) {
+          updateThumbsButtonState(camId);
+          return;
+        }
+      } catch (err) {}
+      var upEl = document.getElementById("thumbs-up-count");
+      var downEl = document.getElementById("thumbs-down-count");
+      var prevUp = upEl ? parseInt(upEl.textContent, 10) || 0 : 0;
+      var prevDown = downEl ? parseInt(downEl.textContent, 10) || 0 : 0;
+      if (upEl) upEl.textContent = vote === "up" ? prevUp + 1 : prevUp;
+      if (downEl) downEl.textContent = vote === "down" ? prevDown + 1 : prevDown;
+      thumbUp.disabled = true;
+      thumbDown.disabled = true;
+      fetch("/api/cam-thumb?cam_id=" + encodeURIComponent(camId) + "&vote=" + encodeURIComponent(vote))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (data) {
+            if (upEl) upEl.textContent = typeof data.up === "number" ? data.up : prevUp + (vote === "up" ? 1 : 0);
+            if (downEl) downEl.textContent = typeof data.down === "number" ? data.down : prevDown + (vote === "down" ? 1 : 0);
+            try { localStorage.setItem("thumb_" + camId, vote); } catch (err) {}
+          }
+        })
+        .catch(function () {
+          if (upEl) upEl.textContent = prevUp;
+          if (downEl) downEl.textContent = prevDown;
+          thumbUp.disabled = false;
+          thumbDown.disabled = false;
+        });
+    }
+    if (thumbUp) thumbUp.addEventListener("click", function (e) { sendVote("up", e); });
+    if (thumbDown) thumbDown.addEventListener("click", function (e) { sendVote("down", e); });
+  }
+
   function acceptLegal() {
     try {
       localStorage.setItem("uplink_agreed", "true");
@@ -983,6 +1211,7 @@
     var connectBtn = document.getElementById("connect-btn");
     if (connectBtn) connectBtn.addEventListener("click", acceptLegal);
     initLanding();
+    initThumbsButtons();
   }
 
   init();

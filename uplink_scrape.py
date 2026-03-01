@@ -30,6 +30,68 @@ USER_AGENTS = [
 
 INSECAM_BASE = "http://www.insecam.org"
 
+# Cyrillic → Latin for transliterating location names (same logic as app.js)
+CYRILLIC_TO_LATIN = {
+    "\u0410": "A", "\u0411": "B", "\u0412": "V", "\u0413": "G", "\u0414": "D", "\u0415": "E", "\u0416": "Zh", "\u0417": "Z",
+    "\u0418": "I", "\u0419": "Y", "\u041a": "K", "\u041b": "L", "\u041c": "M", "\u041d": "N", "\u041e": "O", "\u041f": "P",
+    "\u0420": "R", "\u0421": "S", "\u0422": "T", "\u0423": "U", "\u0424": "F", "\u0425": "Kh", "\u0426": "Ts", "\u0427": "Ch",
+    "\u0428": "Sh", "\u0429": "Shch", "\u042a": "", "\u042b": "Y", "\u042c": "", "\u042d": "E", "\u042e": "Yu", "\u042f": "Ya",
+    "\u0430": "a", "\u0431": "b", "\u0432": "v", "\u0433": "g", "\u0434": "d", "\u0435": "e", "\u0436": "zh", "\u0437": "z",
+    "\u0438": "i", "\u0439": "y", "\u043a": "k", "\u043b": "l", "\u043c": "m", "\u043d": "n", "\u043e": "o", "\u043f": "p",
+    "\u0440": "r", "\u0441": "s", "\u0442": "t", "\u0443": "u", "\u0444": "f", "\u0445": "kh", "\u0446": "ts", "\u0447": "ch",
+    "\u0448": "sh", "\u0449": "shch", "\u044a": "", "\u044b": "y", "\u044c": "", "\u044d": "e", "\u044e": "yu", "\u044f": "ya",
+    "\u0451": "e", "\u0401": "E",
+}
+# Common city names Insecam shows in Cyrillic → English
+CYRILLIC_CITY_TO_ENGLISH = {
+    "Лас-Вегас": "Las Vegas", "Лас Вегас": "Las Vegas", "Бока-Ратон": "Boca Raton", "Бока Ратон": "Boca Raton",
+    "Олбани": "Albany", "Монтерей": "Monterey", "Эвансвилл": "Evansville", "Нью Йорк": "New York", "Нью-Йорк": "New York",
+    "Сан-Франциско": "San Francisco", "Сан Франциско": "San Francisco",
+    "Хальмстад": "Halmstad", "Таллинн": "Tallinn", "Таллин": "Tallinn", "Яссы": "Iași", "Роттердам": "Rotterdam",
+    "Кишинёв": "Chișinău", "Кишинев": "Chisinau", "Тайбэй": "Taipei", "Сеул": "Seoul", "Асахи": "Asahi",
+    "Дублин": "Dublin", "Кранфилд": "Cranfield", "Перманент": "Perm", "Глазов": "Glazov", "Неаполь": "Naples",
+    "Мостар": "Mostar", "Нова Одеса": "Nova Odesa", "Долгосрочный Обзор": "Long View", "Салинас": "Salinas",
+    "Париж": "Paris", "Вена": "Vienna", "Берлин": "Berlin", "Мадрид": "Madrid", "Рим": "Rome",
+}
+
+
+def _transliterate_cyrillic(s):
+    if not s or not re.search(r"[\u0400-\u04FF]", s):
+        return s
+    return "".join(CYRILLIC_TO_LATIN.get(c, c) for c in s)
+
+
+def normalize_location(raw):
+    """
+    Convert Insecam's location string to clean "City, Country" (or "City, Region, Country").
+    Strips "Click here to enter...", extracts place and country, converts Cyrillic to English/Latin.
+    """
+    if not raw or not raw.strip():
+        return "Unknown"
+    s = raw.strip()
+    # "Click here to enter the camera located in United States, region California, San Diego"
+    m = re.search(r"located\s+in\s+([^,]+),\s*region\s+[^,]+,\s*(.+)$", s, re.I)
+    if m:
+        country, place = m.group(1).strip(), m.group(2).strip()
+        result = f"{place}, {country}"
+    else:
+        # "Country, region Region, City" (e.g. already partially normalized or from listing)
+        m2 = re.match(r"^([^,]+),\s*region\s+[^,]+,\s*(.+)$", s, re.I)
+        if m2:
+            country, place = m2.group(1).strip(), m2.group(2).strip()
+            result = f"{place}, {country}"
+        else:
+            # "Live camera Axis in San Diego, United States" or similar
+            in_m = re.search(r"\s+in\s+(.+)$", s, re.I)
+            result = in_m.group(1).strip() if in_m else s
+    # Replace known Cyrillic city names with English (before transliterating the rest)
+    for cyr, eng in CYRILLIC_CITY_TO_ENGLISH.items():
+        if cyr in result:
+            result = result.replace(cyr, eng)
+    # Transliterate any remaining Cyrillic to Latin
+    result = _transliterate_cyrillic(result)
+    return result.strip() or "Unknown"
+
 
 def _headers():
     return {"User-Agent": random.choice(USER_AGENTS)}
@@ -147,17 +209,18 @@ def scrape_page_via_view_pages(base_url, page, existing_ids, existing_urls):
         if stream_url in existing_urls:
             continue
 
+        clean_loc = normalize_location(view_location or location)
         entry = {
             "id": view_id,
             "url": stream_url,
-            "location": view_location or location,
+            "location": clean_loc,
             "status": "ACTIVE",
             "last_seen": time.strftime("%Y-%m-%d %H:%M:%S"),
         }
         new_list.append(entry)
         existing_ids.add(view_id)
         existing_urls.add(stream_url)
-        loc_short = (view_location or location)[:60]
+        loc_short = clean_loc[:60]
         print(f"  [NEW] id={view_id} | {stream_url[:50]}... | {loc_short}")
         time.sleep(random.uniform(1, 2.5))
 

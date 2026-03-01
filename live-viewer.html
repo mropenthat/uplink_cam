@@ -54,10 +54,8 @@
         return;
       }
 
-      // Use stream-proxy on HTTPS (same-origin = snapshot works; avoids mixed content). On HTTP use direct URL so feed displays.
-      var streamSrc = window.location.protocol === "https:"
-        ? "/stream-proxy?url=" + encodeURIComponent(url)
-        : url;
+      // Always use stream-proxy so the server fetches the stream (avoids browser→camera failures and works the same on HTTP/HTTPS).
+      var streamSrc = "/stream-proxy?url=" + encodeURIComponent(url);
       var streamEverLoaded = false;
       streamImg.onload = function () {
         streamEverLoaded = true;

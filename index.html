@@ -53,6 +53,10 @@
 
     <!-- HUD top-left: feed info + Network Intelligence (IP Profile) -->
     <div class="hud top-left">
+      <p class="hud-section-label">COUNTRY</p>
+      <select id="country-filter" class="hud-select" aria-label="Filter by country">
+        <option value="">All</option>
+      </select>
       <p class="blink">● SIGNAL_LIVE</p>
       <a id="ip-link" href="#" target="_blank" rel="noopener" class="hud-link">SRC_IP: —</a>
       <a id="map-link" href="#" target="_blank" rel="noopener" class="hud-link">LOC: —</a>
@@ -69,6 +73,10 @@
       <p id="viewers-display" class="hud-viewers">
         <span class="viewers-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
         VISITS: <span id="viewers-count">—</span></p>
+      <p id="thumbs-display" class="hud-viewers">
+        <button type="button" id="thumb-up-btn" class="hud-thumb-btn" title="Thumbs up">👍 <span id="thumbs-up-count">0</span></button>
+        <button type="button" id="thumb-down-btn" class="hud-thumb-btn" title="Thumbs down">👎 <span id="thumbs-down-count">0</span></button>
+      </p>
       <p class="hidden" aria-hidden="true"><span id="timer">—</span></p>
     </div>
 

@@ -1,3 +1,4 @@
 __pycache__/
 *.pyc
 cam_visits.json
+cam_thumbs.json

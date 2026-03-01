@@ -47,3 +47,25 @@ python3 uplink_scrape.py 5                 # overwrite cams.json with 5 listing 
 python3 uplink_scrape.py --country US --limit 6   # test run: 6 US cams only (then remove --limit to scan all)
 python3 uplink_scrape.py --country US 10   # overwrite with 10 pages of US cameras
 ```
+
+### After adding new cameras (recommended)
+
+Run these three steps so new cams have correct locations, known-good streams, and thumbnails for the carousel/matrix:
+
+1. **Correct locations** (fix scraper typos using ipinfo; writes `cams.json`):
+   ```bash
+   python3 backfill_locations.py --delay 0.6
+   ```
+
+2. **Check streams and remove dead cams** (see which feeds are live; remove no-signal cams from `cams.json`):
+   ```bash
+   python3 check_streams.py              # full report only
+   python3 check_streams.py --remove     # check all, then remove no-signal cams from cams.json
+   python3 check_streams.py --no-signal  # only list cam ids with no signal (no removal)
+   ```
+
+3. **Grab thumbnails** (saves one frame per cam to `thumbnails/` so the main carousel and matrix show static images):
+   ```bash
+   python3 thumbnail_scraper.py          # only cams that don't have a thumbnail yet
+   python3 thumbnail_scraper.py --all     # refresh all thumbnails
+   ```
