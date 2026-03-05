@@ -31,8 +31,8 @@ def get_live_stream_url(stored_url):
         return stored_url
     url = stored_url.strip()
     u = url.lower()
-    # Snapshot-only patterns that get rewritten for live view
-    if "jpgmulreq" in u or "getoneshot" in u or "onvif/snapshot" in u:
+    # Snapshot-only patterns: server stream-proxy polls these and emits MJPEG; use same URL for check
+    if "jpgmulreq" in u or "getoneshot" in u or "oneshotimage" in u or "onvif/snapshot" in u:
         return url  # pass through
     if "snapshotjpeg" in u:
         parsed = urlparse(url)

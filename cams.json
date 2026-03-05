@@ -21,13 +21,6 @@
         "last_seen": "2026-03-01 10:30:52"
     },
     {
-        "id": 1010704,
-        "url": "http://216.107.197.101:8086/mjpg/video.mjpg",
-        "location": "Johnson City, New York, US",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 10:30:54"
-    },
-    {
         "id": 1010701,
         "url": "http://45.21.253.117:8000/mjpg/video.mjpg",
         "location": "Carmel-by-the-Sea, California, US",
@@ -287,13 +280,6 @@
         "last_seen": "2026-03-01 13:59:45"
     },
     {
-        "id": 1009394,
-        "url": "http://61.115.115.49:8082/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
-        "location": "Tokyo, Tokyo, JP",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 13:59:48"
-    },
-    {
         "id": 1009392,
         "url": "http://61.115.115.49:8081/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
         "location": "Tokyo, Tokyo, JP",
@@ -490,13 +476,6 @@
         "last_seen": "2026-03-01 15:36:26"
     },
     {
-        "id": 1002718,
-        "url": "http://108.36.119.146:8082/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
-        "location": "Hatboro, Pennsylvania, US",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 15:36:29"
-    },
-    {
         "id": 1002598,
         "url": "http://124.247.184.30:80/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
         "location": "Hyūga, Miyazaki, JP",
@@ -586,13 +565,6 @@
         "location": "London, England, GB",
         "status": "ACTIVE",
         "last_seen": "2026-03-01 16:48:49"
-    },
-    {
-        "id": 1004494,
-        "url": "http://166.141.93.41:8081/oneshotimage1?COUNTER",
-        "location": "Euless, Texas, US",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 16:49:43"
     },
     {
         "id": 997594,
@@ -747,13 +719,6 @@
         "location": "Kleve, North Rhine-Westphalia, DE",
         "status": "ACTIVE",
         "last_seen": "2026-03-01 16:51:46"
-    },
-    {
-        "id": 990031,
-        "url": "http://69.12.5.58:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
-        "location": "Livermore, California, US",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 16:51:48"
     },
     {
         "id": 989348,
@@ -945,13 +910,6 @@
         "last_seen": "2026-03-01 16:53:36"
     },
     {
-        "id": 466158,
-        "url": "http://115.179.100.76:8080/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
-        "location": "Handa, Aichi, JP",
-        "status": "ACTIVE",
-        "last_seen": "2026-03-01 16:53:39"
-    },
-    {
         "id": 442745,
         "url": "http://80.32.125.254:8080/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
         "location": "Palma, Balearic Islands, ES",
@@ -966,10 +924,325 @@
         "last_seen": "2026-03-01 16:53:44"
     },
     {
-        "id": 565429,
-        "url": "http://97.68.104.34:80/mjpg/video.mjpg",
-        "location": "Palm Coast, Florida, US",
+        "id": 1010644,
+        "url": "http://107.12.0.236:8082/mjpg/video.mjpg",
+        "location": "Morehead City, North Carolina, US",
         "status": "ACTIVE",
-        "last_seen": "2026-03-01 16:53:46"
+        "last_seen": "2026-03-01 23:11:14"
+    },
+    {
+        "id": 999332,
+        "url": "http://63.40.250.5:80/jpg/image.jpg?COUNTER",
+        "location": "Plymouth Meeting, Pennsylvania, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:12:55"
+    },
+    {
+        "id": 986004,
+        "url": "http://133.33.25.104:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Shizuoka, Shizuoka, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:05"
+    },
+    {
+        "id": 982084,
+        "url": "http://5.186.57.183:81/GetData.cgi?CH=1",
+        "location": "Århus, Central Jutland, DK",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:31"
+    },
+    {
+        "id": 982083,
+        "url": "http://5.186.57.183:82/GetData.cgi?CH=1",
+        "location": "Århus, Central Jutland, DK",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:32"
+    },
+    {
+        "id": 964631,
+        "url": "http://190.210.250.149:91/mjpg/video.mjpg",
+        "location": "Buenos Aires, Buenos Aires F.D., AR",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:46"
+    },
+    {
+        "id": 435359,
+        "url": "http://220.254.144.230:50000/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Sakae, Nagano, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:47"
+    },
+    {
+        "id": 445465,
+        "url": "http://85.220.149.7:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Frankfurt am Main, Hesse, DE",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:50"
+    },
+    {
+        "id": 427325,
+        "url": "http://202.56.51.237:8888/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Napier, Hawke's Bay Region, NZ",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:14:52"
+    },
+    {
+        "id": 891134,
+        "url": "http://80.61.63.103:81/cam_1.cgi",
+        "location": "Purmerend, North Holland, NL",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:02"
+    },
+    {
+        "id": 509572,
+        "url": "http://77.89.48.24:89/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Imola, Emilia-Romagna, IT",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:12"
+    },
+    {
+        "id": 449441,
+        "url": "http://210.248.127.20:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Fujisawa, Kanagawa, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:16"
+    },
+    {
+        "id": 370430,
+        "url": "http://75.149.26.30:1024/cam_1.cgi",
+        "location": "Ridgway, Pennsylvania, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:18"
+    },
+    {
+        "id": 759172,
+        "url": "http://109.233.191.130:8080/cam_1.cgi",
+        "location": "Belgrade, Central Serbia, RS",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:20"
+    },
+    {
+        "id": 265133,
+        "url": "http://183.82.102.243:83/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Hyderabad, Telangana, IN",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:25"
+    },
+    {
+        "id": 439140,
+        "url": "http://201.174.12.243:1024/mjpg/video.mjpg",
+        "location": "Rosarito, Baja California, MX",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:27"
+    },
+    {
+        "id": 229,
+        "url": "http://182.171.234.126:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Yokohama, Kanagawa, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:30"
+    },
+    {
+        "id": 947836,
+        "url": "http://190.15.193.92:8083/img/video.mjpeg",
+        "location": "Godoy Cruz, Mendoza, AR",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:31"
+    },
+    {
+        "id": 764128,
+        "url": "http://198.71.120.207:8080/cam_1.cgi",
+        "location": "Page, Arizona, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:41"
+    },
+    {
+        "id": 869998,
+        "url": "http://190.208.32.76:90/videostream.cgi?user=admin&pwd=",
+        "location": "Santiago, Santiago Metropolitan, CL",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:42"
+    },
+    {
+        "id": 196230,
+        "url": "http://206.71.252.171:80/oneshotimage1?COUNTER",
+        "location": "New York City, New York, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:45"
+    },
+    {
+        "id": 371870,
+        "url": "http://213.144.145.239:8090/cam_1.cgi",
+        "location": "Wetzikon, Zurich, CH",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:47"
+    },
+    {
+        "id": 368532,
+        "url": "http://217.63.79.153:8081/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Goes, Zeeland, NL",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:50"
+    },
+    {
+        "id": 947361,
+        "url": "http://200.124.240.79:6001/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Samborondón, Guayas, EC",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:56"
+    },
+    {
+        "id": 921021,
+        "url": "http://81.45.179.112:8080/video/mjpg.cgi",
+        "location": "Madrid, Madrid, ES",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:15:58"
+    },
+    {
+        "id": 837100,
+        "url": "http://190.54.107.61:86/mjpg/video.mjpg",
+        "location": "Santiago, Santiago Metropolitan, CL",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:02"
+    },
+    {
+        "id": 429340,
+        "url": "http://220.128.115.31:8080/GetData.cgi?CH=1",
+        "location": "Taoyuan City, Taiwan, TW",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:04"
+    },
+    {
+        "id": 242631,
+        "url": "http://200.46.196.243:80/mjpg/video.mjpg",
+        "location": "Arco Iris, Colón, PA",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:09"
+    },
+    {
+        "id": 919648,
+        "url": "http://166.165.9.97:8082/snap.jpg?JpegSize=M&JpegCam=1&r=COUNTER",
+        "location": "Hickory Hills, Illinois, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:12"
+    },
+    {
+        "id": 261002,
+        "url": "http://183.82.102.243:84/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Hyderabad, Telangana, IN",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:15"
+    },
+    {
+        "id": 177527,
+        "url": "http://219.101.88.67:60001/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Hiroshima, Hiroshima, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:17"
+    },
+    {
+        "id": 450133,
+        "url": "http://217.24.53.20:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Coburg, Bavaria, DE",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:22"
+    },
+    {
+        "id": 898972,
+        "url": "http://124.143.25.100:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Agematsu, Nagano, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:25"
+    },
+    {
+        "id": 244,
+        "url": "http://192.135.76.230:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Portola Valley, California, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:33"
+    },
+    {
+        "id": 495631,
+        "url": "http://61.216.189.211:80/oneshotimage1?COUNTER",
+        "location": "Tainan, Taiwan, TW",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:39"
+    },
+    {
+        "id": 958574,
+        "url": "http://82.130.141.93:80/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000",
+        "location": "Bilbao, Basque Country, ES",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:43"
+    },
+    {
+        "id": 175,
+        "url": "http://203.135.192.190:8080/SnapshotJPEG?Resolution=640x480&Quality=Clarity&COUNTER",
+        "location": "Fukuoka, Fukuoka, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:45"
+    },
+    {
+        "id": 826157,
+        "url": "http://220.233.144.165:8888/mjpg/video.mjpg",
+        "location": "Sydney, New South Wales, AU",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:51"
+    },
+    {
+        "id": 414256,
+        "url": "http://99.114.240.169:8080/cam_1.cgi",
+        "location": "Cicero, Illinois, US",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:56"
+    },
+    {
+        "id": 570197,
+        "url": "http://109.206.96.58:8080/cam_1.cgi",
+        "location": "Pančevo, Vojvodina, RS",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:16:58"
+    },
+    {
+        "id": 418321,
+        "url": "http://221.189.0.181:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Yokohama, Kanagawa, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:03"
+    },
+    {
+        "id": 414606,
+        "url": "http://183.77.121.171:8081/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Kōnan, Aichi, JP",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:05"
+    },
+    {
+        "id": 637345,
+        "url": "http://213.82.216.229:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Sorrento, Campania, IT",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:07"
+    },
+    {
+        "id": 419891,
+        "url": "http://78.108.108.184:8001/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Prague, Prague, CZ",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:09"
+    },
+    {
+        "id": 260989,
+        "url": "http://183.82.102.243:88/cgi-bin/camera?resolution=640&quality=1&Language=0&COUNTER",
+        "location": "Hyderabad, Telangana, IN",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:11"
+    },
+    {
+        "id": 638215,
+        "url": "http://82.78.92.4:80/cgi-bin/faststream.jpg?stream=half&fps=15&rand=COUNTER",
+        "location": "Baia Mare, Maramureş, RO",
+        "status": "ACTIVE",
+        "last_seen": "2026-03-01 23:17:12"
     }
 ]

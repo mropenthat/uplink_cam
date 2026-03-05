@@ -68,6 +68,8 @@
     CO: "Colombia", CL: "Chile", PE: "Peru", HN: "Honduras", BA: "Bosnia and Herzegovina",
     GR: "Greece", PT: "Portugal", TR: "Turkey", IL: "Israel", AE: "United Arab Emirates", SA: "Saudi Arabia",
     EG: "Egypt", ZA: "South Africa", IE: "Ireland", LU: "Luxembourg", MT: "Malta", CY: "Cyprus",
+    RS: "Serbia", MD: "Moldova", DO: "Dominican Republic", EC: "Ecuador", PA: "Panama", SG: "Singapore",
+    TW: "Taiwan",
   };
   function countryDisplayName(countryStr) {
     if (!countryStr || !String(countryStr).trim()) return countryStr || "";
@@ -80,6 +82,11 @@
     if (COUNTRY_CODE_TO_NAME.hasOwnProperty(code)) {
       COUNTRY_NAME_TO_CODE[COUNTRY_CODE_TO_NAME[code]] = code;
     }
+  }
+  /** Alternate names → code so "Russia" and "RU" and "Russian Federation" are one filter option. */
+  var COUNTRY_ALIASES = { Russia: "RU", Serbia: "RS", Moldova: "MD", "Czechia": "CZ", Taiwan: "TW" };
+  for (var name in COUNTRY_ALIASES) {
+    if (COUNTRY_ALIASES.hasOwnProperty(name)) COUNTRY_NAME_TO_CODE[name] = COUNTRY_ALIASES[name];
   }
   function canonicalCountry(countryStr) {
     if (!countryStr || !String(countryStr).trim()) return countryStr || "";
@@ -918,8 +925,11 @@
       var origin = a.origin || (a.protocol + "//" + a.hostname + (a.port ? ":" + a.port : ""));
       var pathname = (a.pathname || "/").replace(/\/+$/, "") || "/";
       var u = url.toLowerCase();
-      // Snapshot-only APIs we can't reliably convert to a stream path — pass through so live viewer shows at least one frame
-      if (u.includes("jpgmulreq") || u.includes("getoneshot") || u.includes("onvif/snapshot")) {
+      // Snapshot-only APIs: server stream-proxy polls these and emits live MJPEG — pass through
+      if (u.includes("jpgmulreq") || u.includes("getoneshot") || u.includes("oneshotimage") || u.includes("onvif/snapshot") ||
+          u.includes("webcapture") || u.includes("image.jpg") || u.includes("image.jpeg") ||
+          u.includes("snapshotjpeg") || u.includes("snapshot.cgi") || u.includes("nph-jpeg") || u.includes("out.jpg") ||
+          u.includes("tmpfs/auto.jpg") || u.includes("cgi-bin/camera")) {
         return url;
       }
       if (u.includes("snapshotjpeg")) {

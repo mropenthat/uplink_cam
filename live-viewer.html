@@ -54,8 +54,9 @@
         return;
       }
 
-      // Always use stream-proxy so the server fetches the stream (avoids browser→camera failures and works the same on HTTP/HTTPS).
-      var streamSrc = "/stream-proxy?url=" + encodeURIComponent(url);
+      // Always use stream-proxy so the server fetches the stream (MJPEG: multipart or polled snapshots).
+      // Cache-buster so the browser opens a fresh stream connection and doesn't reuse a single-frame response.
+      var streamSrc = "/stream-proxy?url=" + encodeURIComponent(url) + "&_=" + Date.now();
       var streamEverLoaded = false;
       streamImg.onload = function () {
         streamEverLoaded = true;
@@ -74,29 +75,40 @@
         snapshotBtn.addEventListener("click", function () {
           if (!url.trim()) return;
           snapshotBtn.disabled = true;
-          var snapshotUrl = "/feed-proxy?url=" + encodeURIComponent(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now());
-          fetch(snapshotUrl)
-            .then(function (res) {
-              if (!res.ok) throw new Error(res.status);
-              return res.blob();
-            })
-            .then(function (blob) {
-              var ext = (blob.type || "").indexOf("png") >= 0 ? "png" : "jpg";
+          noSignal.classList.add("hidden");
+          // Screenshot the current frame from the visible feed (same as what user sees).
+          var img = streamImg;
+          if (!img.complete || img.naturalWidth === 0) {
+            noSignal.classList.remove("hidden");
+            noSignal.textContent = "SNAPSHOT — Wait for the feed to load first.";
+            snapshotBtn.disabled = false;
+            return;
+          }
+          try {
+            var w = img.naturalWidth;
+            var h = img.naturalHeight;
+            var canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            canvas.toBlob(function (blob) {
+              if (!blob) {
+                noSignal.classList.remove("hidden");
+                noSignal.textContent = "SNAPSHOT FAILED — Could not capture frame.";
+                return;
+              }
               var a = document.createElement("a");
               a.href = URL.createObjectURL(blob);
-              a.download = "uplink_live_snapshot_" + Date.now() + "." + ext;
+              a.download = "uplink_live_snapshot_" + Date.now() + ".jpg";
               a.click();
               URL.revokeObjectURL(a.href);
-            })
-            .catch(function () {
-              if (noSignal) {
-                noSignal.classList.remove("hidden");
-                noSignal.textContent = "SNAPSHOT FAILED — Could not get frame from stream.";
-              }
-            })
-            .then(function () {
-              snapshotBtn.disabled = false;
-            });
+            }, "image/jpeg", 0.92);
+          } catch (e) {
+            noSignal.classList.remove("hidden");
+            noSignal.textContent = "SNAPSHOT FAILED — Could not capture frame.";
+          }
+          snapshotBtn.disabled = false;
         });
       }
     })();

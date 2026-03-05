@@ -4,17 +4,21 @@ Run: python3 server.py
 Then open http://localhost:8080
 """
 import http.server
+import hashlib
 import json
-import urllib.request
-import urllib.parse
-import socketserver
 import os
 import re
+import shutil
+import socketserver
 import time as _t
+import urllib.parse
+import urllib.request
 
 PORT = int(os.environ.get("PORT", "8081"))
 # One-frame timeout: avoid long-lived streams so Railway doesn't overload (concurrent connection limit).
 FEED_PROXY_TIMEOUT = 8
+# Snapshot button in live viewer: longer timeout so slow streams can deliver one frame.
+SNAPSHOT_FRAME_TIMEOUT = 18
 FEED_PROXY_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # Per-cam visit counts: cam_id -> total visits. Persisted to cam_visits.json.
@@ -25,6 +29,34 @@ CAM_VISITS = {}
 # Per-cam thumbs: cam_id -> {"up": N, "down": M}. Persisted to cam_thumbs.json.
 CAM_THUMBS_PATH = os.path.join(SCRIPT_DIR, "cam_thumbs.json")
 CAM_THUMBS = {}
+
+
+def _fetch_one_frame(url, timeout, max_size=768 * 1024):
+    """Fetch URL and return one image frame (JPEG or PNG). Returns (content_type, body) or (None, None)."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": FEED_PROXY_USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            body = b""
+            chunk_size = 65536
+            while len(body) < max_size:
+                chunk = resp.read(chunk_size)
+                if not chunk:
+                    break
+                body += chunk
+                soi = body.find(b"\xff\xd8")
+                if soi >= 0:
+                    eoi = body.find(b"\xff\xd9", soi)
+                    if eoi > soi:
+                        return ("image/jpeg", body[soi : eoi + 2])
+            if body[:8] == b"\x89PNG\r\n\x1a\n":
+                return ("image/png", body)
+            soi = body.find(b"\xff\xd8")
+            eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
+            if soi >= 0 and eoi > soi:
+                return ("image/jpeg", body[soi : eoi + 2])
+    except Exception:
+        pass
+    return (None, None)
 
 
 def load_cam_visits():
@@ -103,7 +135,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
-        path = (parsed.path or "/").rstrip("/") or "/"
+        # Normalize path: collapse multiple slashes, strip trailing slash
+        path = re.sub(r"/+", "/", (parsed.path or "/").strip()).rstrip("/") or "/"
+        path_lower = path.lower()
 
         if path == "/ipinfo" and parsed.query:
             params = urllib.parse.parse_qs(parsed.query)
@@ -140,50 +174,47 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
         if path == "/feed-proxy" and parsed.query:
             params = urllib.parse.parse_qs(parsed.query)
-            url = params.get("url", [None])[0]
-            if url and url.startswith(("http://", "https://")):
-                try:
-                    req = urllib.request.Request(
-                        url,
-                        headers={"User-Agent": FEED_PROXY_USER_AGENT},
-                    )
-                    # One frame only + short timeout: avoid long-lived MJPEG streams so Railway doesn't overload.
-                    with urllib.request.urlopen(req, timeout=FEED_PROXY_TIMEOUT) as resp:
-                        body = resp.read(512 * 1024)
-                        if body[:8] == b"\x89PNG\r\n\x1a\n":
-                            self.send_response(200)
-                            self.send_header("Content-Type", "image/png")
-                            self.send_header("Cache-Control", "no-cache")
-                            self.send_header("Content-Length", str(len(body)))
-                            self.end_headers()
-                            try:
-                                self.wfile.write(body)
-                            except (BrokenPipeError, OSError):
-                                pass
-                        else:
-                            soi = body.find(b"\xff\xd8")
-                            eoi = body.find(b"\xff\xd9", soi) if soi >= 0 else -1
-                            if soi >= 0 and eoi > soi:
-                                body = body[soi : eoi + 2]
-                                self.send_response(200)
-                                self.send_header("Content-Type", "image/jpeg")
-                                self.send_header("Cache-Control", "no-cache")
-                                self.send_header("Content-Length", str(len(body)))
-                                self.end_headers()
-                                try:
-                                    self.wfile.write(body)
-                                except (BrokenPipeError, OSError):
-                                    pass
-                            else:
-                                try:
-                                    self.send_error(502, "No JPEG frame")
-                                except (BrokenPipeError, OSError):
-                                    pass
-                except (BrokenPipeError, OSError):
-                    pass
-                except Exception as e:
+            url = (params.get("url") or [None])[0]
+            if url and isinstance(url, str) and url.startswith(("http://", "https://")):
+                ct, body = _fetch_one_frame(url, FEED_PROXY_TIMEOUT, max_size=512 * 1024)
+                if ct and body:
+                    self.send_response(200)
+                    self.send_header("Content-Type", ct)
+                    self.send_header("Cache-Control", "no-cache")
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers()
                     try:
-                        self.send_error(504, "Proxy error: " + str(e))
+                        self.wfile.write(body)
+                    except (BrokenPipeError, OSError):
+                        pass
+                else:
+                    try:
+                        self.send_error(502, "No JPEG frame")
+                    except (BrokenPipeError, OSError):
+                        pass
+                return
+            self.send_error(400, "Missing or invalid url")
+            return
+
+        # Snapshot button in live viewer: one frame with longer timeout for slow streams.
+        if path == "/snapshot-frame" and parsed.query:
+            params = urllib.parse.parse_qs(parsed.query)
+            url = (params.get("url") or [None])[0]
+            if url and isinstance(url, str) and url.startswith(("http://", "https://")):
+                ct, body = _fetch_one_frame(url, SNAPSHOT_FRAME_TIMEOUT)
+                if ct and body:
+                    self.send_response(200)
+                    self.send_header("Content-Type", ct)
+                    self.send_header("Cache-Control", "no-cache")
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers()
+                    try:
+                        self.wfile.write(body)
+                    except (BrokenPipeError, OSError):
+                        pass
+                else:
+                    try:
+                        self.send_error(502, "No frame")
                     except (BrokenPipeError, OSError):
                         pass
                 return
@@ -201,10 +232,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 is_snapshot_only = (
                     "jpgmulreq" in url_lower
                     or "getoneshot" in url_lower
+                    or "oneshotimage" in url_lower
                     or "onvif/snapshot" in url_lower
                     or "cgi-bin/camera" in url_lower
                     or "out.jpg" in url_lower
                     or "webcapture.jpg" in url_lower
+                    or "image.jpg" in url_lower
+                    or "image.jpeg" in url_lower
+                    or "snapshotjpeg" in url_lower
+                    or "snapshot.cgi" in url_lower
+                    or "nph-jpeg" in url_lower
+                    or "tmpfs/auto.jpg" in url_lower
                 )
                 try:
                     if is_snapshot_only:
@@ -212,15 +250,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         print("[stream-proxy] snapshot-only mode (polling): %s" % (url[:80] + "..." if len(url) > 80 else url))
                         self.send_response(200)
                         self.send_header("Content-Type", "multipart/x-mixed-replace; boundary=frame")
-                        self.send_header("Cache-Control", "no-cache")
+                        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+                        self.send_header("Pragma", "no-cache")
+                        self.send_header("X-Content-Type-Options", "nosniff")
                         self.send_header("Connection", "close")
                         self.end_headers()
                         boundary = b"--frame\r\nContent-Type: image/jpeg\r\n\r\n"
                         frame_count = 0
                         while True:
                             try:
-                                # Cache-bust so camera returns a fresh frame. Some cameras reject extra params (webcapture.jpg, cgi-bin/camera).
-                                if "cgi-bin/camera" in url_lower:
+                                # Cache-bust so camera returns a fresh frame. Some cameras reject extra params.
+                                if "cgi-bin/camera" in url_lower or "oneshotimage" in url_lower:
                                     sep = "&" if "?" in url else "?"
                                     poll_url = url + sep + "COUNTER=" + str(int(_t.time() * 1000))
                                 elif "webcapture.jpg" in url_lower:
@@ -535,6 +575,7 @@ if __name__ == "__main__":
         print("Feed proxy: /feed-proxy?url=... (for HTTPS)")
         print("Thumbnail: /thumbnail?url=... (matrix static previews)")
         print("Snapshot proxy: /snapshot-proxy?url=...")
+        print("Snapshot frame (live viewer): /snapshot-frame?url=...")
         print("Cam visits: /api/cam-visit?cam_id=...")
         print("IP info: /ipinfo?ip=...")
         httpd.serve_forever()
