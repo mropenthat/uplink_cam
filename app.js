@@ -1203,43 +1203,6 @@
     if (thumbDown) thumbDown.addEventListener("click", function (e) { sendVote("down", e); });
   }
 
-  function initHudCollapse() {
-    var toggles = document.querySelectorAll(".hud-collapse-toggle");
-    if (!toggles || !toggles.length) return;
-
-    function updateToggleSymbol(toggle, collapsed) {
-      var side = toggle && toggle.dataset ? toggle.dataset.hudId : "";
-      if (side === "top-right") {
-        toggle.textContent = collapsed ? "❮" : "❯";
-      } else {
-        toggle.textContent = collapsed ? "❯" : "❮";
-      }
-      toggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
-      toggle.title = collapsed ? "Expand information window" : "Collapse information window";
-    }
-
-    for (var i = 0; i < toggles.length; i++) {
-      (function (toggle) {
-        var hud = toggle.closest(".hud");
-        if (!hud) return;
-        var hudId = toggle.dataset && toggle.dataset.hudId ? toggle.dataset.hudId : "";
-        var key = "uplink_hud_collapsed_" + hudId;
-        var collapsed = false;
-        try { collapsed = localStorage.getItem(key) === "1"; } catch (e) {}
-        if (collapsed) hud.classList.add("is-collapsed");
-        updateToggleSymbol(toggle, collapsed);
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          var isNowCollapsed = !hud.classList.contains("is-collapsed");
-          hud.classList.toggle("is-collapsed", isNowCollapsed);
-          updateToggleSymbol(toggle, isNowCollapsed);
-          try { localStorage.setItem(key, isNowCollapsed ? "1" : "0"); } catch (err) {}
-        });
-      })(toggles[i]);
-    }
-  }
-
   function acceptLegal() {
     try {
       localStorage.setItem("uplink_agreed", "true");
@@ -1259,7 +1222,6 @@
     if (connectBtn) connectBtn.addEventListener("click", acceptLegal);
     initLanding();
     initThumbsButtons();
-    initHudCollapse();
   }
 
   init();
