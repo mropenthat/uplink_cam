@@ -14,12 +14,15 @@ import os
 import re
 import sys
 import urllib.request
+import urllib.error
 from urllib.parse import urlparse, urlunparse
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CAMS_JSON = os.path.join(SCRIPT_DIR, "cams.json")
 DEFAULT_TIMEOUT = 8
 USER_AGENT = "Mozilla/5.0 (compatible; UPLINK_SITE stream check)"
+# Avoid IDE/sandbox proxy env causing false 403 for camera hosts.
+NO_PROXY_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
 def get_live_stream_url(stored_url):
@@ -32,7 +35,7 @@ def get_live_stream_url(stored_url):
     url = stored_url.strip()
     u = url.lower()
     # Snapshot-only patterns: server stream-proxy polls these and emits MJPEG; use same URL for check
-    if "jpgmulreq" in u or "getoneshot" in u or "oneshotimage" in u or "onvif/snapshot" in u:
+    if "jpgmulreq" in u or "getoneshot" in u or "oneshotimage" in u or "onvif/snapshot" in u or "snap.jpg" in u:
         return url  # pass through
     if "snapshotjpeg" in u:
         parsed = urlparse(url)
@@ -67,7 +70,7 @@ def check_url(url, timeout=DEFAULT_TIMEOUT):
     """Try to fetch URL; return (ok, message)."""
     try:
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with NO_PROXY_OPENER.open(req, timeout=timeout) as resp:
             code = resp.getcode()
             body = resp.read(65536)  # first 64KB enough to see JPEG or stream start
         if code != 200:

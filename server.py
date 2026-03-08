@@ -243,6 +243,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     or "snapshot.cgi" in url_lower
                     or "nph-jpeg" in url_lower
                     or "tmpfs/auto.jpg" in url_lower
+                    or "snap.jpg" in url_lower
                 )
                 try:
                     if is_snapshot_only:
