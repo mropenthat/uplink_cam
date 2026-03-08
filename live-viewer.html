@@ -58,7 +58,17 @@
       var streamImg = document.getElementById("stream-img");
       var noSignal = document.getElementById("no-signal");
 
-      if (backLink) backLink.href = document.referrer || "/";
+      if (backLink) {
+        backLink.href = "#";
+        backLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        });
+      }
 
       if (!url.trim()) {
         noSignal.classList.remove("hidden");

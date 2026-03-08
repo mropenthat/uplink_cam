@@ -117,6 +117,8 @@ def is_safe_ip(ip):
         return False
     return bool(re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", ip))
 
+_no_proxy_opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -145,31 +147,49 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not is_safe_ip(ip):
                 self.send_error(400, "Invalid ip")
                 return
+            body = None
+            # Primary: ip-api.com (45 req/min free, no token needed)
             try:
-                req = urllib.request.Request(
-                    "https://ipinfo.io/" + ip + "/json",
-                    headers={
-                        "Accept": "application/json",
-                        "User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)",
-                    },
-                )
-                with urllib.request.urlopen(req, timeout=8) as resp:
-                    body = resp.read()
+                api_url = "http://ip-api.com/json/" + ip + "?fields=status,country,countryCode,regionName,city,lat,lon,isp,org,as"
+                req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"})
+                with _no_proxy_opener.open(req, timeout=8) as resp:
+                    raw = json.loads(resp.read().decode("utf-8"))
+                if raw.get("status") == "success":
+                    as_str = raw.get("as", "")
+                    body = json.dumps({
+                        "ip": ip,
+                        "city": raw.get("city", ""),
+                        "region": raw.get("regionName", ""),
+                        "country": raw.get("countryCode", ""),
+                        "loc": str(raw.get("lat", "")) + "," + str(raw.get("lon", "")),
+                        "org": as_str,
+                    }).encode("utf-8")
+            except Exception:
+                pass
+            # Fallback: ipinfo.io
+            if body is None:
+                try:
+                    req = urllib.request.Request(
+                        "https://ipinfo.io/" + ip + "/json",
+                        headers={"Accept": "application/json", "User-Agent": "Mozilla/5.0 (compatible; UPLINK_SITE/1.0)"},
+                    )
+                    with _no_proxy_opener.open(req, timeout=8) as resp:
+                        body = resp.read()
+                except Exception as fetch_err:
+                    try:
+                        self.send_error(502, "IP info error: " + str(fetch_err))
+                    except (BrokenPipeError, OSError):
+                        pass
+                    return
+            try:
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
+                self.send_header("Access-Control-Allow-Origin", "*")
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
-                try:
-                    self.wfile.write(body)
-                except (BrokenPipeError, OSError):
-                    pass
+                self.wfile.write(body)
             except (BrokenPipeError, OSError):
                 pass
-            except Exception as e:
-                try:
-                    self.send_error(502, "IP info error: " + str(e))
-                except (BrokenPipeError, OSError):
-                    pass
             return
 
         if path == "/feed-proxy" and parsed.query:
